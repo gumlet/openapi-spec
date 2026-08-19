@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  queue: max
+
 jobs:
   push-to-scalar-registry:
     runs-on: ubuntu-latest
