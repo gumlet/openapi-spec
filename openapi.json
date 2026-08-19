@@ -10813,7 +10813,7 @@
     "/video/live/assets/{live_asset_id}/start": {
       "post": {
         "description": "Start a live stream.",
-        "operationId": "post_videoliveassets:live_asset_id",
+        "operationId": "start-live",
         "responses": {
           "200": {
             "description": "",
