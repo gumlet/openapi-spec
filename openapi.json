@@ -2859,7 +2859,7 @@
     "/video/assets/{asset_ID}/subtitle/upload": {
       "post": {
         "summary": "Upload Subtitle",
-        "description": "Upload your subtitled .srt file to your video asset.",
+        "description": "Upload `.srt` or `.vtt`  file to the video asset. The response of this API call gives `upload_url` for each language specified. You need to send a `PUT` request of the subtitle files to those URLs. Once that's done, you need to call the subtitle upload complete API. Only after that, Gumlet will add subtitles to asset.",
         "operationId": "video-asset-upload-subtitle",
         "parameters": [
           {
@@ -2886,6 +2886,15 @@
                     }
                   }
                 }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "language_codes": [
+                      "en"
+                    ]
+                  }
+                }
               }
             }
           }
@@ -2897,8 +2906,56 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": ""
+                    "value": {
+                      "signed_urls": [
+                        {
+                          "language_code": "en",
+                          "upload_url": "<UPLOAD_URL>"
+                        }
+                      ],
+                      "asset_id": "6a8491aaf180d34362c9587a"
+                    }
                   }
+                },
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "asset_id": {
+                      "type": "string",
+                      "description": "Asset ID of Gumlet"
+                    },
+                    "signed_urls": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "language_code": {
+                            "type": "string"
+                          },
+                          "upload_url": {
+                            "type": "string"
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "language_code",
+                          "upload_url"
+                        ],
+                        "required": [
+                          "language_code",
+                          "upload_url"
+                        ]
+                      }
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "asset_id",
+                    "signed_urls"
+                  ],
+                  "required": [
+                    "asset_id",
+                    "signed_urls"
+                  ]
                 }
               }
             }
@@ -2923,17 +2980,14 @@
         "deprecated": false,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "2ffsaakkgwa0g"
-        }
+        ]
       }
     },
     "/video/assets/{asset_ID}/subtitle/upload/event": {
       "post": {
-        "summary": "Upload Subtitle Completion",
-        "description": "",
-        "operationId": "upload-subtitle-completion",
+        "summary": "Subtitle Upload Complete",
+        "description": "This API must be called after uploading subtitles call gives you URLs to upload, and you complete `PUT` request to those URLs. Calling this initiates the process to actually add the subtitle to the video.",
+        "operationId": "subtitle-upload-complete",
         "parameters": [
           {
             "name": "asset_ID",
@@ -2957,15 +3011,34 @@
                       "properties": {
                         "language_code": {
                           "type": "string",
-                          "description": "Language Code for uploadeds.srt file."
+                          "description": "Language Code for uploaded .srt or .vtt file."
                         },
                         "uploaded": {
                           "type": "boolean",
-                          "description": "Status of language uploaded .srt file. (If status code was 200, You can mark true else false)"
+                          "description": "Status of language uploaded .srt or .vtt file. (If status code was 200, You can mark true else false)"
                         }
                       },
-                      "type": "object"
+                      "type": "object",
+                      "x-apidog-orders": [
+                        "language_code",
+                        "uploaded"
+                      ]
                     }
+                  }
+                },
+                "x-apidog-orders": [
+                  "upload_responses"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "upload_responses": [
+                      {
+                        "language_code": "en",
+                        "uploaded": true
+                      }
+                    ]
                   }
                 }
               }
