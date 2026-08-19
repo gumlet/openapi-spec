@@ -3091,7 +3091,7 @@
     "/video/assets/{asset_ID}/audio/upload": {
       "post": {
         "summary": "Upload Audio",
-        "description": "Upload your audio file to your video asset.",
+        "description": "Upload any audio file to the video asset. The response of this API call gives `upload_url` for each language specified. You need to send a `PUT` request of the audio files to those URLs. Once that's done, you need to call the audio upload complete API. Only after that will Gumlet add audio to the asset.",
         "operationId": "video-asset-upload-audio",
         "parameters": [
           {
@@ -3131,6 +3131,46 @@
                   "Result": {
                     "value": ""
                   }
+                },
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "asset_id": {
+                      "type": "string",
+                      "description": "Gumlet Asset ID"
+                    },
+                    "signed_urls": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "language_code": {
+                            "type": "string"
+                          },
+                          "upload_url": {
+                            "type": "string"
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "language_code",
+                          "upload_url"
+                        ],
+                        "required": [
+                          "language_code",
+                          "upload_url"
+                        ]
+                      }
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "asset_id",
+                    "signed_urls"
+                  ],
+                  "required": [
+                    "asset_id",
+                    "signed_urls"
+                  ]
                 }
               }
             }
@@ -3155,17 +3195,14 @@
         "deprecated": false,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "kn1e4t69lw9qv"
-        }
+        ]
       }
     },
     "/video/assets/{asset_ID}/audio/upload/event": {
       "post": {
-        "summary": "Upload Audio Completion",
-        "description": "",
-        "operationId": "upload-audio-completion",
+        "summary": "Complete Audio Upload",
+        "description": "This API must be called after uploading audio; the call gives you URLs to upload, and you complete a `PUT` request to those URLs. Calling this initiates the process to actually add the subtitle to the video.",
+        "operationId": "complete-audio-upload",
         "parameters": [
           {
             "name": "asset_ID",
@@ -3241,10 +3278,7 @@
         "deprecated": false,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "qee5xrskl5oyi"
-        }
+        ]
       }
     },
     "/video/assets/{asset_id}/chapters": {
