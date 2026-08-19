@@ -23,4 +23,4 @@ jobs:
       - name: Log in to Registry
         run: npx @scalar/cli auth login --token ${{ secrets.SCALAR_API_KEY }}
       - name: Push to Registry
-        run: npx @scalar/cli registry publish -force --namespace gumlet --slug gumlet-rest-apis openapi.json
+        run: npx @scalar/cli registry publish --force --namespace gumlet --slug gumlet-rest-apis openapi.json
