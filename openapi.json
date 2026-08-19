@@ -1,8 +1,5 @@
 {
   "openapi": "3.1.0",
-  "x-stoplight": {
-    "id": "v2k6p2v9atv1q"
-  },
   "info": {
     "title": "Gumlet",
     "description": "Gumlet REST APIs.",
@@ -30,7 +27,8 @@
         "type": "http",
         "scheme": "bearer"
       }
-    }
+    },
+    "schemas": {}
   },
   "paths": {
     "/video/assets": {
@@ -16601,12 +16599,6 @@
       }
     }
   },
-  "x-readme": {
-    "headers": [],
-    "explorer-enabled": true,
-    "proxy-enabled": true
-  },
-  "x-readme-fauxas": true,
   "tags": [
     {
       "name": "Video Assets",
