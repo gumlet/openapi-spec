@@ -3117,6 +3117,15 @@
                     }
                   }
                 }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "language_codes": [
+                      "en"
+                    ]
+                  }
+                }
               }
             }
           }
@@ -3128,7 +3137,15 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": ""
+                    "value": {
+                      "signed_urls": [
+                        {
+                          "language_code": "en",
+                          "upload_url": "<UPLOAD_URL>"
+                        }
+                      ],
+                      "asset_id": "6a8491aaf180d34362c9587a"
+                    }
                   }
                 },
                 "schema": {
@@ -3234,6 +3251,20 @@
                       },
                       "type": "object"
                     }
+                  }
+                }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "upload_responses": [
+                      {
+                        "language_codes": [
+                          "en"
+                        ],
+                        "uploaded": true
+                      }
+                    ]
                   }
                 }
               }
