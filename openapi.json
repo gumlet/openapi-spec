@@ -9657,7 +9657,8 @@
                 "type": "object",
                 "required": [
                   "metrics",
-                  "date_range"
+                  "date_range",
+                  "filters"
                 ],
                 "properties": {
                   "metrics": {
@@ -9768,7 +9769,8 @@
                     "enum": [
                       "daily",
                       "weekly",
-                      "monthly"
+                      "monthly",
+                      "hourly"
                     ],
                     "x-apidog-enum": [
                       {
@@ -9785,15 +9787,33 @@
                         "value": "monthly",
                         "name": "",
                         "description": ""
+                      },
+                      {
+                        "value": "hourly",
+                        "name": "",
+                        "description": ""
                       }
                     ],
                     "default": "daily"
+                  },
+                  "filters": {
+                    "type": "object",
+                    "properties": {
+                      "source_id": {
+                        "type": "string",
+                        "description": "Source ID"
+                      }
+                    },
+                    "x-apidog-orders": [
+                      "source_id"
+                    ]
                   }
                 },
                 "x-apidog-orders": [
                   "metrics",
                   "date_range",
-                  "group_by"
+                  "group_by",
+                  "filters"
                 ]
               }
             }
@@ -10046,24 +10066,31 @@
                       "items": {
                         "type": "object",
                         "properties": {
-                          "units": {
-                            "type": "number",
-                            "description": "Seconds it takes for image transform",
-                            "format": "float",
-                            "minimum": 0
-                          },
                           "timestamp": {
                             "type": "number",
                             "description": "Seconds since epoch for the unit given."
+                          },
+                          "fetch_time": {
+                            "type": "number",
+                            "description": "Seconds it took to fetch image from origin",
+                            "format": "float",
+                            "minimum": 0
+                          },
+                          "response_time": {
+                            "type": "number",
+                            "format": "float",
+                            "description": "Seconds it took to prepare final image and send response."
                           }
                         },
                         "x-apidog-orders": [
-                          "units",
-                          "timestamp"
+                          "fetch_time",
+                          "timestamp",
+                          "response_time"
                         ],
                         "required": [
-                          "units",
-                          "timestamp"
+                          "fetch_time",
+                          "timestamp",
+                          "response_time"
                         ]
                       }
                     },
@@ -10149,7 +10176,8 @@
                           "timestamp"
                         ],
                         "required": [
-                          "timestamp"
+                          "timestamp",
+                          "units"
                         ]
                       }
                     }
