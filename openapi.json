@@ -9649,7 +9649,7 @@
       "post": {
         "summary": "Image Usage Analytics",
         "description": "This endpoint helps you get image analytics data like bandwidth consumption, request count, CDN hit ratio, etc.",
-        "operationId": "retrieve",
+        "operationId": "retrieve-image-analytics",
         "requestBody": {
           "content": {
             "application/json": {
