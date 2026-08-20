@@ -10040,7 +10040,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Image Sources"
+          "Image Usage Analytics"
         ]
       }
     },
@@ -17169,6 +17169,10 @@
     {
       "name": "Data API",
       "description": "Query aggregated and chart-ready analytics/insights data."
+    },
+    {
+      "name": "Image Usage Analytics",
+      "description": "Query aggregated and chart-ready image usage analytics data."
     }
   ],
   "x-tagGroups": [
@@ -17200,7 +17204,8 @@
     {
       "name": "Image APIs",
       "tags": [
-        "Image Sources"
+        "Image Sources",
+        "Image Usage Analytics"
       ]
     },
     {
