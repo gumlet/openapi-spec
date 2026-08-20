@@ -3461,6 +3461,24 @@
                     "description": "top_assets metric may get paginated response. Iterate this parameter to get more data."
                   }
                 }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "metrics": [
+                      "bandwidth_consumption",
+                      "asset_duration",
+                      "storage_unit",
+                      "top_assets",
+                      "drm_requests"
+                    ],
+                    "date_range": {
+                      "start_at": "2026-08-01",
+                      "end_at": "2026-08-20"
+                    },
+                    "group_by": "daily"
+                  }
+                }
               }
             }
           }
@@ -3470,73 +3488,206 @@
             "description": "200",
             "content": {
               "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": {
-                      "top_assets": [
-                        {
-                          "collection_id": "<COLLECTION_ID>",
-                          "asset_id": "<ASSET_ID>",
-                          "units": 162870,
-                          "collection_name": "<COLLECTION_NAME>"
-                        },
-                        {
-                          "collection_id": "<COLLECTION_ID>",
-                          "asset_id": "<ASSET_ID>",
-                          "units": 21348,
-                          "collection_name": "<COLLECTION_NAME>"
-                        },
-                        {
-                          "collection_id": "<COLLECTION_ID>",
-                          "asset_id": "<ASSET_ID>",
-                          "units": 1239,
-                          "collection_name": "<COLLECTION_NAME>"
-                        },
-                        {
-                          "collection_id": "<COLLECTION_ID>",
-                          "asset_id": "<ASSET_ID>",
-                          "units": 974,
-                          "collection_name": "<COLLECTION_NAME>"
-                        },
-                        {
-                          "collection_id": "<COLLECTION_ID>",
-                          "asset_id": "<ASSET_ID>",
-                          "units": 124,
-                          "collection_name": "<COLLECTION_NAME>"
-                        }
-                      ]
-                    }
-                  }
-                },
+                "examples": {},
                 "schema": {
                   "type": "object",
                   "properties": {
+                    "drm_requests": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "units": {
+                            "type": "integer",
+                            "description": "Number of DRM requests.",
+                            "format": "int64"
+                          },
+                          "timestamp": {
+                            "type": "integer",
+                            "description": "Seconds since epoch for the unit given.",
+                            "format": "int64"
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "units",
+                          "timestamp"
+                        ],
+                        "required": [
+                          "units",
+                          "timestamp"
+                        ]
+                      }
+                    },
+                    "bandwidth_saving_unit": {
+                      "type": "string",
+                      "enum": [
+                        ""
+                      ],
+                      "x-apidog-enum": [
+                        {
+                          "value": "",
+                          "name": "",
+                          "description": ""
+                        }
+                      ],
+                      "description": "The unit for bandwidth saving data."
+                    },
+                    "storage_data_unit": {
+                      "type": "string",
+                      "enum": [
+                        "gb",
+                        "min"
+                      ],
+                      "x-apidog-enum": [
+                        {
+                          "value": "gb",
+                          "name": "Gigabytes",
+                          "description": ""
+                        },
+                        {
+                          "value": "min",
+                          "name": "Minutes",
+                          "description": ""
+                        }
+                      ],
+                      "description": "The unit for the storage data."
+                    },
+                    "bandwidth_consumption": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "units": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "The bandwidth consumption data in bytes."
+                          },
+                          "timestamp": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Seconds since epoch for the unit given."
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "units",
+                          "timestamp"
+                        ],
+                        "required": [
+                          "units",
+                          "timestamp"
+                        ]
+                      }
+                    },
+                    "storage_unit": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "units": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "The storage data in bytes or seconds."
+                          },
+                          "timestamp": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Seconds since epoch for the unit given."
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "units",
+                          "timestamp"
+                        ],
+                        "required": [
+                          "units",
+                          "timestamp"
+                        ]
+                      }
+                    },
+                    "asset_duration": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "units": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Total transcoding duration in seconds."
+                          },
+                          "timestamp": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "Seconds since epoch for the unit given."
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "units",
+                          "timestamp"
+                        ],
+                        "required": [
+                          "units",
+                          "timestamp"
+                        ]
+                      }
+                    },
                     "top_assets": {
                       "type": "array",
                       "items": {
                         "type": "object",
                         "properties": {
-                          "collection_id": {
-                            "type": "string",
-                            "example": "<COLLECTION_ID>"
-                          },
                           "asset_id": {
                             "type": "string",
-                            "example": "<ASSET_ID>"
+                            "description": "Asset ID"
                           },
                           "units": {
-                            "type": "integer",
-                            "example": 162870,
-                            "default": 0
+                            "type": "string",
+                            "description": "Bandwidth consumption by this asset in bytes."
+                          },
+                          "workspace_id": {
+                            "type": "string",
+                            "description": "Workspace ID"
+                          },
+                          "duration": {
+                            "type": "string",
+                            "description": "Seconds of streaming minutes consumed by this asset."
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Asset Title"
                           },
                           "collection_name": {
                             "type": "string",
-                            "example": "<COLLECTION_NAME>"
+                            "description": "Workspace Name"
                           }
-                        }
+                        },
+                        "x-apidog-orders": [
+                          "workspace_id",
+                          "asset_id",
+                          "units",
+                          "duration",
+                          "title",
+                          "collection_name"
+                        ],
+                        "required": [
+                          "workspace_id",
+                          "asset_id",
+                          "units",
+                          "duration",
+                          "title",
+                          "collection_name"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "drm_requests",
+                    "bandwidth_saving_unit",
+                    "storage_data_unit",
+                    "bandwidth_consumption",
+                    "storage_unit",
+                    "asset_duration",
+                    "top_assets"
+                  ]
                 }
               }
             }
@@ -3585,10 +3736,7 @@
         "deprecated": false,
         "tags": [
           "Video Usage Analytics"
-        ],
-        "x-stoplight": {
-          "id": "plq0zxnyavyb2"
-        }
+        ]
       }
     },
     "/video/streaming-duration": {
