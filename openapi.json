@@ -9676,7 +9676,8 @@
                         "cdn_hit_rate",
                         "content_type",
                         "status_2xx",
-                        "avg_response_time"
+                        "avg_response_time",
+                        "top_assets"
                       ],
                       "x-apidog-enum": [
                         {
@@ -9736,6 +9737,11 @@
                         },
                         {
                           "value": "avg_response_time",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "top_assets",
                           "name": "",
                           "description": ""
                         }
