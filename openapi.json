@@ -9657,8 +9657,7 @@
                 "type": "object",
                 "required": [
                   "metrics",
-                  "date_range",
-                  "filters"
+                  "date_range"
                 ],
                 "properties": {
                   "metrics": {
