@@ -2857,9 +2857,9 @@
     },
     "/video/assets/{asset_ID}/subtitle/upload": {
       "post": {
-        "summary": "Add Subtitles",
+        "summary": "Upload Subtitles",
         "description": "Upload `.srt` or `.vtt`  file to the video asset. The response of this API call gives `upload_url` for each language specified. You need to send a `PUT` request of the subtitle files to those URLs. Once that's done, you need to call the subtitle upload complete API. Only after that, Gumlet will add subtitles to asset.",
-        "operationId": "start-subtitle-upload",
+        "operationId": "upload-subtitles",
         "parameters": [
           {
             "name": "asset_ID",
@@ -2978,7 +2978,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Video Assets"
+          "Subtitle Upload"
         ]
       }
     },
@@ -3080,7 +3080,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Video Assets"
+          "Subtitle Upload"
         ],
         "x-stoplight": {
           "id": "9oxodzjjpi14n"
@@ -3091,7 +3091,7 @@
       "post": {
         "summary": "Add Audio",
         "description": "Add any audio file to the video asset. \nThe response of this API call gives `upload_url` for each language specified. You need to send a `PUT` request of the audio files to those URLs. Once that's done, you need to call the audio upload complete API. Only after that will Gumlet add audio to the asset.",
-        "operationId": "start-audio-upload",
+        "operationId": "asset-audio-upload",
         "parameters": [
           {
             "name": "asset_ID",
@@ -3210,7 +3210,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Video Assets"
+          "Audio Upload"
         ]
       }
     },
@@ -3307,7 +3307,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Video Assets"
+          "Audio Upload"
         ]
       }
     },
@@ -17339,6 +17339,14 @@
       "description": "Upload large video files in parts and complete the multipart upload."
     },
     {
+      "name": "Audio Upload",
+      "description": "Add additional audio tracks to an existing asset."
+    },
+    {
+      "name": "Subtitle Upload",
+      "description": "Add subtitles to an existing asset."
+    },
+    {
       "name": "Video Workspaces",
       "description": "Create and manage video workspaces."
     },
@@ -17389,6 +17397,8 @@
       "tags": [
         "Video Assets",
         "Multipart Upload",
+        "Audio Upload",
+        "Subtitle Upload",
         "Video Workspaces",
         "Folders",
         "Video Playlists",
