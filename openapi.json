@@ -17406,6 +17406,28 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "error"
+                  ],
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
           }
         },
         "summary": "Purge Image Cache",
@@ -17444,7 +17466,21 @@
             }
           }
         },
-        "description": "You can purge the cache for any image path by using this cache purge API."
+        "description": "You can purge the cache for any image path by using this cache purge API.",
+        "tags": [
+          "Image Sources"
+        ],
+        "parameters": [
+          {
+            "name": "source_id",
+            "in": "path",
+            "description": "Image Source ID",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ]
       }
     }
   },
