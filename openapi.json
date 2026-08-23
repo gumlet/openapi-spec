@@ -2626,6 +2626,14 @@
                     "description": "For replacing videos, pass this along with `asset_id`\n\n`{workspace_id}/{asset_id}/origin-{asset_id}`"
                   }
                 }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "asset_id": "<YOUR_ASSET_ID>",
+                    "title": "Updated Title"
+                  }
+                }
               }
             }
           }
@@ -3341,19 +3349,44 @@
                     "items": {
                       "properties": {
                         "label": {
-                          "type": "string"
+                          "type": "string",
+                          "description": "Label for the chapter."
                         },
-                        "endTime": {
+                        "startTime": {
                           "type": "integer",
-                          "format": "int32"
+                          "format": "int32",
+                          "description": "Start time of chapter in seconds. 0 means chapter is put as the video starts."
                         }
                       },
                       "required": [
                         "label",
-                        "endTime"
+                        "startTime"
                       ],
-                      "type": "object"
+                      "type": "object",
+                      "x-apidog-orders": [
+                        "label",
+                        "startTime"
+                      ]
                     }
+                  }
+                },
+                "x-apidog-orders": [
+                  "chapters"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "chapters": [
+                      {
+                        "label": "Chapter 1",
+                        "startTime": 0
+                      },
+                      {
+                        "label": "Chapter 2",
+                        "startTime": 10
+                      }
+                    ]
                   }
                 }
               }
