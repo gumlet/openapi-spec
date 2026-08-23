@@ -9635,6 +9635,16 @@
                     }
                   }
                 }
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "paths": [
+                      "image.jpeg",
+                      "image2.png"
+                    ]
+                  }
+                }
               }
             }
           }
@@ -9648,6 +9658,21 @@
                   "Result": {
                     "value": "{success: true}"
                   }
+                },
+                "schema": {
+                  "title": "",
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "status"
+                  ],
+                  "required": [
+                    "status"
+                  ]
                 }
               }
             }
@@ -9669,13 +9694,10 @@
             }
           }
         },
-        "deprecated": false,
+        "deprecated": true,
         "tags": [
           "Image Sources"
-        ],
-        "x-stoplight": {
-          "id": "e3caqvyy7k26m"
-        }
+        ]
       }
     },
     "/image/analytics": {
@@ -17359,6 +17381,70 @@
         "x-stoplight": {
           "id": "phzqm3nji6lx6"
         }
+      }
+    },
+    "/image/purge/{source_id}": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "status"
+                  ],
+                  "required": [
+                    "status"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Purge Image Cache",
+        "operationId": "image-purge",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "paths": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "An array of path of images to purge. It should be provided without any query parameters."
+                  }
+                },
+                "x-apidog-orders": [
+                  "paths"
+                ],
+                "required": [
+                  "paths"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "paths": [
+                      "image.jpeg",
+                      "image2.png"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "You can purge the cache for any image path by using this cache purge API."
       }
     }
   },
