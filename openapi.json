@@ -8717,6 +8717,39 @@
                               "azure_account_name",
                               "azure_path"
                             ]
+                          },
+                          "linode": {
+                            "type": "object",
+                            "properties": {
+                              "bucket_name": {
+                                "type": "string"
+                              },
+                              "bucket_region": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "bucket_name",
+                              "bucket_region"
+                            ],
+                            "required": [
+                              "bucket_name",
+                              "bucket_region"
+                            ]
+                          },
+                          "cloudinary": {
+                            "type": "object",
+                            "properties": {
+                              "cloud_name": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "cloud_name"
+                            ],
+                            "required": [
+                              "cloud_name"
+                            ]
                           }
                         },
                         "x-apidog-orders": [
@@ -8742,7 +8775,9 @@
                           "backblaze",
                           "hetzner",
                           "dostorage",
-                          "azure"
+                          "azure",
+                          "linode",
+                          "cloudinary"
                         ],
                         "required": [
                           "subdomain",
@@ -8836,7 +8871,8 @@
                         "azure",
                         "cloudflare",
                         "imgix",
-                        "cloudinary"
+                        "cloudinary",
+                        "proxy"
                       ],
                       "x-apidog-enum": [
                         {
@@ -8891,6 +8927,11 @@
                         },
                         {
                           "value": "cloudinary",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "proxy",
                           "name": "",
                           "description": ""
                         }
@@ -9249,6 +9290,16 @@
                     "secure_token": {
                       "type": "string",
                       "description": "This is the token that you can use to sign URLs."
+                    },
+                    "imgix": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apidog-orders": []
+                    },
+                    "hetzner": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apidog-orders": []
                     }
                   },
                   "x-examples": {
@@ -9303,10 +9354,14 @@
                     "subdomain",
                     "is_active",
                     "secure_urls",
-                    "secure_token"
+                    "secure_token",
+                    "imgix",
+                    "hetzner"
                   ],
                   "required": [
-                    "type"
+                    "type",
+                    "namespace",
+                    "id"
                   ]
                 }
               }
