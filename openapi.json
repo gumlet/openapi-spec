@@ -8325,13 +8325,17 @@
                                 "examples": [
                                   "****************"
                                 ]
+                              },
+                              "base_path": {
+                                "type": "string"
                               }
                             },
                             "x-apidog-orders": [
                               "bucket_name",
                               "bucket_region",
                               "access_key",
-                              "secret"
+                              "secret",
+                              "base_path"
                             ]
                           },
                           "embed_details": {
@@ -8589,6 +8593,130 @@
                               "type": "string"
                             },
                             "description": "Custom domains assigned to this source."
+                          },
+                          "wasabi": {
+                            "type": "object",
+                            "properties": {
+                              "bucket_name": {
+                                "type": "string"
+                              },
+                              "base_path": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "bucket_name",
+                              "base_path"
+                            ],
+                            "required": [
+                              "bucket_name"
+                            ]
+                          },
+                          "gcs": {
+                            "type": "object",
+                            "properties": {
+                              "bucket_name": {
+                                "type": "string"
+                              },
+                              "base_path": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "bucket_name",
+                              "base_path"
+                            ],
+                            "required": [
+                              "bucket_name"
+                            ]
+                          },
+                          "wordpress": {
+                            "type": "object",
+                            "properties": {
+                              "website_url": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "website_url"
+                            ],
+                            "required": [
+                              "website_url"
+                            ]
+                          },
+                          "backblaze": {
+                            "type": "object",
+                            "properties": {
+                              "bucket_name": {
+                                "type": "string"
+                              },
+                              "base_path": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "bucket_name",
+                              "base_path"
+                            ],
+                            "required": [
+                              "bucket_name"
+                            ]
+                          },
+                          "hetzner": {
+                            "type": "object",
+                            "properties": {
+                              "bucket_name": {
+                                "type": "string"
+                              },
+                              "base_path": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "bucket_name",
+                              "base_path"
+                            ]
+                          },
+                          "dostorage": {
+                            "type": "object",
+                            "properties": {
+                              "bucket_name": {
+                                "type": "string"
+                              },
+                              "base_path": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "bucket_name",
+                              "base_path"
+                            ],
+                            "required": [
+                              "bucket_name"
+                            ]
+                          },
+                          "azure": {
+                            "type": "object",
+                            "properties": {
+                              "azure_account_name": {
+                                "type": "string"
+                              },
+                              "azure_container_name": {
+                                "type": "string"
+                              },
+                              "azure_path": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "azure_account_name",
+                              "azure_container_name",
+                              "azure_path"
+                            ],
+                            "required": [
+                              "azure_account_name",
+                              "azure_path"
+                            ]
                           }
                         },
                         "x-apidog-orders": [
@@ -8607,7 +8735,14 @@
                           "channel_settings",
                           "subdomain",
                           "webfolder",
-                          "cname"
+                          "cname",
+                          "wasabi",
+                          "gcs",
+                          "wordpress",
+                          "backblaze",
+                          "hetzner",
+                          "dostorage",
+                          "azure"
                         ],
                         "required": [
                           "subdomain",
@@ -8689,7 +8824,77 @@
                       "type": "string"
                     },
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "dostorage",
+                        "aws",
+                        "wasabi",
+                        "hetzner",
+                        "backblaze",
+                        "webfolder",
+                        "gcs",
+                        "azure",
+                        "cloudflare",
+                        "imgix",
+                        "cloudinary"
+                      ],
+                      "x-apidog-enum": [
+                        {
+                          "value": "dostorage",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "aws",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "wasabi",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "hetzner",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "backblaze",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "webfolder",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "gcs",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "azure",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "cloudflare",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "imgix",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "cloudinary",
+                          "name": "",
+                          "description": ""
+                        }
+                      ]
                     },
                     "cdn_type": {
                       "type": "string"
@@ -9099,6 +9304,9 @@
                     "is_active",
                     "secure_urls",
                     "secure_token"
+                  ],
+                  "required": [
+                    "type"
                   ]
                 }
               }
@@ -9169,7 +9377,10 @@
                       "base_url": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "base_url"
+                    ]
                   },
                   "aws": {
                     "type": "object",
@@ -9199,7 +9410,15 @@
                       "endpoint": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "bucket_region",
+                      "access_key",
+                      "secret",
+                      "base_path",
+                      "endpoint"
+                    ]
                   },
                   "proxy": {
                     "type": "object",
@@ -9211,7 +9430,10 @@
                       "whitelisted_domains": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "whitelisted_domains"
+                    ]
                   },
                   "gcs": {
                     "type": "object",
@@ -9227,7 +9449,11 @@
                       "service_account_key": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "service_account_key"
+                    ]
                   },
                   "dostorage": {
                     "type": "object",
@@ -9254,7 +9480,14 @@
                       "base_path": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "bucket_region",
+                      "access_key",
+                      "secret",
+                      "base_path"
+                    ]
                   },
                   "wasabi": {
                     "type": "object",
@@ -9281,7 +9514,14 @@
                       "base_path": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "bucket_region",
+                      "access_key",
+                      "secret",
+                      "base_path"
+                    ]
                   },
                   "linode": {
                     "type": "object",
@@ -9305,7 +9545,13 @@
                       "secret": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "bucket_region",
+                      "access_key",
+                      "secret"
+                    ]
                   },
                   "backblaze": {
                     "type": "object",
@@ -9336,7 +9582,15 @@
                       "base_path": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "bucket_region",
+                      "endpoint",
+                      "access_key",
+                      "secret",
+                      "base_path"
+                    ]
                   },
                   "cloudflare": {
                     "type": "object",
@@ -9363,7 +9617,14 @@
                       "base_path": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "access_key",
+                      "account_id",
+                      "secret",
+                      "base_path"
+                    ]
                   },
                   "cloudinary": {
                     "type": "object",
@@ -9379,7 +9640,11 @@
                       "cloud_name": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "host_name",
+                      "cloud_name"
+                    ]
                   },
                   "azure": {
                     "type": "object",
@@ -9403,13 +9668,21 @@
                       "azure_path": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "azure_account_name",
+                      "azure_container_name",
+                      "azure_shared_token",
+                      "azure_path"
+                    ]
                   },
                   "default_params": {
                     "type": "object",
                     "x-stoplight": {
                       "id": "uevurxwukxwph"
-                    }
+                    },
+                    "properties": {},
+                    "x-apidog-orders": []
                   },
                   "error_image": {
                     "type": "string",
@@ -9427,7 +9700,9 @@
                       "x-stoplight": {
                         "id": "b4zme1scx0vau"
                       },
-                      "type": "object"
+                      "type": "object",
+                      "properties": {},
+                      "x-apidog-orders": []
                     }
                   },
                   "response_headers": {
@@ -9439,7 +9714,9 @@
                       "x-stoplight": {
                         "id": "h991rmiuuck50"
                       },
-                      "type": "object"
+                      "type": "object",
+                      "properties": {},
+                      "x-apidog-orders": []
                     }
                   },
                   "temp_cname": {
@@ -9476,8 +9753,38 @@
                       "id": "l0wilhnm9rcwn"
                     },
                     "description": "Enable / disable source."
+                  },
+                  "cname": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of verified CNAMEs"
                   }
-                }
+                },
+                "x-apidog-orders": [
+                  "type",
+                  "webfolder",
+                  "aws",
+                  "proxy",
+                  "gcs",
+                  "dostorage",
+                  "wasabi",
+                  "linode",
+                  "backblaze",
+                  "cloudflare",
+                  "cloudinary",
+                  "azure",
+                  "default_params",
+                  "error_image",
+                  "request_headers",
+                  "response_headers",
+                  "temp_cname",
+                  "browser_cache_time",
+                  "cdn_cache_time",
+                  "is_active",
+                  "cname"
+                ]
               },
               "examples": {
                 "Request Example": {
@@ -9567,7 +9874,10 @@
                         "base_url": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "base_url"
+                      ]
                     },
                     "aws": {
                       "type": "object",
@@ -9597,7 +9907,15 @@
                         "endpoint": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret",
+                        "base_path",
+                        "endpoint"
+                      ]
                     },
                     "proxy": {
                       "type": "object",
@@ -9609,7 +9927,10 @@
                         "whitelisted_domains": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "whitelisted_domains"
+                      ]
                     },
                     "gcs": {
                       "type": "object",
@@ -9625,7 +9946,11 @@
                         "service_account_key": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "service_account_key"
+                      ]
                     },
                     "dostorage": {
                       "type": "object",
@@ -9652,7 +9977,14 @@
                         "base_path": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret",
+                        "base_path"
+                      ]
                     },
                     "wasabi": {
                       "type": "object",
@@ -9679,7 +10011,14 @@
                         "base_path": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret",
+                        "base_path"
+                      ]
                     },
                     "linode": {
                       "type": "object",
@@ -9703,7 +10042,13 @@
                         "secret": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret"
+                      ]
                     },
                     "backblaze": {
                       "type": "object",
@@ -9734,7 +10079,15 @@
                         "base_path": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "bucket_region",
+                        "endpoint",
+                        "access_key",
+                        "secret",
+                        "base_path"
+                      ]
                     },
                     "cloudflare": {
                       "type": "object",
@@ -9761,7 +10114,14 @@
                         "base_path": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "access_key",
+                        "account_id",
+                        "secret",
+                        "base_path"
+                      ]
                     },
                     "cloudinary": {
                       "type": "object",
@@ -9777,7 +10137,11 @@
                         "cloud_name": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "host_name",
+                        "cloud_name"
+                      ]
                     },
                     "azure": {
                       "type": "object",
@@ -9801,17 +10165,25 @@
                         "azure_path": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "azure_account_name",
+                        "azure_container_name",
+                        "azure_shared_token",
+                        "azure_path"
+                      ]
                     },
                     "default_params": {
                       "type": "object",
-                      "properties": {}
+                      "properties": {},
+                      "x-apidog-orders": []
                     },
                     "request_headers": {
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "properties": {}
+                        "properties": {},
+                        "x-apidog-orders": []
                       }
                     },
                     "subdomain": {
@@ -9819,8 +10191,43 @@
                     },
                     "is_active": {
                       "type": "boolean"
+                    },
+                    "secure_urls": {
+                      "type": "boolean"
+                    },
+                    "secure_token": {
+                      "type": "string"
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "namespace",
+                    "type",
+                    "cdn_type",
+                    "cdn_cache_time",
+                    "canonical_url",
+                    "browser_cache_time",
+                    "is_cloudfront",
+                    "created_at",
+                    "updated_at",
+                    "webfolder",
+                    "aws",
+                    "proxy",
+                    "gcs",
+                    "dostorage",
+                    "wasabi",
+                    "linode",
+                    "backblaze",
+                    "cloudflare",
+                    "cloudinary",
+                    "azure",
+                    "default_params",
+                    "request_headers",
+                    "subdomain",
+                    "is_active",
+                    "secure_urls",
+                    "secure_token"
+                  ]
                 }
               }
             }
