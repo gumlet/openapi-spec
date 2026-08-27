@@ -17074,7 +17074,7 @@
         }
       }
     },
-    "/video/viewer-analytics": {
+    "/insights/viewer-analytics": {
       "post": {
         "summary": "Chart Data",
         "description": "This endpoint retrieves metrics data to plot the chart.",
@@ -17471,7 +17471,7 @@
         ],
         "servers": [
           {
-            "url": "https://api.gumlet.com/v2"
+            "url": "https://api.gumlet.com/v1"
           }
         ],
         "x-stoplight": {
@@ -17752,7 +17752,7 @@
         ],
         "servers": [
           {
-            "url": "https://api.gumlet.com/v2"
+            "url": "https://api.gumlet.com/v1"
           }
         ],
         "x-stoplight": {
