@@ -9711,6 +9711,14 @@
                       "required": [
                         "website_url"
                       ]
+                    },
+                    "response_headers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {},
+                        "x-apidog-orders": []
+                      }
                     }
                   },
                   "x-examples": {
@@ -9769,7 +9777,8 @@
                     "imgix",
                     "hetzner",
                     "fallback_origins",
-                    "wordpress"
+                    "wordpress",
+                    "response_headers"
                   ],
                   "required": [
                     "type",
@@ -11078,6 +11087,14 @@
                     },
                     "secure_token": {
                       "type": "string"
+                    },
+                    "response_headers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {},
+                        "x-apidog-orders": []
+                      }
                     }
                   },
                   "x-apidog-orders": [
@@ -11107,7 +11124,8 @@
                     "subdomain",
                     "is_active",
                     "secure_urls",
-                    "secure_token"
+                    "secure_token",
+                    "response_headers"
                   ],
                   "required": [
                     "type"
