@@ -8872,7 +8872,9 @@
                         "cloudflare",
                         "imgix",
                         "cloudinary",
-                        "proxy"
+                        "proxy",
+                        "wordpress",
+                        "linode"
                       ],
                       "x-apidog-enum": [
                         {
@@ -8932,6 +8934,16 @@
                         },
                         {
                           "value": "proxy",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "wordpress",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "linode",
                           "name": "",
                           "description": ""
                         }
@@ -9300,6 +9312,381 @@
                       "type": "object",
                       "properties": {},
                       "x-apidog-orders": []
+                    },
+                    "fallback_origins": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string",
+    
+                      "enum": [
+                        "dostorage",
+                        "aws",
+                        "wasabi",
+                        "hetzner",
+                        "backblaze",
+                        "webfolder",
+                        "gcs",
+                        "azure",
+                        "cloudflare",
+                        "imgix",
+                        "cloudinary",
+                        "proxy",
+                        "wordpress",
+                        "linode"
+                      ],
+                            "x-apidog-enum": [
+                              {
+                                "value": "proxy",
+                                "name": "",
+                                "description": ""
+                              }
+                            ]
+                          },
+                          "conditions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "replace_operation": {
+                            "type": "object",
+                            "properties": {
+                              "from": {
+                                "type": "string"
+                              },
+                              "to": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "from",
+                              "to"
+                            ]
+                          },
+                          "webfolder": {
+                      "type": "object",
+                      "description": "This is a required field if source type is webfolder.",
+                      "properties": {
+                        "base_url": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "base_url"
+                      ]
+                    },
+                    "aws": {
+                      "type": "object",
+                      "description": "This is a required field if source type is aws.",
+                      "required": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret"
+                      ],
+                      "properties": {
+                        "bucket_name": {
+                          "type": "string"
+                        },
+                        "bucket_region": {
+                          "type": "string"
+                        },
+                        "access_key": {
+                          "type": "string"
+                        },
+                        "secret": {
+                          "type": "string"
+                        },
+                        "base_path": {
+                          "type": "string"
+                        },
+                        "endpoint": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret",
+                        "base_path",
+                        "endpoint"
+                      ]
+                    },
+                    "proxy": {
+                      "type": "object",
+                      "description": "This is a required field if source type is proxy.",
+                      "required": [
+                        "whitelisted_domains"
+                      ],
+                      "properties": {
+                        "whitelisted_domains": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "whitelisted_domains"
+                      ]
+                    },
+                    "gcs": {
+                      "type": "object",
+                      "description": "This is a required field if source type is gcs.",
+                      "required": [
+                        "bucket_name",
+                        "service_account_key"
+                      ],
+                      "properties": {
+                        "bucket_name": {
+                          "type": "string"
+                        },
+                        "service_account_key": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "service_account_key"
+                      ]
+                    },
+                    "dostorage": {
+                      "type": "object",
+                      "description": "This is a required field if source type is dostorage.",
+                      "required": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret"
+                      ],
+                      "properties": {
+                        "bucket_name": {
+                          "type": "string"
+                        },
+                        "bucket_region": {
+                          "type": "string"
+                        },
+                        "access_key": {
+                          "type": "string"
+                        },
+                        "secret": {
+                          "type": "string"
+                        },
+                        "base_path": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret",
+                        "base_path"
+                      ]
+                    },
+                    "wasabi": {
+                      "type": "object",
+                      "description": "This is a required field if source type is wasabi.",
+                      "required": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret"
+                      ],
+                      "properties": {
+                        "bucket_name": {
+                          "type": "string"
+                        },
+                        "bucket_region": {
+                          "type": "string"
+                        },
+                        "access_key": {
+                          "type": "string"
+                        },
+                        "secret": {
+                          "type": "string"
+                        },
+                        "base_path": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret",
+                        "base_path"
+                      ]
+                    },
+                    "linode": {
+                      "type": "object",
+                      "description": "This is a required field if source type is linode.",
+                      "required": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret"
+                      ],
+                      "properties": {
+                        "bucket_name": {
+                          "type": "string"
+                        },
+                        "bucket_region": {
+                          "type": "string"
+                        },
+                        "access_key": {
+                          "type": "string"
+                        },
+                        "secret": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "bucket_region",
+                        "access_key",
+                        "secret"
+                      ]
+                    },
+                    "backblaze": {
+                      "type": "object",
+                      "description": "This is a required field if source type is backblaze.",
+                      "required": [
+                        "bucket_name",
+                        "access_key",
+                        "secret"
+                      ],
+                      "properties": {
+                        "bucket_name": {
+                          "type": "string"
+                        },
+                        "bucket_region": {
+                          "type": "string",
+                          "description": "bucket_region or endpoint"
+                        },
+                        "endpoint": {
+                          "type": "string",
+                          "description": "bucket_region or endpoint"
+                        },
+                        "access_key": {
+                          "type": "string"
+                        },
+                        "secret": {
+                          "type": "string"
+                        },
+                        "base_path": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "bucket_region",
+                        "endpoint",
+                        "access_key",
+                        "secret",
+                        "base_path"
+                      ]
+                    },
+                    "cloudflare": {
+                      "type": "object",
+                      "description": "This is a required field if source type is cloudflare.",
+                      "required": [
+                        "bucket_name",
+                        "access_key",
+                        "account_id",
+                        "secret"
+                      ],
+                      "properties": {
+                        "bucket_name": {
+                          "type": "string"
+                        },
+                        "access_key": {
+                          "type": "string"
+                        },
+                        "account_id": {
+                          "type": "string"
+                        },
+                        "secret": {
+                          "type": "string"
+                        },
+                        "base_path": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "bucket_name",
+                        "access_key",
+                        "account_id",
+                        "secret",
+                        "base_path"
+                      ]
+                    },
+                    "cloudinary": {
+                      "type": "object",
+                      "description": "This is a required field if source type is cloudinary.",
+                      "required": [
+                        "host_name",
+                        "cloud_name"
+                      ],
+                      "properties": {
+                        "host_name": {
+                          "type": "string"
+                        },
+                        "cloud_name": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "host_name",
+                        "cloud_name"
+                      ]
+                    },
+                    "azure": {
+                      "type": "object",
+                      "description": "This is a required field if source type is azure.",
+                      "required": [
+                        "azure_account_name",
+                        "azure_container_name",
+                        "azure_shared_token",
+                        "azure_path"
+                      ],
+                      "properties": {
+                        "azure_account_name": {
+                          "type": "string"
+                        },
+                        "azure_container_name": {
+                          "type": "string"
+                        },
+                        "azure_shared_token": {
+                          "type": "string"
+                        },
+                        "azure_path": {
+                          "type": "string"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "azure_account_name",
+                        "azure_container_name",
+                        "azure_shared_token",
+                        "azure_path"
+                      ]
+                    }
+                        },
+                        "x-apidog-orders": [
+                          "name",
+                          "type",
+                          "conditions",
+                          "replace_operation"
+                        ],
+                        "required": [
+                          "name",
+                          "type"
+                        ]
+                      }
                     }
                   },
                   "x-examples": {
@@ -9356,12 +9743,12 @@
                     "secure_urls",
                     "secure_token",
                     "imgix",
-                    "hetzner"
+                    "hetzner",
+                    "fallback_origins"
                   ],
                   "required": [
                     "type",
-                    "namespace",
-                    "id"
+                    "namespace"
                   ]
                 }
               }
@@ -9815,6 +10202,396 @@
                       "type": "string"
                     },
                     "description": "List of verified CNAMEs"
+                  },
+                  "fallback_origins": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "conditions": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "name": {
+                          "type": "string",
+                          "description": "Name of fallback"
+                        },
+                        "type": {
+                          "type": "string",
+                          "description": "Type of fallback origin",
+                          "enum": [
+                            "dostorage",
+                            "aws",
+                            "wasabi",
+                            "hetzner",
+                            "backblaze",
+                            "webfolder",
+                            "gcs",
+                            "azure",
+                            "cloudflare",
+                            "imgix",
+                            "cloudinary",
+                            "proxy",
+                            "wordpress",
+                            "linode"
+                          ],
+                          "x-apidog-enum": [
+                            {
+                              "value": "proxy",
+                              "name": "",
+                              "description": ""
+                            }
+                          ]
+                        },
+                        "replace_operation": {
+                          "type": "object",
+                          "properties": {
+                            "from": {
+                              "type": "string"
+                            },
+                            "to": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "from",
+                            "to"
+                          ]
+                        },
+                        "webfolder": {
+                          "type": "object",
+                          "description": "This is a required field if source type is webfolder.",
+                          "properties": {
+                            "base_url": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "base_url"
+                          ]
+                        },
+                        "aws": {
+                          "type": "object",
+                          "description": "This is a required field if source type is aws.",
+                          "required": [
+                            "bucket_name",
+                            "bucket_region",
+                            "access_key",
+                            "secret"
+                          ],
+                          "properties": {
+                            "bucket_name": {
+                              "type": "string"
+                            },
+                            "bucket_region": {
+                              "type": "string"
+                            },
+                            "access_key": {
+                              "type": "string"
+                            },
+                            "secret": {
+                              "type": "string"
+                            },
+                            "base_path": {
+                              "type": "string"
+                            },
+                            "endpoint": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "bucket_name",
+                            "bucket_region",
+                            "access_key",
+                            "secret",
+                            "base_path",
+                            "endpoint"
+                          ]
+                        },
+                        "proxy": {
+                          "type": "object",
+                          "description": "This is a required field if source type is proxy.",
+                          "required": [
+                            "whitelisted_domains"
+                          ],
+                          "properties": {
+                            "whitelisted_domains": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "whitelisted_domains"
+                          ]
+                        },
+                        "gcs": {
+                          "type": "object",
+                          "description": "This is a required field if source type is gcs.",
+                          "required": [
+                            "bucket_name",
+                            "service_account_key"
+                          ],
+                          "properties": {
+                            "bucket_name": {
+                              "type": "string"
+                            },
+                            "service_account_key": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "bucket_name",
+                            "service_account_key"
+                          ]
+                        },
+                        "dostorage": {
+                          "type": "object",
+                          "description": "This is a required field if source type is dostorage.",
+                          "required": [
+                            "bucket_name",
+                            "bucket_region",
+                            "access_key",
+                            "secret"
+                          ],
+                          "properties": {
+                            "bucket_name": {
+                              "type": "string"
+                            },
+                            "bucket_region": {
+                              "type": "string"
+                            },
+                            "access_key": {
+                              "type": "string"
+                            },
+                            "secret": {
+                              "type": "string"
+                            },
+                            "base_path": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "bucket_name",
+                            "bucket_region",
+                            "access_key",
+                            "secret",
+                            "base_path"
+                          ]
+                        },
+                        "wasabi": {
+                          "type": "object",
+                          "description": "This is a required field if source type is wasabi.",
+                          "required": [
+                            "bucket_name",
+                            "bucket_region",
+                            "access_key",
+                            "secret"
+                          ],
+                          "properties": {
+                            "bucket_name": {
+                              "type": "string"
+                            },
+                            "bucket_region": {
+                              "type": "string"
+                            },
+                            "access_key": {
+                              "type": "string"
+                            },
+                            "secret": {
+                              "type": "string"
+                            },
+                            "base_path": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "bucket_name",
+                            "bucket_region",
+                            "access_key",
+                            "secret",
+                            "base_path"
+                          ]
+                        },
+                        "linode": {
+                          "type": "object",
+                          "description": "This is a required field if source type is linode.",
+                          "required": [
+                            "bucket_name",
+                            "bucket_region",
+                            "access_key",
+                            "secret"
+                          ],
+                          "properties": {
+                            "bucket_name": {
+                              "type": "string"
+                            },
+                            "bucket_region": {
+                              "type": "string"
+                            },
+                            "access_key": {
+                              "type": "string"
+                            },
+                            "secret": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "bucket_name",
+                            "bucket_region",
+                            "access_key",
+                            "secret"
+                          ]
+                        },
+                        "backblaze": {
+                          "type": "object",
+                          "description": "This is a required field if source type is backblaze.",
+                          "required": [
+                            "bucket_name",
+                            "access_key",
+                            "secret"
+                          ],
+                          "properties": {
+                            "bucket_name": {
+                              "type": "string"
+                            },
+                            "bucket_region": {
+                              "type": "string",
+                              "description": "bucket_region or endpoint"
+                            },
+                            "endpoint": {
+                              "type": "string",
+                              "description": "bucket_region or endpoint"
+                            },
+                            "access_key": {
+                              "type": "string"
+                            },
+                            "secret": {
+                              "type": "string"
+                            },
+                            "base_path": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "bucket_name",
+                            "bucket_region",
+                            "endpoint",
+                            "access_key",
+                            "secret",
+                            "base_path"
+                          ]
+                        },
+                        "cloudflare": {
+                          "type": "object",
+                          "description": "This is a required field if source type is cloudflare.",
+                          "required": [
+                            "bucket_name",
+                            "access_key",
+                            "account_id",
+                            "secret"
+                          ],
+                          "properties": {
+                            "bucket_name": {
+                              "type": "string"
+                            },
+                            "access_key": {
+                              "type": "string"
+                            },
+                            "account_id": {
+                              "type": "string"
+                            },
+                            "secret": {
+                              "type": "string"
+                            },
+                            "base_path": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "bucket_name",
+                            "access_key",
+                            "account_id",
+                            "secret",
+                            "base_path"
+                          ]
+                        },
+                        "cloudinary": {
+                          "type": "object",
+                          "description": "This is a required field if source type is cloudinary.",
+                          "required": [
+                            "host_name",
+                            "cloud_name"
+                          ],
+                          "properties": {
+                            "host_name": {
+                              "type": "string"
+                            },
+                            "cloud_name": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "host_name",
+                            "cloud_name"
+                          ]
+                        },
+                        "azure": {
+                          "type": "object",
+                          "description": "This is a required field if source type is azure.",
+                          "required": [
+                            "azure_account_name",
+                            "azure_container_name",
+                            "azure_shared_token",
+                            "azure_path"
+                          ],
+                          "properties": {
+                            "azure_account_name": {
+                              "type": "string"
+                            },
+                            "azure_container_name": {
+                              "type": "string"
+                            },
+                            "azure_shared_token": {
+                              "type": "string"
+                            },
+                            "azure_path": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "azure_account_name",
+                            "azure_container_name",
+                            "azure_shared_token",
+                            "azure_path"
+                          ]
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "conditions",
+                        "name",
+                        "replace_operation",
+                        "type",
+                        "webfolder",
+                        "aws",
+                        "proxy",
+                        "gcs",
+                        "dostorage",
+                        "wasabi",
+                        "linode",
+                        "backblaze",
+                        "cloudflare",
+                        "cloudinary",
+                        "azure"
+                      ],
+                      "required": [
+                        "conditions",
+                        "name",
+                        "type",
+                        "replace_operation"
+                      ]
+                    },
+                    "description": "List of fallback origins"
                   }
                 },
                 "x-apidog-orders": [
@@ -9838,7 +10615,8 @@
                   "browser_cache_time",
                   "cdn_cache_time",
                   "is_active",
-                  "cname"
+                  "cname",
+                  "fallback_origins"
                 ]
               },
               "examples": {
@@ -9899,7 +10677,30 @@
                       "type": "string"
                     },
                     "type": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "dostorage",
+                        "aws",
+                        "wasabi",
+                        "hetzner",
+                        "backblaze",
+                        "webfolder",
+                        "gcs",
+                        "azure",
+                        "cloudflare",
+                        "imgix",
+                        "cloudinary",
+                        "proxy",
+                        "wordpress",
+                        "linode"
+                      ],
+                      "x-apidog-enum": [
+                        {
+                          "value": "proxy",
+                          "name": "",
+                          "description": ""
+                        }
+                      ]
                     },
                     "cdn_type": {
                       "type": "string"
@@ -10282,6 +11083,9 @@
                     "is_active",
                     "secure_urls",
                     "secure_token"
+                  ],
+                  "required": [
+                    "type"
                   ]
                 }
               }
