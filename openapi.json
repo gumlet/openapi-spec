@@ -17076,8 +17076,8 @@
     },
     "/insights/viewer-analytics": {
       "post": {
-        "summary": "Chart Data",
-        "description": "This endpoint retrieves metrics data to plot the chart.",
+        "summary": "Viewer Analytics",
+        "description": "This endpoint retrieves viewer analytics data.",
         "operationId": "insights-chart-data",
         "requestBody": {
           "content": {
@@ -17148,7 +17148,7 @@
                             "meta_page_url",
                             "meta_asn",
                             "custom_user_id",
-                            "user_email",
+                            "custom_user_email",
                             "custom_video_id",
                             "custom_video_title",
                             "video_source_url",
