@@ -19592,9 +19592,367 @@
           }
         ]
       }
+    },
+    "/org/data": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Organization ID"
+                    },
+                    "org_email": {
+                      "type": "string",
+                      "description": "Primary email of the organization"
+                    },
+                    "unpaid": {
+                      "type": "boolean",
+                      "description": "Flag if account is blocked due to unpaid dues. False means account is not blocked."
+                    },
+                    "created_at": {
+                      "type": "number",
+                      "description": "Org creation time. Epoch timestamp in milliseconds."
+                    },
+                    "plan": {
+                      "type": "string",
+                      "description": "Subscription plan name"
+                    },
+                    "plan_cycle": {
+                      "type": "string",
+                      "enum": [
+                        "monthly",
+                        "yearly"
+                      ],
+                      "x-apidog-enum": [
+                        {
+                          "value": "monthly",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "yearly",
+                          "name": "",
+                          "description": ""
+                        }
+                      ],
+                      "description": "Billing cycle. `monthly` or `yearly`."
+                    },
+                    "plan_data": {
+                      "type": "object",
+                      "properties": {
+                        "image": {
+                          "type": "object",
+                          "properties": {
+                            "plan": {
+                              "type": "string",
+                              "description": "Image plan name"
+                            },
+                            "cycle": {
+                              "type": "string",
+                              "description": "Billing cycle. `monthly` or `yearly`.",
+                              "enum": [
+                                "monthly",
+                                "yearly"
+                              ],
+                              "x-apidog-enum": [
+                                {
+                                  "value": "monthly",
+                                  "name": "",
+                                  "description": ""
+                                },
+                                {
+                                  "value": "yearly",
+                                  "name": "",
+                                  "description": ""
+                                }
+                              ]
+                            },
+                            "trialing": {
+                              "type": "boolean",
+                              "description": "If the plan is under trial or not."
+                            },
+                            "display_name": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "plan",
+                            "cycle",
+                            "trialing",
+                            "display_name"
+                          ],
+                          "required": [
+                            "plan",
+                            "cycle",
+                            "trialing",
+                            "display_name"
+                          ]
+                        },
+                        "video": {
+                          "type": "object",
+                          "properties": {
+                            "plan": {
+                              "type": "string",
+                              "description": "Video plan name"
+                            },
+                            "cycle": {
+                              "type": "string",
+                              "description": "Billing cycle. `monthly` or `yearly`.",
+                              "enum": [
+                                "monthly",
+                                "yearly"
+                              ],
+                              "x-apidog-enum": [
+                                {
+                                  "value": "monthly",
+                                  "name": "",
+                                  "description": ""
+                                },
+                                {
+                                  "value": "yearly",
+                                  "name": "",
+                                  "description": ""
+                                }
+                              ]
+                            },
+                            "trialing": {
+                              "type": "boolean",
+                              "description": "If the plan is under trial or not."
+                            },
+                            "display_name": {
+                              "type": "string"
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "plan",
+                            "cycle",
+                            "trialing",
+                            "display_name"
+                          ],
+                          "required": [
+                            "plan",
+                            "cycle",
+                            "trialing",
+                            "display_name"
+                          ]
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "image",
+                        "video"
+                      ],
+                      "required": [
+                        "image",
+                        "video"
+                      ]
+                    },
+                    "stripe_account_loc": {
+                      "type": "string",
+                      "enum": [
+                        "ind",
+                        "sgp"
+                      ],
+                      "x-apidog-enum": [
+                        {
+                          "value": "ind",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "sgp",
+                          "name": "",
+                          "description": ""
+                        }
+                      ]
+                    },
+                    "sso_enabled": {
+                      "type": "boolean",
+                      "description": "Flag if SSO is enabled for org."
+                    },
+                    "got_free_trial": {
+                      "type": "boolean"
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "firstImageSourceCreated": {
+                          "type": "boolean"
+                        },
+                        "firstVideoUploaded": {
+                          "type": "boolean"
+                        },
+                        "nsfw_blocked": {
+                          "type": "boolean",
+                          "description": "Flag is org is blocked for NSFW uploads."
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "firstImageSourceCreated",
+                        "firstVideoUploaded",
+                        "nsfw_blocked"
+                      ],
+                      "required": [
+                        "firstImageSourceCreated",
+                        "firstVideoUploaded",
+                        "nsfw_blocked"
+                      ]
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "org_email",
+                    "unpaid",
+                    "created_at",
+                    "plan_cycle",
+                    "plan",
+                    "plan_data",
+                    "stripe_account_loc",
+                    "sso_enabled",
+                    "got_free_trial",
+                    "metadata"
+                  ],
+                  "required": [
+                    "id",
+                    "org_email",
+                    "unpaid",
+                    "created_at",
+                    "plan",
+                    "plan_cycle",
+                    "plan_data",
+                    "stripe_account_loc"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "summary": "Get Organization Details",
+        "tags": [
+          "Organization Data"
+        ],
+        "operationId": "get-org-data",
+        "description": "You can get organization data using this API."
+      }
+    },
+    "/user/data": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/javascript": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "User ID"
+                    },
+                    "email": {
+                      "type": "string",
+                      "format": "email",
+                      "description": "User Email"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Full name of user"
+                    },
+                    "creation_date": {
+                      "type": "integer",
+                      "description": "User creation date. Milliseconds since epoch."
+                    },
+                    "last_login_date": {
+                      "type": "integer",
+                      "description": "Last login date. Milliseconds since epoch."
+                    },
+                    "last_login_ip": {
+                      "type": "string",
+                      "description": "IP address of last login."
+                    },
+                    "roles": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "Roles assigned to the user."
+                    },
+                    "timezone": {
+                      "type": "string",
+                      "description": "Timezone selected by user."
+                    },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "theme": {
+                          "type": "string",
+                          "description": "Dashboard theme."
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "theme"
+                      ],
+                      "required": [
+                        "theme"
+                      ]
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "email",
+                    "name",
+                    "creation_date",
+                    "last_login_date",
+                    "last_login_ip",
+                    "roles",
+                    "timezone",
+                    "metadata"
+                  ],
+                  "required": [
+                    "id",
+                    "email",
+                    "name",
+                    "creation_date",
+                    "last_login_date",
+                    "last_login_ip",
+                    "roles",
+                    "timezone",
+                    "metadata"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "summary": "Get User",
+        "tags": [
+          "User Data"
+        ],
+        "operationId": "get-user-data",
+        "description": "This endpoint gives information about the user account."
+      }
     }
   },
   "tags": [
+    {
+      "name": "User Data",
+      "description": "Endpoints to get user details."
+    },
+    {
+      "name": "Organization Data",
+      "description": "Endpoints to get organization details."
+    },
     {
       "name": "Video Assets",
       "description": "Upload, manage, and retrieve video assets, including thumbnails, subtitles, audio tracks, and chapters."
@@ -19695,6 +20053,13 @@
       "name": "Video Analytics API",
       "tags": [
         "Data API"
+      ]
+    },
+    {
+      "name": "Account Endpoints",
+      "tags": [
+        "User Data",
+        "Organization Data"
       ]
     }
   ],
