@@ -9681,6 +9681,11 @@
                             "type": "object",
                             "properties": {},
                             "x-apidog-orders": []
+                          },
+                          "imgix": {
+                            "type": "object",
+                            "properties": {},
+                            "x-apidog-orders": []
                           }
                         },
                         "x-apidog-orders": [
@@ -9700,7 +9705,8 @@
                           "cloudflare",
                           "cloudinary",
                           "azure",
-                          "hetzner"
+                          "hetzner",
+                          "imgix"
                         ],
                         "required": [
                           "name",
@@ -11200,6 +11206,11 @@
                             "type": "object",
                             "properties": {},
                             "x-apidog-orders": []
+                          },
+                          "imgix": {
+                            "type": "object",
+                            "properties": {},
+                            "x-apidog-orders": []
                           }
                         },
                         "x-apidog-orders": [
@@ -11219,6 +11230,7 @@
                           "cloudinary",
                           "azure",
                           "hetzner",
+                          "imgix",
                           "_id"
                         ],
                         "required": [
@@ -11500,6 +11512,11 @@
                         "properties": {},
                         "x-apidog-orders": []
                       }
+                    },
+                    "imgix": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apidog-orders": []
                     }
                   },
                   "x-apidog-orders": [
@@ -11524,6 +11541,7 @@
                     "cloudflare",
                     "cloudinary",
                     "azure",
+                    "imgix",
                     "default_params",
                     "request_headers",
                     "subdomain",
