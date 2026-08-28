@@ -19839,7 +19839,7 @@
         "tags": [
           "Organization Data"
         ],
-        "operationId": "get-org",
+        "operationId": "retrieve-org",
         "description": "You can get organization data using this API."
       }
     },
@@ -19939,7 +19939,7 @@
         "tags": [
           "User Data"
         ],
-        "operationId": "get-user",
+        "operationId": "retrieve-user",
         "description": "This endpoint gives information about the user account."
       }
     }
