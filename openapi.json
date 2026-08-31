@@ -14342,7 +14342,7 @@
             "name": "offset",
             "in": "query",
             "required": false,
-            "description": "Number of workspaces to skip. For example if you need to list 11 to 20th workspaces, pass offset as 10 and size as 10.",
+            "description": "Number of workspaces to skip. For example, if you need to list 11 to 20th workspaces, pass offset as 10 and size as 10.",
             "schema": {
               "type": "string",
               "default": "0"
@@ -14358,10 +14358,7 @@
               "default": "10"
             }
           }
-        ],
-        "x-stoplight": {
-          "id": "vl35ax8cootjj"
-        }
+        ]
       },
       "post": {
         "summary": "Create Workspace",
@@ -18329,29 +18326,41 @@
                         "properties": {
                           "asset_id": {
                             "type": "string",
-                            "example": "6192269e0822a81d955d1a4b"
+                            "examples": [
+                              "6192269e0822a81d955d1a4b"
+                            ]
                           },
                           "progress": {
                             "type": "integer",
-                            "example": 0,
-                            "default": 0
+                            "default": 0,
+                            "examples": [
+                              0
+                            ]
                           },
                           "created_at": {
                             "type": "integer",
-                            "example": 1636968094594,
-                            "default": 0
+                            "default": 0,
+                            "examples": [
+                              1636968094594
+                            ]
                           },
                           "status": {
                             "type": "string",
-                            "example": "optimizing"
+                            "examples": [
+                              "optimizing"
+                            ]
                           },
                           "tag": {
                             "type": "string",
-                            "example": ""
+                            "examples": [
+                              ""
+                            ]
                           },
                           "source_id": {
                             "type": "string",
-                            "example": "5f462c1561cf8a766464ffc4"
+                            "examples": [
+                              "5f462c1561cf8a766464ffc4"
+                            ]
                           },
                           "input": {
                             "type": "object",
@@ -18361,96 +18370,145 @@
                                 "properties": {
                                   "resolution": {
                                     "type": "string",
-                                    "example": "240p,360p"
+                                    "examples": [
+                                      "240p,360p"
+                                    ]
                                   },
                                   "format": {
                                     "type": "string",
-                                    "example": "hls"
+                                    "examples": [
+                                      "hls"
+                                    ]
                                   },
                                   "audio_codec": {
                                     "type": "array",
                                     "items": {
                                       "type": "string",
-                                      "example": "aac"
+                                      "examples": [
+                                        "aac"
+                                      ]
                                     }
                                   },
                                   "video_codec": {
                                     "type": "array",
                                     "items": {
                                       "type": "string",
-                                      "example": "libx264"
+                                      "examples": [
+                                        "libx264"
+                                      ]
                                     }
                                   },
                                   "thumbnail": {
                                     "type": "array",
                                     "items": {
                                       "type": "string",
-                                      "example": "auto"
+                                      "examples": [
+                                        "auto"
+                                      ]
                                     }
                                   },
                                   "thumbnail_format": {
                                     "type": "string",
-                                    "example": "png"
+                                    "examples": [
+                                      "png"
+                                    ]
                                   },
                                   "mp4_access": {
                                     "type": "boolean",
-                                    "example": false,
-                                    "default": true
+                                    "default": true,
+                                    "examples": [
+                                      false
+                                    ]
                                   },
                                   "audio_only": {
                                     "type": "boolean",
-                                    "example": false,
-                                    "default": true
+                                    "default": true,
+                                    "examples": [
+                                      false
+                                    ]
                                   },
                                   "keep_original": {
                                     "type": "boolean",
-                                    "example": true,
-                                    "default": true
+                                    "default": true,
+                                    "examples": [
+                                      true
+                                    ]
                                   },
                                   "per_title_encoding": {
                                     "type": "boolean",
-                                    "example": true,
-                                    "default": true
+                                    "default": true,
+                                    "examples": [
+                                      true
+                                    ]
                                   },
                                   "process_low_resolution_input": {
                                     "type": "boolean",
-                                    "example": false,
-                                    "default": true
+                                    "default": true,
+                                    "examples": [
+                                      false
+                                    ]
                                   }
-                                }
+                                },
+                                "x-apidog-orders": [
+                                  "resolution",
+                                  "format",
+                                  "audio_codec",
+                                  "video_codec",
+                                  "thumbnail",
+                                  "thumbnail_format",
+                                  "mp4_access",
+                                  "audio_only",
+                                  "keep_original",
+                                  "per_title_encoding",
+                                  "process_low_resolution_input"
+                                ]
                               },
                               "source_url": {
                                 "type": "string",
-                                "example": "https://gumlet.sgp1.digitaloceanspaces.com/video/BigBuckBunny.mp4"
+                                "examples": [
+                                  "https://gumlet.sgp1.digitaloceanspaces.com/video/BigBuckBunny.mp4"
+                                ]
                               },
                               "size": {
                                 "type": "integer",
-                                "example": 158008374,
-                                "default": 0
+                                "default": 0,
+                                "examples": [
+                                  158008374
+                                ]
                               },
                               "duration": {
                                 "type": "number",
-                                "example": 596.473333,
-                                "default": 0
+                                "default": 0,
+                                "examples": [
+                                  596.473333
+                                ]
                               },
                               "aspect_ratio": {
                                 "type": "string",
-                                "example": "16:9"
+                                "examples": [
+                                  "16:9"
+                                ]
                               },
                               "fps": {
                                 "type": "integer",
-                                "example": 24,
-                                "default": 0
+                                "default": 0,
+                                "examples": [
+                                  24
+                                ]
                               },
                               "width": {
                                 "type": "integer",
-                                "example": 1280,
-                                "default": 0
+                                "default": 0,
+                                "examples": [
+                                  1280
+                                ]
                               },
                               "height": {
                                 "type": "integer",
-                                "example": 720,
-                                "default": 0
+                                "default": 0,
+                                "examples": [
+                                  720
+                                ]
                               },
                               "additional_tracks": {
                                 "type": "array",
@@ -18459,70 +18517,209 @@
                                   "properties": {
                                     "url": {
                                       "type": "string",
-                                      "example": "https://gumlet.sgp1.digitaloceanspaces.com/video/BigBuckBunny.aac"
+                                      "examples": [
+                                        "https://gumlet.sgp1.digitaloceanspaces.com/video/BigBuckBunny.aac"
+                                      ]
                                     },
                                     "type": {
                                       "type": "string",
-                                      "example": "audio"
+                                      "examples": [
+                                        "audio"
+                                      ]
                                     },
                                     "language_code": {
                                       "type": "string",
-                                      "example": "en"
+                                      "examples": [
+                                        "en"
+                                      ]
                                     },
                                     "name": {
                                       "type": "string",
-                                      "example": "English"
+                                      "examples": [
+                                        "English"
+                                      ]
                                     }
-                                  }
+                                  },
+                                  "x-apidog-orders": [
+                                    "url",
+                                    "type",
+                                    "language_code",
+                                    "name"
+                                  ]
                                 }
                               }
-                            }
+                            },
+                            "x-apidog-orders": [
+                              "transformations",
+                              "source_url",
+                              "size",
+                              "duration",
+                              "aspect_ratio",
+                              "fps",
+                              "width",
+                              "height",
+                              "additional_tracks"
+                            ]
                           },
                           "output": {
                             "type": "object",
                             "properties": {
                               "format": {
                                 "type": "string",
-                                "example": "hls"
+                                "examples": [
+                                  "hls"
+                                ]
                               },
                               "status_url": {
                                 "type": "string",
-                                "example": "https://api.gumlet.com/v1/video/assets/6192269e0822a81d955d1a4b"
+                                "examples": [
+                                  "https://api.gumlet.com/v1/video/assets/6192269e0822a81d955d1a4b"
+                                ]
                               },
                               "playback_url": {
                                 "type": "string",
-                                "example": "https://video.gumlet.io/5f462c1561cf8a766464ffc4/6192269e0822a81d955d1a4b/1.m3u8"
+                                "examples": [
+                                  "https://video.gumlet.io/5f462c1561cf8a766464ffc4/6192269e0822a81d955d1a4b/1.m3u8"
+                                ]
                               },
                               "thumbnail_url": {
                                 "type": "array",
                                 "items": {
                                   "type": "string",
-                                  "example": "https://video.gumlet.io/5f462c1561cf8a766464ffc4/6192269e0822a81d955d1a4b/thumbnail-1-0.png"
+                                  "examples": [
+                                    "https://video.gumlet.io/5f462c1561cf8a766464ffc4/6192269e0822a81d955d1a4b/thumbnail-1-0.png"
+                                  ]
                                 }
                               }
-                            }
+                            },
+                            "x-apidog-orders": [
+                              "format",
+                              "status_url",
+                              "playback_url",
+                              "thumbnail_url"
+                            ]
                           }
-                        }
+                        },
+                        "x-apidog-orders": [
+                          "asset_id",
+                          "progress",
+                          "created_at",
+                          "status",
+                          "tag",
+                          "source_id",
+                          "input",
+                          "output"
+                        ]
                       }
-                    },
-                    "total_asset_count": {
-                      "type": "integer",
-                      "example": 2159,
-                      "default": 0
                     },
                     "current_offset": {
                       "type": "integer",
-                      "example": 1,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        1
+                      ]
                     },
                     "distinct_tags": {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": ""
+                        "examples": [
+                          ""
+                        ]
+                      }
+                    },
+                    "folder_count": {
+                      "type": "integer",
+                      "description": "Count of folders in library."
+                    },
+                    "asset_count": {
+                      "type": "integer",
+                      "default": 0,
+                      "examples": [
+                        2159
+                      ],
+                      "description": "Total number of assets in library"
+                    },
+                    "total_count": {
+                      "type": "integer",
+                      "description": "Total number of items in library including folders and assets."
+                    },
+                    "folders": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Folder ID"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the folder"
+                          },
+                          "parent_id": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "ID of parent folder"
+                          },
+                          "depth": {
+                            "type": "integer",
+                            "description": "Depth of folder."
+                          },
+                          "subdirectory_count": {
+                            "type": "integer",
+                            "description": "Number of subfolders insidet this folder."
+                          },
+                          "asset_count": {
+                            "type": "integer",
+                            "description": "Number of assets in this folder."
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "ISO-8601 formatted date string."
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "description": "ISO-8601 formatted date string."
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "id",
+                          "name",
+                          "parent_id",
+                          "depth",
+                          "subdirectory_count",
+                          "asset_count",
+                          "updated_at",
+                          "created_at"
+                        ],
+                        "required": [
+                          "id",
+                          "name",
+                          "parent_id",
+                          "depth",
+                          "subdirectory_count",
+                          "asset_count",
+                          "created_at",
+                          "updated_at"
+                        ]
                       }
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "all_assets",
+                    "asset_count",
+                    "current_offset",
+                    "distinct_tags",
+                    "folder_count",
+                    "total_count",
+                    "folders"
+                  ],
+                  "required": [
+                    "folders"
+                  ]
                 }
               }
             }
@@ -18601,10 +18798,7 @@
         "deprecated": true,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "9wrzusic0lzrv"
-        }
+        ]
       }
     },
     "/video/live/assets/{live_asset_id}/history": {
