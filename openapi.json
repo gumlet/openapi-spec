@@ -2426,10 +2426,7 @@
         "deprecated": false,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "7111k8t5s2gnx"
-        }
+        ]
       },
       "delete": {
         "summary": "Delete Asset",
@@ -2533,10 +2530,7 @@
         "deprecated": false,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "chk6k1qv4s6mp"
-        }
+        ]
       }
     },
     "/video/assets/update": {
@@ -2766,10 +2760,7 @@
         "deprecated": false,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "rx6lhax45mah6"
-        }
+        ]
       },
       "parameters": [
         {
@@ -2857,10 +2848,7 @@
         "deprecated": false,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "5ckscoiseqpdr"
-        }
+        ]
       }
     },
     "/video/assets/{asset_ID}/subtitle/upload": {
@@ -3089,10 +3077,7 @@
         "deprecated": false,
         "tags": [
           "Subtitle Upload"
-        ],
-        "x-stoplight": {
-          "id": "9oxodzjjpi14n"
-        }
+        ]
       }
     },
     "/video/assets/{asset_ID}/audio/upload": {
@@ -3430,10 +3415,7 @@
         "deprecated": false,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "p0f3lcp5j2j91"
-        }
+        ]
       }
     },
     "/video/analytics": {
@@ -3710,6 +3692,10 @@
                           "collection_name"
                         ]
                       }
+                    },
+                    "has_more_top_asset": {
+                      "type": "boolean",
+                      "description": "Indicates whether the list of top assets is exhaustive or if it has more assets."
                     }
                   },
                   "x-apidog-orders": [
@@ -3719,7 +3705,8 @@
                     "bandwidth_consumption",
                     "storage_unit",
                     "asset_duration",
-                    "top_assets"
+                    "top_assets",
+                    "has_more_top_asset"
                   ]
                 }
               }
@@ -5931,10 +5918,7 @@
         "deprecated": false,
         "tags": [
           "Video Playlists"
-        ],
-        "x-stoplight": {
-          "id": "m1hfwb0mu7j6u"
-        }
+        ]
       },
       "get": {
         "summary": "Get all playlists",
@@ -6050,10 +6034,7 @@
         "deprecated": false,
         "tags": [
           "Video Playlists"
-        ],
-        "x-stoplight": {
-          "id": "gw4fx29r5lbs2"
-        }
+        ]
       }
     },
     "/video/playlist/{playlist_id}/asset": {
