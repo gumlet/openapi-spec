@@ -19830,7 +19830,7 @@
           "200": {
             "description": "Successful response",
             "content": {
-              "application/javascript": {
+              "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
