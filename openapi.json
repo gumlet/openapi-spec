@@ -7922,152 +7922,7 @@
             "description": "List all image sources",
             "content": {
               "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": {
-                      "all_sources": [
-                        {
-                          "id": "646df1c9173a4a2fcac180b4",
-                          "name": "collection_name",
-                          "type": "aws",
-                          "created_at": "2023-05-24T11:15:21.624Z",
-                          "updated_at": "2024-01-24T11:57:48.744Z",
-                          "video_protection": {
-                            "signed_url": true,
-                            "signed_url_secret": "47a3e2fbb1318f033b882c632bc103a8"
-                          },
-                          "player_config": {
-                            "preload": false,
-                            "autoplay": false,
-                            "disable_seek": false,
-                            "disable_player_controls": false,
-                            "powered_by_gumlet_overlay": false,
-                            "allow_drm_protected_videos": false,
-                            "loop": false,
-                            "player_color": "#6658ea",
-                            "include_seo": true,
-                            "subtitle_enabled": false,
-                            "pixel_tags": {},
-                            "logo_width": 100,
-                            "logo_height": 100,
-                            "dynamic_watermark": false,
-                            "watermark_font_size": 20,
-                            "watermark_font_color": "#ff0000",
-                            "watermark_bg_color": "transparent",
-                            "watermark_interval": 1000
-                          },
-                          "default_profile_id": "646df1c9173a4a2fcac180b7",
-                          "insight_property_id": "646df0aa173a4a2fcac18009",
-                          "aws": {
-                            "bucket_name": "asd",
-                            "bucket_region": "ap-south-1",
-                            "access_key": "Code@123",
-                            "secret": "****************"
-                          },
-                          "embed_details": {
-                            "pixel_tags": {},
-                            "preload": false,
-                            "autoplay": false,
-                            "logo_width": 100,
-                            "logo_height": 100,
-                            "player_color": "#6658ea",
-                            "is_seo": true,
-                            "dynamic_watermark": false,
-                            "disable_seek": false,
-                            "disable_player_controls": false,
-                            "allow_drm_protected_videos": false,
-                            "powered_by_gumlet_overlay": false,
-                            "loop": false,
-                            "subtitle_enabled": false,
-                            "watermark_bg_color": "transparent",
-                            "watermark_font_color": "#ff0000",
-                            "watermark_font_size": 20,
-                            "watermark_interval": 1000
-                          },
-                          "folders": [
-                            "folder",
-                            "folder 2",
-                            "folder 27",
-                            "folder 4"
-                          ],
-                          "channel_settings": {
-                            "title": "my channel",
-                            "active": false,
-                            "description": "desc",
-                            "privacy_type": "private",
-                            "custom_logo": true,
-                            "logo_url": "https://dev-video.gumlet.io/646df1c9172a4a2fcac180b4/channel/logo.png",
-                            "cname": [
-                              "okj.com",
-                              "sd.com",
-                              "safd.com"
-                            ],
-                            "temp_cname": [
-                              "okj.com",
-                              "safd.com",
-                              "sd.com"
-                            ]
-                          }
-                        },
-                        {
-                          "id": "65b016f4e99b77f116c0e381",
-                          "name": "private uploads",
-                          "type": "direct-upload",
-                          "created_at": "2024-01-23T19:43:48.267Z",
-                          "updated_at": "2024-01-23T19:43:48.272Z",
-                          "video_protection": {},
-                          "player_config": {
-                            "preload": true,
-                            "autoplay": false,
-                            "disable_seek": false,
-                            "disable_player_controls": false,
-                            "powered_by_gumlet_overlay": true,
-                            "allow_drm_protected_videos": true,
-                            "loop": false,
-                            "player_color": "#6658ea",
-                            "include_seo": true,
-                            "subtitle_enabled": false,
-                            "pixel_tags": {},
-                            "logo_width": 100,
-                            "logo_height": 100,
-                            "dynamic_watermark": false,
-                            "watermark_font_size": 20,
-                            "watermark_font_color": "#ff0000",
-                            "watermark_bg_color": "transparent",
-                            "watermark_interval": 1000
-                          },
-                          "default_profile_id": "646df1c9173a4a2fcac180b7",
-                          "insight_property_id": "65b016f4e99b77f116c0e37f",
-                          "embed_details": {
-                            "pixel_tags": {},
-                            "powered_by_gumlet_overlay": true,
-                            "allow_drm_protected_videos": true,
-                            "preload": true,
-                            "autoplay": false,
-                            "logo_width": 100,
-                            "logo_height": 100,
-                            "player_color": "#6658ea",
-                            "is_seo": true,
-                            "dynamic_watermark": false,
-                            "watermark_font_size": 20,
-                            "watermark_font_color": "#ff0000",
-                            "watermark_bg_color": "transparent",
-                            "watermark_interval": 1000,
-                            "disable_seek": false,
-                            "disable_player_controls": false,
-                            "loop": false,
-                            "subtitle_enabled": false
-                          },
-                          "folders": [],
-                          "channel_settings": {
-                            "active": false,
-                            "privacy_type": "private"
-                          }
-                        }
-                      ]
-                    }
-                  }
-                },
+                "examples": {},
                 "schema": {
                   "type": "object",
                   "properties": {
@@ -11716,7 +11571,9 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{success: true}"
+                    "value": {
+                      "success": true
+                    }
                   }
                 },
                 "schema": {
