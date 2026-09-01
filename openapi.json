@@ -19820,7 +19820,7 @@
         "tags": [
           "Organization Data"
         ],
-        "operationId": "retrieve-org",
+        "operationId": "fetch-org",
         "description": "You can get organization data using this API."
       }
     },
@@ -19920,7 +19920,7 @@
         "tags": [
           "User Data"
         ],
-        "operationId": "retrieve-user",
+        "operationId": "fetch-user",
         "description": "This endpoint gives information about the user account."
       }
     },
