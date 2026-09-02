@@ -20427,76 +20427,76 @@
   },
   "tags": [
     {
-      "name": "User Data",
-      "description": "Endpoints to get user details."
-    },
-    {
-      "name": "Organization Data",
-      "description": "Endpoints to get organization details."
-    },
-    {
-      "name": "Video Assets",
-      "description": "Upload, manage, and retrieve video assets, including thumbnails, subtitles, audio tracks, and chapters."
-    },
-    {
-      "name": "Multipart Upload",
-      "description": "Upload large video files in parts and complete the multipart upload."
-    },
-    {
       "name": "Audio Upload",
       "description": "Add additional audio tracks to an existing asset."
     },
     {
-      "name": "Subtitle Upload",
-      "description": "Add subtitles to an existing asset."
-    },
-    {
-      "name": "Video Workspaces",
-      "description": "Create and manage video workspaces."
-    },
-    {
-      "name": "Folders",
-      "description": "Organize video assets into folders within a workspace."
-    },
-    {
-      "name": "Video Playlists",
-      "description": "Create and manage playlists, and control which assets belong to them."
+      "name": "Audit Logs",
+      "description": "Get detailed user activity logs for the entire organisation."
     },
     {
       "name": "Channel Viewers",
       "description": "Invite and remove viewers on a private video channel."
     },
     {
-      "name": "Video Usage Analytics",
-      "description": "Query video analytics and streaming duration usage data."
+      "name": "Data API",
+      "description": "Query aggregated and chart-ready analytics/insights data."
     },
     {
-      "name": "Video Profiles",
-      "description": "Create and manage encoding/output profiles for video assets."
-    },
-    {
-      "name": "Live Stream Assets",
-      "description": "Create, control, and monitor live stream assets."
-    },
-    {
-      "name": "Webhook APIs",
-      "description": "Configure webhooks for account and asset events."
+      "name": "Folders",
+      "description": "Organize video assets into folders within a workspace."
     },
     {
       "name": "Image Sources",
       "description": "Manage image sources, view image analytics, and purge the image cache."
     },
     {
-      "name": "Data API",
-      "description": "Query aggregated and chart-ready analytics/insights data."
-    },
-    {
       "name": "Image Usage Analytics",
       "description": "Query aggregated and chart-ready image usage analytics data."
     },
     {
-      "name": "Audit Logs",
-      "description": "Get detailed user activity logs for the entire organisation."
+      "name": "Live Stream Assets",
+      "description": "Create, control, and monitor live stream assets."
+    },
+    {
+      "name": "Multipart Upload",
+      "description": "Upload large video files in parts and complete the multipart upload."
+    },
+    {
+      "name": "Organization Data",
+      "description": "Endpoints to get organization details."
+    },
+    {
+      "name": "Subtitle Upload",
+      "description": "Add subtitles to an existing asset."
+    },
+    {
+      "name": "User Data",
+      "description": "Endpoints to get user details."
+    },
+    {
+      "name": "Video Assets",
+      "description": "Upload, manage, and retrieve video assets, including thumbnails, subtitles, audio tracks, and chapters."
+    },
+    {
+      "name": "Video Playlists",
+      "description": "Create and manage playlists, and control which assets belong to them."
+    },
+    {
+      "name": "Video Profiles",
+      "description": "Create and manage encoding/output profiles for video assets."
+    },
+    {
+      "name": "Video Usage Analytics",
+      "description": "Query video analytics and streaming duration usage data."
+    },
+    {
+      "name": "Video Workspaces",
+      "description": "Create and manage video workspaces."
+    },
+    {
+      "name": "Webhook APIs",
+      "description": "Configure webhooks for account and asset events."
     }
   ],
   "x-tagGroups": [
