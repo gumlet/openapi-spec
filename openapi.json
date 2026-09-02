@@ -19053,7 +19053,7 @@
     "/insights/breakdown-data": {
       "post": {
         "summary": "Breakdown Data",
-        "description": "This endpoint retrieves breakdown data of the given metrics by given breakdown field.",
+        "description": "This endpoint retrieves breakdown data of the given metrics by given breakdown field",
         "operationId": "insights-breakdown-data",
         "requestBody": {
           "content": {
