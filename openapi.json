@@ -19050,6 +19050,375 @@
         }
       }
     },
+    "/insights/breakdown-data": {
+      "post": {
+        "summary": "Breakdown Data",
+        "description": "This endpoint retrieves breakdown data of the given metrics by given breakdown field.",
+        "operationId": "insights-breakdown-data",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "date_range",
+                  "breakdowns",
+                  "workspace_id"
+                ],
+                "properties": {
+                  "date_range": {
+                    "type": "object",
+                    "description": "The timeframe to get the data for. \nCurrently, we only support a maximum of *60 days* between `start_at` and `end_at`.",
+                    "required": [
+                      "start_at",
+                      "end_at"
+                    ],
+                    "properties": {
+                      "start_at": {
+                        "type": "string",
+                        "description": "Use <b>yyyy-MM-dd</b> format",
+                        "format": "date"
+                      },
+                      "end_at": {
+                        "type": "string",
+                        "description": "Use <b>yyyy-MM-dd</b> format",
+                        "format": "date"
+                      }
+                    }
+                  },
+                  "filters": {
+                    "type": "array",
+                    "description": "Build *segments* of users using multiple filters on the data, `value` should be an *exact match*",
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "Name of the breakdown to filter data on.",
+                          "enum": [
+                            "meta_browser",
+                            "meta_operating_system",
+                            "meta_operating_system_version",
+                            "meta_device_category",
+                            "meta_device_manufacturer",
+                            "meta_device_name",
+                            "meta_device_display_width",
+                            "meta_device_display_height",
+                            "meta_country",
+                            "meta_city",
+                            "meta_region",
+                            "player_software",
+                            "player_software_version",
+                            "player_language_code",
+                            "player_name",
+                            "meta_page_url",
+                            "meta_asn",
+                            "custom_user_id",
+                            "custom_user_email",
+                            "custom_video_id",
+                            "custom_video_title",
+                            "video_source_url",
+                            "custom_video_variant_name",
+                            "custom_video_language",
+                            "custom_video_variant",
+                            "custom_data_1",
+                            "custom_data_2",
+                            "custom_data_3",
+                            "custom_data_4",
+                            "custom_data_5"
+                          ]
+                        },
+                        "value": {
+                          "type": "string",
+                          "description": "Value to be matched for the given filter name. Currently we support exact matches."
+                        },
+                        "operator": {
+                          "type": "string",
+                          "description": "Operator to be used while filtering the data",
+                          "default": "equals",
+                          "enum": [
+                            "equals",
+                            "does not equal",
+                            "contains",
+                            "does not contain",
+                            "is set",
+                            "is not set"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "value"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "breakdowns": {
+                    "type": "array",
+                    "description": "Breakdown fields and metrics to retrieve data for. Supports 1 to 3 breakdowns per request.",
+                    "minItems": 1,
+                    "maxItems": 3,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "metric"
+                      ],
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "description": "Name of the field to break down the data by.",
+                          "enum": [
+                            "meta_browser",
+                            "meta_operating_system",
+                            "meta_operating_system_version",
+                            "meta_device_category",
+                            "meta_device_manufacturer",
+                            "meta_device_name",
+                            "meta_device_display_width",
+                            "meta_device_display_height",
+                            "meta_country",
+                            "meta_city",
+                            "meta_region",
+                            "player_software",
+                            "player_software_version",
+                            "player_language_code",
+                            "player_name",
+                            "meta_page_url",
+                            "meta_asn",
+                            "custom_user_id",
+                            "custom_user_email",
+                            "custom_video_id",
+                            "custom_video_title",
+                            "video_source_url",
+                            "custom_video_variant_name",
+                            "custom_video_language",
+                            "custom_video_variant",
+                            "custom_data_1",
+                            "custom_data_2",
+                            "custom_data_3",
+                            "custom_data_4",
+                            "custom_data_5"
+                          ]
+                        },
+                        "metric": {
+                          "type": "string",
+                          "description": "The metric to retrieve breakdown data for.",
+                          "enum": [
+                            "views",
+                            "unique_views",
+                            "impressions",
+                            "completion_percent_by_views",
+                            "playing_time",
+                            "concurrent_users",
+                            "widget_form_submitted",
+                            "cta_clicks"
+                          ]
+                        },
+                        "page": {
+                          "type": "integer",
+                          "description": "Page number for paginated results.",
+                          "default": 1
+                        },
+                        "page_size": {
+                          "type": "integer",
+                          "description": "Number of results per page.",
+                          "default": 100
+                        }
+                      }
+                    }
+                  },
+                  "workspace_id": {
+                    "type": "string",
+                    "description": "The five to ten character unique identifier of the Gumlet workspace ID available on the Video Workspaces."
+                  }
+                }
+              },
+              "examples": {
+                "Result": {
+                  "value": {
+                    "date_range": {
+                      "start_at": "2026-07-20",
+                      "end_at": "2026-08-20"
+                    },
+                    "filters": [],
+                    "breakdowns": [
+                      {
+                        "name": "custom_video_id",
+                        "metric": "views",
+                        "page": 1,
+                        "page_size": 10
+                      },
+                      {
+                        "name": "custom_video_title",
+                        "metric": "completion_percent_by_views",
+                        "page": 1,
+                        "page_size": 10
+                      }
+                    ],
+                    "workspace_id": "6694c405e63913eecf3cf5fb"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "views": {
+                        "data": [
+                          {
+                            "key": "6710e83eb340677d98c71df7",
+                            "value": 253,
+                            "unit": "views"
+                          },
+                          {
+                            "key": "6710e83eb340677d98c71dd8",
+                            "value": 120,
+                            "unit": "views"
+                          }
+                        ],
+                        "has_next_page": true,
+                        "current_page": 1
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "views": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "key": {
+                                "type": "string",
+                                "description": "Breakdown field value"
+                              },
+                              "value": {
+                                "type": "number",
+                                "description": "Metric value for the breakdown key"
+                              },
+                              "unit": {
+                                "type": "string",
+                                "example": "views"
+                              }
+                            }
+                          }
+                        },
+                        "has_next_page": {
+                          "type": "boolean",
+                          "description": "Whether there is another page of results"
+                        },
+                        "current_page": {
+                          "type": "integer",
+                          "description": "Current page number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "error": {
+                        "code": "parameter_missing",
+                        "message": "One or more required values are missing.",
+                        "extra": null,
+                        "param": "breakdowns"
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "parameter_missing"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "One or more required values are missing."
+                        },
+                        "extra": {},
+                        "param": {
+                          "type": "string",
+                          "example": "breakdowns"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "error": {
+                        "code": "invalid_property_id",
+                        "message": "You don't have access to that property, please select a property id"
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "invalid_property_id"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "You don't have access to that property, please select a property id"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "tags": [
+          "Data API"
+        ],
+        "servers": [
+          {
+            "url": "https://api.gumlet.com/v1"
+          }
+        ]
+      }
+    },
     "/insights/aggregated-data": {
       "post": {
         "summary": "Aggregated Data",
