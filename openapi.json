@@ -18648,7 +18648,7 @@
     "/insights/viewer-analytics": {
       "post": {
         "summary": "Viewer Analytics",
-        "description": "This endpoint retrieves viewer analytics data.",
+        "description": "This endpoint retrieves viewer analytics data. This endpoint is use for deep insights on the analytics data.",
         "operationId": "insights-chart-data",
         "requestBody": {
           "content": {
