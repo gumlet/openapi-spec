@@ -20795,6 +20795,144 @@
         },
         "description": "Get audit logs for the user activity in your organisation. Please note that this endpoint can only be accessed by `owner` and `admin` role users."
       }
+    },
+    "/video/asset/recoverable/list": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "total_asset_count": {
+                      "type": "integer",
+                      "description": "Number of total assets in recycle bin."
+                    },
+                    "current_offset": {
+                      "type": "integer",
+                      "description": "Number of total assets in current offset."
+                    },
+                    "all_assets": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "asset_id": {
+                            "type": "string",
+                            "description": "Asset ID of the deleted asset."
+                          },
+                          "workspace_id": {
+                            "type": "string",
+                            "description": "Workspace ID for the asset."
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Title of the asset."
+                          },
+                          "description": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Description of the video."
+                          },
+                          "tags": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Tags associated with the asset."
+                          },
+                          "duration": {
+                            "type": "number",
+                            "description": "Duration of the asset in seconds."
+                          },
+                          "deleted_at": {
+                            "type": "number",
+                            "description": "Deleted timestamp of asset in milliseconds since epoch."
+                          },
+                          "deleted_by": {
+                            "type": "string",
+                            "description": "User ID of the user who deleted the asset."
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "asset_id",
+                          "workspace_id",
+                          "title",
+                          "description",
+                          "tags",
+                          "duration",
+                          "deleted_at",
+                          "deleted_by"
+                        ],
+                        "required": [
+                          "asset_id",
+                          "workspace_id",
+                          "title",
+                          "description",
+                          "tags",
+                          "duration",
+                          "deleted_at",
+                          "deleted_by"
+                        ]
+                      }
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "total_asset_count",
+                    "current_offset",
+                    "all_assets"
+                  ],
+                  "required": [
+                    "total_asset_count",
+                    "current_offset",
+                    "all_assets"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "List Recycle Bin",
+        "tags": [
+          "Video Assets"
+        ],
+        "operationId": "list-recycle-bin",
+        "description": "List all assets in a recycle bin for a given workspace.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "description": "Number of items to skip from start of page response."
+          },
+          {
+            "in": "query",
+            "name": "size",
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "minimum": 10
+            },
+            "description": "Number of items to return for a single page."
+          },
+          {
+            "in": "query",
+            "name": "workspace_id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID of workspace for which you want to list the recycle bin items.",
+            "required": true
+          }
+        ]
+      }
     }
   },
   "tags": [
