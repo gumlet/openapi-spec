@@ -15849,7 +15849,324 @@
                 },
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Workspace ID"
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "Workspace Name"
+                    },
+                    "type": {
+                      "type": "string",
+                      "description": "Workspace Type"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "ISO 8601 formatted creation timestamp of this workspace."
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "description": "ISO 8601 formatted update timestamp of this workspace."
+                    },
+                    "default_profile_id": {
+                      "type": "string",
+                      "description": "Profile ID for the default profile of this workspace"
+                    },
+                    "default_profile_updated_at": {
+                      "type": "string",
+                      "description": "ISO 8601 formatted profile update timestamp"
+                    },
+                    "insights_enabled": {
+                      "type": "boolean",
+                      "description": "Whether Gumlet video analytics is enabled for video embeds in this workspace."
+                    },
+                    "video_protection": {
+                      "type": "object",
+                      "properties": {
+                        "signed_url_secret": {
+                          "type": "string",
+                          "description": "Secret that is to be used to sign URLs"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "signed_url_secret"
+                      ]
+                    },
+                    "player_config": {
+                      "type": "object",
+                      "properties": {
+                        "autoplay": {
+                          "type": "boolean",
+                          "description": "Video autoplay enable flag. True means autoplay is enabled."
+                        },
+                        "disable_seek": {
+                          "type": "boolean",
+                          "description": "Seek bar enable / disable"
+                        },
+                        "disable_player_controls": {
+                          "type": "boolean",
+                          "description": "Disable / enable all player controls"
+                        },
+                        "powered_by_gumlet_overlay": {
+                          "type": "boolean",
+                          "description": "Whether Gumlet logo shows on player."
+                        },
+                        "loop": {
+                          "type": "boolean",
+                          "description": "Whether video should loop once it ends. `true` value means video will loop"
+                        },
+                        "player_color": {
+                          "type": "string",
+                          "description": "Hex color string of video player color"
+                        },
+                        "enable_download_button": {
+                          "type": "boolean",
+                          "description": "Enable / disable download button on player."
+                        },
+                        "caption_enabled": {
+                          "type": "boolean",
+                          "description": "Enable / disable video captions on player."
+                        },
+                        "logo_width": {
+                          "type": "number",
+                          "description": "Logo display width in pixels."
+                        },
+                        "logo_height": {
+                          "type": "number",
+                          "description": "Logo display height in pixels."
+                        },
+                        "dynamic_watermark": {
+                          "type": "boolean",
+                          "description": "Flag if dynamic watermark is enabled."
+                        },
+                        "watermark_font_size": {
+                          "type": "number",
+                          "description": "Dynamic watermark font size in pixels."
+                        },
+                        "watermark_font_color": {
+                          "type": "string",
+                          "description": "Hex color code of dynamic watermark text."
+                        },
+                        "watermark_bg_color": {
+                          "type": "string",
+                          "description": "Hex color code of background for dynamic watermark text."
+                        },
+                        "watermark_interval": {
+                          "type": "integer",
+                          "description": "Interval in milliseconds between dynamic watermark flashing."
+                        },
+                        "watermark_visiblity_duration": {
+                          "type": "integer",
+                          "description": "Duration for which the dynamic watermark will be visible on screen."
+                        },
+                        "show_video_title": {
+                          "type": "boolean",
+                          "description": "Enable / disable video title on player."
+                        },
+                        "cast": {
+                          "type": "boolean",
+                          "description": "Enable / disable cast button on player."
+                        },
+                        "resume_where_left": {
+                          "type": "boolean",
+                          "description": "Enable / disable playback from last viewed position. `true` means the playback will resume from last position."
+                        },
+                        "cc_color": {
+                          "type": "string",
+                          "description": "Closed captions  / subtitle color."
+                        },
+                        "cc_bg_color": {
+                          "type": "string",
+                          "description": "Closed captions / subtitle background color."
+                        },
+                        "cc_font_size": {
+                          "type": "string",
+                          "description": "Font size of closed captions.",
+                          "enum": [
+                            "small",
+                            "medium",
+                            "large"
+                          ],
+                          "x-apidog-enum": [
+                            {
+                              "value": "small",
+                              "name": "",
+                              "description": ""
+                            },
+                            {
+                              "value": "medium",
+                              "name": "",
+                              "description": ""
+                            },
+                            {
+                              "value": "large",
+                              "name": "",
+                              "description": ""
+                            }
+                          ]
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "autoplay",
+                        "disable_seek",
+                        "loop",
+                        "powered_by_gumlet_overlay",
+                        "disable_player_controls",
+                        "logo_width",
+                        "logo_height",
+                        "caption_enabled",
+                        "enable_download_button",
+                        "player_color",
+                        "dynamic_watermark",
+                        "watermark_font_size",
+                        "watermark_font_color",
+                        "watermark_bg_color",
+                        "watermark_interval",
+                        "watermark_visiblity_duration",
+                        "show_video_title",
+                        "cast",
+                        "resume_where_left",
+                        "cc_color",
+                        "cc_bg_color",
+                        "cc_font_size"
+                      ],
+                      "description": "Video player configuration",
+                      "required": [
+                        "autoplay",
+                        "disable_seek",
+                        "disable_player_controls",
+                        "powered_by_gumlet_overlay",
+                        "loop",
+                        "player_color",
+                        "enable_download_button",
+                        "caption_enabled",
+                        "dynamic_watermark",
+                        "show_video_title",
+                        "cast",
+                        "resume_where_left"
+                      ]
+                    },
+                    "folders": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of folder names in this workspace."
+                    },
+                    "channel_settings": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "string",
+                          "description": "Channel title."
+                        },
+                        "active": {
+                          "type": "boolean",
+                          "description": "Whether the channel is active."
+                        },
+                        "privacy_type": {
+                          "type": "string",
+                          "description": "Privacy type of channel.",
+                          "enum": [
+                            "private",
+                            "public"
+                          ],
+                          "x-apidog-enum": [
+                            {
+                              "value": "private",
+                              "name": "",
+                              "description": ""
+                            },
+                            {
+                              "value": "public",
+                              "name": "",
+                              "description": ""
+                            }
+                          ]
+                        },
+                        "channel_access_control": {
+                          "type": "string",
+                          "description": "Whether channel can be accessed publicly or it's invite only channel.",
+                          "enum": [
+                            "private",
+                            "public"
+                          ],
+                          "x-apidog-enum": [
+                            {
+                              "value": "private",
+                              "name": "",
+                              "description": ""
+                            },
+                            {
+                              "value": "public",
+                              "name": "",
+                              "description": ""
+                            }
+                          ]
+                        },
+                        "dynamic_watermark_type": {
+                          "type": "string",
+                          "description": "What to show in dynamic watermark. "
+                        },
+                        "disable_invite_email": {
+                          "type": "boolean",
+                          "description": "Enable / disable channel invite email."
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "title",
+                        "active",
+                        "privacy_type",
+                        "channel_access_control",
+                        "disable_invite_email",
+                        "dynamic_watermark_type"
+                      ],
+                      "required": [
+                        "title",
+                        "active",
+                        "privacy_type",
+                        "channel_access_control",
+                        "dynamic_watermark_type",
+                        "disable_invite_email"
+                      ]
+                    },
+                    "distinct_tags": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of distinct tags in entire workspace."
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "name",
+                    "type",
+                    "created_at",
+                    "updated_at",
+                    "default_profile_id",
+                    "default_profile_updated_at",
+                    "insights_enabled",
+                    "video_protection",
+                    "player_config",
+                    "folders",
+                    "channel_settings",
+                    "distinct_tags"
+                  ],
+                  "required": [
+                    "id",
+                    "name",
+                    "type",
+                    "created_at",
+                    "updated_at",
+                    "insights_enabled",
+                    "player_config",
+                    "folders",
+                    "channel_settings",
+                    "distinct_tags"
+                  ]
                 }
               }
             }
@@ -15874,10 +16191,7 @@
         "deprecated": false,
         "tags": [
           "Video Workspaces"
-        ],
-        "x-stoplight": {
-          "id": "eejee4nn71jmi"
-        }
+        ]
       },
       "delete": {
         "summary": "Delete Workspace",
