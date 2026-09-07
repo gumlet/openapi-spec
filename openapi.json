@@ -15888,10 +15888,31 @@
                         "signed_url_secret": {
                           "type": "string",
                           "description": "Secret that is to be used to sign URLs"
+                        },
+                        "blacklisted_countries": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Blacklist of 2 letter country codes."
+                        },
+                        "whitelisted_referrers": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "List of whitelisted domains which allow playback for the videos."
+                        },
+                        "whitelisted_countries": {
+                          "type": "string",
+                          "description": "List of whitelisted of 2 letter country codes."
                         }
                       },
                       "x-apidog-orders": [
-                        "signed_url_secret"
+                        "signed_url_secret",
+                        "whitelisted_referrers",
+                        "whitelisted_countries",
+                        "blacklisted_countries"
                       ]
                     },
                     "player_config": {
