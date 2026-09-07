@@ -17560,6 +17560,31 @@
               "default": 20,
               "maximum": 100
             }
+          },
+          {
+            "in": "query",
+            "name": "signed_token",
+            "schema": {
+              "type": "string",
+              "default": "false",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "x-apidog-enum": [
+                {
+                  "value": "true",
+                  "name": "",
+                  "description": ""
+                },
+                {
+                  "value": "false",
+                  "name": "",
+                  "description": ""
+                }
+              ]
+            },
+            "description": "Whether URLs should be pre-signed in the API response. Possible values: `true` and `false`. Default is `false`."
           }
         ],
         "responses": {
