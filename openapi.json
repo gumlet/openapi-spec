@@ -16089,21 +16089,33 @@
                         },
                         "privacy_type": {
                           "type": "string",
-                          "description": "Privacy type of channel.",
+                          "description": "Privacy type of videos in this workspace",
                           "enum": [
                             "private",
-                            "public"
+                            "public",
+                            "password",
+                            "dashboardOnly"
                           ],
                           "x-apidog-enum": [
                             {
                               "value": "private",
                               "name": "",
-                              "description": ""
+                              "description": "Videos are unlisted. Links can be shared but can't be indexed on search engines. This is the default."
                             },
                             {
                               "value": "public",
                               "name": "",
-                              "description": ""
+                              "description": "Videos can be accessed by anyone and can also be indexed by search engines."
+                            },
+                            {
+                              "value": "password",
+                              "name": "",
+                              "description": "Videos are password protected."
+                            },
+                            {
+                              "value": "dashboardOnly",
+                              "name": "",
+                              "description": "Videos can't be accessed by anyone except the person who has access granted on Gumlet dashboard."
                             }
                           ]
                         },
