@@ -16427,8 +16427,8 @@
                           "description": "List of whitelisted of 2 letter country codes."
                         },
                         "signed_url": {
-                          "type": "string",
-                          "description": "Signed URL for the workspace."
+                          "type": "boolean",
+                          "description": "Boolean value indicating whether signed URL is enabled."
                         }
                       },
                       "x-apidog-orders": [
