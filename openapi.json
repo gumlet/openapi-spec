@@ -13423,7 +13423,7 @@
         },
         "x-internal": false,
         "tags": [
-          "Video Assets"
+          "Recycle Bin"
         ],
         "x-stoplight": {
           "id": "kgpjwyo6i822v"
@@ -21596,7 +21596,7 @@
         },
         "summary": "List Recycle Bin",
         "tags": [
-          "Video Assets"
+          "Recycle Bin"
         ],
         "operationId": "list-recycle-bin",
         "description": "List all assets in a recycle bin for a given workspace. The deleted assets are available for 30 days. After that, assets are permanently deleted.",
@@ -21674,6 +21674,10 @@
       "name": "Organization Data",
       "description": "Endpoints to get organization details."
     },
+     {
+      "name": "Recycle Bin",
+      "description": "Endpoints to list deleted assets and restore them."
+    },
     {
       "name": "Subtitle Upload",
       "description": "Add subtitles to an existing asset."
@@ -21715,6 +21719,7 @@
         "Multipart Upload",
         "Audio Upload",
         "Subtitle Upload",
+        "Recycle Bin",
         "Video Workspaces",
         "Folders",
         "Video Playlists",
