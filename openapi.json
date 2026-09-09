@@ -3444,7 +3444,8 @@
                         "storage_unit",
                         "top_assets",
                         "drm_requests",
-                        "ai_credit_usage"
+                        "ai_credit_usage",
+                        "errored_videos"
                       ],
                       "x-apidog-enum": [
                         {
@@ -3474,6 +3475,11 @@
                         },
                         {
                           "value": "ai_credit_usage",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "errored_videos",
                           "name": "",
                           "description": ""
                         }
@@ -3755,8 +3761,42 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "properties": {},
-                        "x-apidog-orders": []
+                        "properties": {
+                          "timestamp": {
+                            "type": "integer",
+                            "description": "Seconds since epoch for the unit given."
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "timestamp"
+                        ],
+                        "required": [
+                          "timestamp"
+                        ]
+                      }
+                    },
+                    "errored_videos": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "timestamp": {
+                            "type": "integer",
+                            "description": "Seconds since epoch for the unit given."
+                          },
+                          "units": {
+                            "type": "integer",
+                            "description": "Number of errored videos in the timeframe"
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "timestamp",
+                          "units"
+                        ],
+                        "required": [
+                          "timestamp",
+                          "units"
+                        ]
                       }
                     }
                   },
@@ -3767,6 +3807,7 @@
                     "bandwidth_consumption",
                     "storage_unit",
                     "asset_duration",
+                    "errored_videos",
                     "top_assets",
                     "ai_credit_usage",
                     "has_more_top_asset"
