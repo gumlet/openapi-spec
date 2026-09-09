@@ -3509,13 +3509,13 @@
                   "filters": {
                     "type": "object",
                     "properties": {
-                      "collection_id": {
+                      "source_id": {
                         "type": "string",
                         "description": "The ID of the `collection` you want to filter the data for"
                       }
                     },
                     "x-apidog-orders": [
-                      "collection_id"
+                      "source_id"
                     ]
                   },
                   "top_assets_count": {
