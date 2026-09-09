@@ -11650,7 +11650,8 @@
                         "status_2xx",
                         "avg_response_time",
                         "top_assets",
-                        "bandwidth_consumption_by_source"
+                        "bandwidth_consumption_by_source",
+                        "ai_credit_usage"
                       ],
                       "x-apidog-enum": [
                         {
@@ -11720,6 +11721,11 @@
                         },
                         {
                           "value": "bandwidth_consumption_by_source",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "ai_credit_usage",
                           "name": "",
                           "description": ""
                         }
@@ -12187,6 +12193,34 @@
                           "domain"
                         ]
                       }
+                    },
+                    "ai_credit_usage": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "timestamp": {
+                            "type": "integer",
+                            "description": "Timestamp of data point in seconds since epoch."
+                          },
+                          "bg_removal": {
+                            "type": "integer",
+                            "description": "Background removal credits used."
+                          },
+                          "shadow_gen": {
+                            "type": "integer",
+                            "description": "Shadow generation credits used."
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "timestamp",
+                          "shadow_gen",
+                          "bg_removal"
+                        ],
+                        "required": [
+                          "timestamp"
+                        ]
+                      }
                     }
                   },
                   "x-apidog-orders": [
@@ -12202,7 +12236,8 @@
                     "avg_transformation_response_time",
                     "content_type",
                     "bandwidth_savings",
-                    "bandwidth_consumption_by_source"
+                    "bandwidth_consumption_by_source",
+                    "ai_credit_usage"
                   ]
                 }
               }
@@ -21674,7 +21709,7 @@
       "name": "Organization Data",
       "description": "Endpoints to get organization details."
     },
-     {
+    {
       "name": "Recycle Bin",
       "description": "Endpoints to list deleted assets and restore them."
     },
