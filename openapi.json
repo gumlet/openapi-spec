@@ -3430,7 +3430,8 @@
                 "type": "object",
                 "required": [
                   "metrics",
-                  "date_range"
+                  "date_range",
+                  "group_by"
                 ],
                 "properties": {
                   "metrics": {
@@ -3527,11 +3528,37 @@
                     "type": "string",
                     "default": "0",
                     "description": "top_assets metric may get paginated response. Iterate this parameter to get more data."
+                  },
+                  "group_by": {
+                    "type": "string",
+                    "enum": [
+                      "hourly",
+                      "daily",
+                      "weekly"
+                    ],
+                    "x-apidog-enum": [
+                      {
+                        "value": "hourly",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "daily",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "weekly",
+                        "name": "",
+                        "description": ""
+                      }
+                    ]
                   }
                 },
                 "x-apidog-orders": [
                   "metrics",
                   "date_range",
+                  "group_by",
                   "filters",
                   "top_assets_count",
                   "top_assets_page"
