@@ -3437,7 +3437,47 @@
                     "type": "array",
                     "description": "Define the metric you need the data for, currently we only support `bandwidth_consumption`, `asset_duration`, `storage_unit`, `top_assets`, `bandwidth_consumption_by_collection`, `errored_videos` and `widget_data`",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "bandwidth_consumption",
+                        "asset_duration",
+                        "storage_unit",
+                        "top_assets",
+                        "drm_requests",
+                        "ai_credit_usage"
+                      ],
+                      "x-apidog-enum": [
+                        {
+                          "value": "bandwidth_consumption",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "asset_duration",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "storage_unit",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "top_assets",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "drm_requests",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "ai_credit_usage",
+                          "name": "",
+                          "description": ""
+                        }
+                      ]
                     }
                   },
                   "date_range": {
@@ -3454,7 +3494,11 @@
                         "description": "The ending date to consider",
                         "format": "date"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "start_at",
+                      "end_at"
+                    ]
                   },
                   "filters": {
                     "type": "object",
@@ -3463,7 +3507,10 @@
                         "type": "string",
                         "description": "The ID of the `collection` you want to filter the data for"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "collection_id"
+                    ]
                   },
                   "top_assets_count": {
                     "type": "string",
@@ -3475,7 +3522,14 @@
                     "default": "0",
                     "description": "top_assets metric may get paginated response. Iterate this parameter to get more data."
                   }
-                }
+                },
+                "x-apidog-orders": [
+                  "metrics",
+                  "date_range",
+                  "filters",
+                  "top_assets_count",
+                  "top_assets_page"
+                ]
               },
               "examples": {
                 "Example 1": {
@@ -3696,6 +3750,14 @@
                     "has_more_top_asset": {
                       "type": "boolean",
                       "description": "Indicates whether the list of top assets is exhaustive or if it has more assets."
+                    },
+                    "ai_credit_usage": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {},
+                        "x-apidog-orders": []
+                      }
                     }
                   },
                   "x-apidog-orders": [
@@ -3706,6 +3768,7 @@
                     "storage_unit",
                     "asset_duration",
                     "top_assets",
+                    "ai_credit_usage",
                     "has_more_top_asset"
                   ]
                 }
