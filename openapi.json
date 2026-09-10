@@ -3534,7 +3534,7 @@
                     "enum": [
                       "hourly",
                       "daily",
-                      "weekly"
+                      "monthly"
                     ],
                     "x-apidog-enum": [
                       {
@@ -3548,7 +3548,7 @@
                         "description": ""
                       },
                       {
-                        "value": "weekly",
+                        "value": "monthly",
                         "name": "",
                         "description": ""
                       }
