@@ -16840,16 +16840,67 @@
                         "password": {
                           "type": "string",
                           "description": "Password for the channel."
+                        },
+                        "color_scheme": {
+                          "type": "string",
+                          "description": "Color scheme for the channel UI."
+                        },
+                        "description": {
+                          "type": "string",
+                          "description": "Channel description."
+                        },
+                        "theme_preference": {
+                          "type": "string",
+                          "description": "Dark / light theme preference for the channel."
+                        },
+                        "cname": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Custom domains assigned to this channel."
+                        },
+                        "hero_url": {
+                          "type": "string",
+                          "description": "Hero banner URL"
+                        },
+                        "hero_updated_at": {
+                          "type": "string",
+                          "description": "ISO 8601 hero banner update timestamp."
+                        },
+                        "icon_url": {
+                          "type": "string",
+                          "description": "Channel icon URL"
+                        },
+                        "icon_updated_at": {
+                          "type": "string",
+                          "description": "ISO 8601 channel icon update timestamp."
+                        },
+                        "temp_cname": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "Array of custom domains which are not yet verified."
                         }
                       },
                       "x-apidog-orders": [
                         "title",
+                        "description",
                         "active",
                         "privacy_type",
                         "channel_access_control",
                         "disable_invite_email",
                         "dynamic_watermark_type",
-                        "password"
+                        "password",
+                        "color_scheme",
+                        "theme_preference",
+                        "cname",
+                        "hero_url",
+                        "hero_updated_at",
+                        "icon_url",
+                        "icon_updated_at",
+                        "temp_cname"
                       ],
                       "required": [
                         "title",
@@ -16866,6 +16917,34 @@
                         "type": "string"
                       },
                       "description": "List of distinct tags in entire workspace."
+                    },
+                    "on_streaming_halt": {
+                      "type": "boolean",
+                      "description": "`true` means the workspace is disabled for streaming. No videos will stream from this workspace."
+                    },
+                    "visible_playlists": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "Playlist ID"
+                          },
+                          "title": {
+                            "type": "string",
+                            "description": "Playlist Title"
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "_id",
+                          "title"
+                        ],
+                        "required": [
+                          "_id",
+                          "title"
+                        ]
+                      }
                     }
                   },
                   "x-apidog-orders": [
@@ -16881,7 +16960,9 @@
                     "player_config",
                     "folders",
                     "channel_settings",
-                    "distinct_tags"
+                    "distinct_tags",
+                    "on_streaming_halt",
+                    "visible_playlists"
                   ],
                   "required": [
                     "id",
