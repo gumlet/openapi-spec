@@ -3509,12 +3509,18 @@
                   "filters": {
                     "type": "object",
                     "properties": {
+                      "collection_id": {
+                        "type": "string",
+                        "description": "The ID of the `workspace` you want to filter the data for."
+                      },
                       "source_id": {
                         "type": "string",
-                        "description": "The ID of the `collection` you want to filter the data for"
+                        "description": "The ID of the `workspace` you want to filter the data for. Deprecated.",
+                        "deprecated": true
                       }
                     },
                     "x-apidog-orders": [
+                      "collection_id",
                       "source_id"
                     ]
                   },
@@ -5143,7 +5149,13 @@
                         "type": "string",
                         "description": "Height of the cropping area in pixels."
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "horizontal_margin",
+                      "vertical_margin",
+                      "width",
+                      "height"
+                    ]
                   },
                   "pad": {
                     "type": "object",
@@ -5169,7 +5181,14 @@
                         "type": "string",
                         "description": "Color of padding area. **Default: `black`**"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "top",
+                      "left",
+                      "bottom",
+                      "right",
+                      "color"
+                    ]
                   },
                   "trim": {
                     "type": "object",
@@ -5194,7 +5213,12 @@
                         "description": "Duration can be used in conjunction with `start_offset` parameter, can be specified in number of seconds.",
                         "format": "float"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "start_offset",
+                      "end_offset",
+                      "duration"
+                    ]
                   },
                   "image_overlay": {
                     "type": "object",
@@ -5231,7 +5255,16 @@
                         "type": "string",
                         "description": "Height of the overlayed image. **Default: `image height`**"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "url",
+                      "horizontal_margin",
+                      "vertical_margin",
+                      "horizontal_align",
+                      "vertical_align",
+                      "width",
+                      "height"
+                    ]
                   },
                   "text_overlay": {
                     "type": "object",
@@ -5292,7 +5325,22 @@
                         "type": "string",
                         "description": "Padding between the box border and the text can be specified with this parameter in pixels. **Default: `0`**"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "text",
+                      "horizontal_align",
+                      "vertical_align",
+                      "horizontal_margin",
+                      "vertical_margin",
+                      "color",
+                      "font",
+                      "font_size",
+                      "opacity",
+                      "box",
+                      "box_color",
+                      "box_opacity",
+                      "box_border"
+                    ]
                   },
                   "animated_gif": {
                     "type": "object",
@@ -5318,7 +5366,14 @@
                         "type": "string",
                         "description": "The frame rate of the generated GIF. Defaults to `15` fps. Max `30` fps."
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "start_offset",
+                      "end_offset",
+                      "width",
+                      "height",
+                      "fps"
+                    ]
                   },
                   "generate_subtitles": {
                     "type": "object",
@@ -5336,7 +5391,11 @@
                         "default": true,
                         "description": "This is by default true to generate the subtitles in the native audio."
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "subtitle_languages",
+                      "transcribe"
+                    ]
                   },
                   "mp4_access": {
                     "type": "boolean",
@@ -5357,8 +5416,46 @@
                   "enable_drm": {
                     "type": "boolean",
                     "description": "Enable DRM encryption for transcoded videos. Gumlet supports Widevine and Fairplay DRMs."
+                  },
+                  "vc": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "Video Codecs"
+                  },
+                  "generate_chapters": {
+                    "type": "boolean",
+                    "description": "Whether Gumlet should generate chapters."
+                  },
+                  "generate_description": {
+                    "type": "boolean",
+                    "description": "Whether Gumlet should generate descriptions."
                   }
-                }
+                },
+                "x-apidog-orders": [
+                  "profile_id",
+                  "name",
+                  "format",
+                  "width",
+                  "height",
+                  "resolution",
+                  "vc",
+                  "crop",
+                  "pad",
+                  "trim",
+                  "image_overlay",
+                  "text_overlay",
+                  "animated_gif",
+                  "generate_subtitles",
+                  "mp4_access",
+                  "per_title_encoding",
+                  "process_low_resolution_input",
+                  "audio_only",
+                  "enable_drm",
+                  "generate_chapters",
+                  "generate_description"
+                ]
               }
             }
           }
@@ -15002,7 +15099,8 @@
                       "example": "2024-01-23T19:40:00.447Z"
                     },
                     "video_protection": {
-                      "type": "object"
+                      "type": "object",
+                      "properties": {}
                     },
                     "player_config": {
                       "type": "object",
@@ -15057,7 +15155,8 @@
                           "default": true
                         },
                         "pixel_tags": {
-                          "type": "object"
+                          "type": "object",
+                          "properties": {}
                         },
                         "logo_width": {
                           "type": "integer",
@@ -15270,10 +15369,7 @@
         "deprecated": false,
         "tags": [
           "Video Workspaces"
-        ],
-        "x-stoplight": {
-          "id": "qrbgt48bv6gca"
-        }
+        ]
       }
     },
     "/video/workspaces/{workspace_id}": {
@@ -16503,10 +16599,7 @@
         "deprecated": false,
         "tags": [
           "Video Workspaces"
-        ],
-        "x-stoplight": {
-          "id": "pv5xcg85eloop"
-        }
+        ]
       },
       "get": {
         "summary": "Get Workspace",
@@ -16883,6 +16976,38 @@
                             "type": "string"
                           },
                           "description": "Array of custom domains which are not yet verified."
+                        },
+                        "logo_url": {
+                          "type": "string",
+                          "description": "Logo URL"
+                        },
+                        "logo_updated_at": {
+                          "type": "string",
+                          "description": "ISO 8601 logo update timestamp."
+                        },
+                        "visible_playlists": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "description": "Playlist ID"
+                              },
+                              "title": {
+                                "type": "string",
+                                "description": "Playlist Title"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "_id",
+                              "title"
+                            ],
+                            "required": [
+                              "_id",
+                              "title"
+                            ]
+                          }
                         }
                       },
                       "x-apidog-orders": [
@@ -16901,6 +17026,9 @@
                         "hero_updated_at",
                         "icon_url",
                         "icon_updated_at",
+                        "logo_url",
+                        "logo_updated_at",
+                        "visible_playlists",
                         "temp_cname"
                       ],
                       "required": [
@@ -16909,7 +17037,8 @@
                         "privacy_type",
                         "channel_access_control",
                         "dynamic_watermark_type",
-                        "disable_invite_email"
+                        "disable_invite_email",
+                        "logo_updated_at"
                       ]
                     },
                     "distinct_tags": {
@@ -16922,30 +17051,6 @@
                     "on_streaming_halt": {
                       "type": "boolean",
                       "description": "`true` means the workspace is disabled for streaming. No videos will stream from this workspace."
-                    },
-                    "visible_playlists": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "_id": {
-                            "type": "string",
-                            "description": "Playlist ID"
-                          },
-                          "title": {
-                            "type": "string",
-                            "description": "Playlist Title"
-                          }
-                        },
-                        "x-apidog-orders": [
-                          "_id",
-                          "title"
-                        ],
-                        "required": [
-                          "_id",
-                          "title"
-                        ]
-                      }
                     }
                   },
                   "x-apidog-orders": [
@@ -16962,8 +17067,7 @@
                     "folders",
                     "channel_settings",
                     "distinct_tags",
-                    "on_streaming_halt",
-                    "visible_playlists"
+                    "on_streaming_halt"
                   ],
                   "required": [
                     "id",
@@ -16974,8 +17078,7 @@
                     "insights_enabled",
                     "player_config",
                     "folders",
-                    "channel_settings",
-                    "distinct_tags"
+                    "channel_settings"
                   ]
                 }
               }
@@ -17074,10 +17177,7 @@
         "deprecated": false,
         "tags": [
           "Video Workspaces"
-        ],
-        "x-stoplight": {
-          "id": "s6walpwpct9py"
-        }
+        ]
       }
     },
     "/video/workspaces/{workspace_id}/folders": {
