@@ -3430,8 +3430,7 @@
                 "type": "object",
                 "required": [
                   "metrics",
-                  "date_range",
-                  "group_by"
+                  "date_range"
                 ],
                 "properties": {
                   "metrics": {
@@ -3531,6 +3530,7 @@
                   },
                   "group_by": {
                     "type": "string",
+                    "description": "Group by hourly, daily or monthly. If you don't specify anything it's `hourly` by default.",
                     "enum": [
                       "hourly",
                       "daily",
@@ -3552,7 +3552,8 @@
                         "name": "",
                         "description": ""
                       }
-                    ]
+                    ],
+                    "default": "hourly"
                   }
                 },
                 "x-apidog-orders": [
