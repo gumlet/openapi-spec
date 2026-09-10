@@ -16549,7 +16549,8 @@
                     "insights_enabled"
                   ],
                   "required": [
-                    "insights_enabled"
+                    "insights_enabled",
+                    "id"
                   ]
                 }
               }
