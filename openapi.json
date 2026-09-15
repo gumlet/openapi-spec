@@ -16550,7 +16550,14 @@
                   ],
                   "required": [
                     "insights_enabled",
-                    "id"
+                    "id",
+                    "name",
+                    "type",
+                    "created_at",
+                    "updated_at",
+                    "player_config",
+                    "folders",
+                    "channel_settings"
                   ]
                 }
               }
