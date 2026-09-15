@@ -17059,6 +17059,51 @@
                     "on_streaming_halt": {
                       "type": "boolean",
                       "description": "`true` means the workspace is disabled for streaming. No videos will stream from this workspace."
+                    },
+                    "storage_event_listener": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "event_id": {
+                            "type": "string",
+                            "description": "Storage event id"
+                          },
+                          "profile_id": {
+                            "type": "string",
+                            "description": "Profile ID associated with storage event"
+                          },
+                          "profile_name": {
+                            "type": "string",
+                            "description": "Profile Name"
+                          },
+                          "is_varified": {
+                            "type": "boolean",
+                            "description": "If this webhook listener is verified."
+                          },
+                          "callback_url": {
+                            "type": "string",
+                            "description": "Callback URL"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Status "
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "event_id",
+                          "profile_id",
+                          "profile_name",
+                          "is_varified",
+                          "callback_url",
+                          "status"
+                        ],
+                        "required": [
+                          "profile_id",
+                          "event_id",
+                          "is_varified"
+                        ]
+                      }
                     }
                   },
                   "x-apidog-orders": [
@@ -17075,7 +17120,8 @@
                     "folders",
                     "channel_settings",
                     "distinct_tags",
-                    "on_streaming_halt"
+                    "on_streaming_halt",
+                    "storage_event_listener"
                   ],
                   "required": [
                     "id",
