@@ -22089,7 +22089,7 @@
         "tags": [
           "Video Assets"
         ],
-        "operationId": "assets-delete-many",
+        "operationId": "assets-remove-many",
         "description": "Delete multiple VOD assets at once.",
         "requestBody": {
           "content": {
