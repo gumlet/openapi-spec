@@ -2600,7 +2600,17 @@
                           "description": "number of pixels from right"
                         }
                       },
-                      "type": "object"
+                      "type": "object",
+                      "x-apidog-orders": [
+                        "text",
+                        "url",
+                        "start_time",
+                        "end_time",
+                        "font_color",
+                        "background_color",
+                        "position_from_top",
+                        "position_from_right"
+                      ]
                     }
                   },
                   "metadata": {
@@ -2618,8 +2628,23 @@
                   "input": {
                     "type": "string",
                     "description": "For replacing videos, pass this along with `asset_id`\n\n`{workspace_id}/{asset_id}/origin-{asset_id}`"
+                  },
+                  "reprocess": {
+                    "type": "boolean",
+                    "description": "To reprocess same video, pass this as true."
                   }
-                }
+                },
+                "x-apidog-orders": [
+                  "asset_id",
+                  "title",
+                  "description",
+                  "tag",
+                  "call_to_actions",
+                  "metadata",
+                  "remove_subtitles",
+                  "input",
+                  "reprocess"
+                ]
               },
               "examples": {
                 "Example 1": {
@@ -2669,10 +2694,7 @@
         "deprecated": false,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "r0ctywn88400k"
-        }
+        ]
       }
     },
     "/video/assets/{asset_id}/thumbnail-select": {
@@ -22032,6 +22054,186 @@
             "required": true
           }
         ]
+      }
+    },
+    "/video/assets/bulk/delete": {
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Boolean parameter indicating if the delete was successful."
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "success"
+                  ],
+                  "required": [
+                    "success"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "summary": "Bulk Delete",
+        "tags": [
+          "Video Assets"
+        ],
+        "operationId": "assets-bulk-delete",
+        "description": "Delete multiple VOD assets at once.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "asset_list": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "LIst of asset ids to delete"
+                  },
+                  "source_id": {
+                    "type": "string",
+                    "description": "Workspace ID from which assets needs to be deleted."
+                  }
+                },
+                "x-apidog-orders": [
+                  "asset_list",
+                  "source_id"
+                ],
+                "required": [
+                  "asset_list",
+                  "source_id"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "source_id": "60bd2ba353ff754d28179ee6",
+                    "asset_list": [
+                      "64249a8858fd3a208b987702",
+                      "64784bae843b155b829bbf84"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/video/assets/bulk/tag": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Boolean flag indicating if operation was successful."
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "success"
+                  ],
+                  "required": [
+                    "success"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "summary": "Bulk Tag",
+        "tags": [
+          "Video Assets"
+        ],
+        "operationId": "assets-bulk-tag",
+        "description": "Add / remove tags from multiple assets at once.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "asset_list": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of asset ids to update the tags for."
+                  },
+                  "source_id": {
+                    "type": "string",
+                    "description": "Workspace ID in which the videos needs the operation"
+                  },
+                  "add_tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of tags to add to given assets."
+                  },
+                  "remove_tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of tags to remove from given assets. Pass empty array if nothing is to be removed."
+                  }
+                },
+                "x-apidog-orders": [
+                  "asset_list",
+                  "source_id",
+                  "add_tags",
+                  "remove_tags"
+                ],
+                "required": [
+                  "asset_list",
+                  "source_id",
+                  "add_tags",
+                  "remove_tags"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "source_id": "60bd2ba353ff754d28179ee6",
+                    "add_tags": [
+                      "tag-1"
+                    ],
+                    "remove_tags": [
+                      "playlist-1"
+                    ],
+                    "asset_list": [
+                      "6221db301c8b821b0519fba0",
+                      "61e8f2726ec832ab2ac4fa6e"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
