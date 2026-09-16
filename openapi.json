@@ -22167,7 +22167,7 @@
         "tags": [
           "Video Assets"
         ],
-        "operationId": "assets-bulk-tag",
+        "operationId": "assets-tag-many",
         "description": "Add / remove tags from multiple assets at once.",
         "requestBody": {
           "content": {
