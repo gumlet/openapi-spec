@@ -7502,7 +7502,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Webhook APIs"
+          "Webhooks"
         ],
         "x-stoplight": {
           "id": "73fyyktivlvzj"
@@ -7577,7 +7577,7 @@
         },
         "operationId": "list-webhooks",
         "tags": [
-          "Webhook APIs"
+          "Webhooks"
         ],
         "description": "List all webhooks."
       }
@@ -7708,7 +7708,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Webhook APIs"
+          "Webhooks"
         ],
         "x-stoplight": {
           "id": "cj3d5p1p3xcxm"
@@ -7765,7 +7765,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Webhook APIs"
+          "Webhooks"
         ],
         "x-stoplight": {
           "id": "62i31r1exgnzy"
@@ -23037,7 +23037,7 @@
         },
         "summary": "Get History",
         "tags": [
-          "Webhook APIs"
+          "Webhooks"
         ],
         "operationId": "webhook-history",
         "description": "Get logs history for a given webhook."
@@ -23118,7 +23118,7 @@
       "description": "Create and manage video workspaces."
     },
     {
-      "name": "Webhook APIs",
+      "name": "Webhooks",
       "description": "Configure webhooks for account and asset events."
     }
   ],
@@ -23136,7 +23136,8 @@
         "Video Playlists",
         "Channel Viewers",
         "Video Usage Analytics",
-        "Video Profiles"
+        "Video Profiles",
+        "Webhooks"
       ]
     },
     {
