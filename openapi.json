@@ -23042,6 +23042,448 @@
         "operationId": "webhook-history",
         "description": "Get logs history for a given webhook."
       }
+    },
+    "/mixed/billing/invoice/history": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "unpaid_invoices": {
+                      "type": "boolean",
+                      "description": "Flag which shows if this account has any unpaid invoices."
+                    },
+                    "stripe_invoices": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Invoice ID as per stripe. This is not invoice number."
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Current status of the invoice",
+                            "enum": [
+                              "draft",
+                              "open",
+                              "paid",
+                              "uncollectible",
+                              "void"
+                            ],
+                            "x-apidog-enum": [
+                              {
+                                "value": "draft",
+                                "name": "",
+                                "description": ""
+                              },
+                              {
+                                "value": "open",
+                                "name": "",
+                                "description": ""
+                              },
+                              {
+                                "value": "paid",
+                                "name": "",
+                                "description": ""
+                              },
+                              {
+                                "value": "uncollectible",
+                                "name": "",
+                                "description": ""
+                              },
+                              {
+                                "value": "void",
+                                "name": "",
+                                "description": ""
+                              }
+                            ]
+                          },
+                          "created": {
+                            "type": "integer",
+                            "description": "Created timestamp of invoice in seconds since epoch"
+                          },
+                          "amount_due": {
+                            "type": "integer",
+                            "description": "Amount due for invoice in the lowest denomination of the given currency. For example if the invoice is in USD, the amount shown here is in cents. Therefore, a value like 10000 means the invoice is $100."
+                          },
+                          "hosted_invoice_url": {
+                            "type": "string",
+                            "description": "URL of the invoice page where you can pay the invoice"
+                          },
+                          "invoice_pdf": {
+                            "type": "string",
+                            "description": "URL of the page from where you can download the invoice PDF"
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "id",
+                          "status",
+                          "created",
+                          "amount_due",
+                          "hosted_invoice_url",
+                          "invoice_pdf"
+                        ],
+                        "required": [
+                          "id",
+                          "status",
+                          "created",
+                          "amount_due",
+                          "hosted_invoice_url",
+                          "invoice_pdf"
+                        ]
+                      },
+                      "description": "List of invoices"
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "unpaid_invoices",
+                    "stripe_invoices"
+                  ],
+                  "required": [
+                    "unpaid_invoices",
+                    "stripe_invoices"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "List Invoices",
+        "tags": [
+          "Billing"
+        ],
+        "operationId": "list-invoices",
+        "description": "Liost all invoices that are generated so far."
+      }
+    },
+    "/mixed/billing/details": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "company_name": {
+                      "type": "string",
+                      "description": "Company name"
+                    },
+                    "gst_number": {
+                      "type": "string",
+                      "description": "GST / VAT number"
+                    },
+                    "address_line": {
+                      "type": "string",
+                      "description": "Address line 1"
+                    },
+                    "city": {
+                      "type": "string",
+                      "description": "City"
+                    },
+                    "state_code": {
+                      "type": "string",
+                      "description": "ISO code of the state"
+                    },
+                    "postal": {
+                      "type": "string",
+                      "description": "Postal code"
+                    },
+                    "country_code": {
+                      "type": "string",
+                      "description": "ISO code of country. For example, it's \"US\" for USA."
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "company_name",
+                    "gst_number",
+                    "address_line",
+                    "city",
+                    "state_code",
+                    "postal",
+                    "country_code"
+                  ],
+                  "required": [
+                    "company_name",
+                    "gst_number",
+                    "address_line",
+                    "city",
+                    "state_code",
+                    "postal",
+                    "country_code"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get Billing Details",
+        "tags": [
+          "Billing"
+        ],
+        "operationId": "get-billing-details",
+        "description": "Get billing details for this organization."
+      },
+      "post": {
+        "summary": "Update Billing Details",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "address_line": {
+                      "type": "string",
+                      "description": "Address line 1"
+                    },
+                    "city": {
+                      "type": "string",
+                      "description": "Name of the city"
+                    },
+                    "company_name": {
+                      "type": "string",
+                      "description": "Company name"
+                    },
+                    "country_code": {
+                      "type": "string",
+                      "description": "ISO country code"
+                    },
+                    "gst_number": {
+                      "type": "string",
+                      "description": "GST / VAT details of the company"
+                    },
+                    "postal": {
+                      "type": "string",
+                      "description": "Postal code of the company"
+                    },
+                    "state_code": {
+                      "type": "string",
+                      "description": "ISO code of the state / region"
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "company_name",
+                    "address_line",
+                    "city",
+                    "country_code",
+                    "gst_number",
+                    "postal",
+                    "state_code"
+                  ],
+                  "required": [
+                    "company_name",
+                    "address_line",
+                    "city",
+                    "country_code",
+                    "gst_number",
+                    "postal",
+                    "state_code"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "operationId": "update-billing-details",
+        "description": "Update billing details",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "address_line": {
+                    "type": "string",
+                    "description": "Address line 1"
+                  },
+                  "city": {
+                    "type": "string",
+                    "description": "Name of the city"
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "description": "Company name"
+                  },
+                  "country_code": {
+                    "type": "string",
+                    "description": "ISO country code"
+                  },
+                  "gst_number": {
+                    "type": "string",
+                    "description": "GST / VAT details of the company"
+                  },
+                  "postal": {
+                    "type": "string",
+                    "description": "Postal code of the company"
+                  },
+                  "state_code": {
+                    "type": "string",
+                    "description": "ISO code of the state / region"
+                  }
+                },
+                "x-apidog-orders": [
+                  "address_line",
+                  "city",
+                  "company_name",
+                  "country_code",
+                  "gst_number",
+                  "postal",
+                  "state_code"
+                ],
+                "required": [
+                  "address_line",
+                  "city",
+                  "company_name",
+                  "country_code",
+                  "gst_number",
+                  "postal",
+                  "state_code"
+                ]
+              }
+            }
+          }
+        },
+        "tags": [
+          "Billing"
+        ]
+      }
+    },
+    "/mixed/billing/invoice/upcoming": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "invoice_start_date": {
+                      "type": "string",
+                      "description": "Invoice start date in DD MMM YYYY format"
+                    },
+                    "invoice_last_date": {
+                      "type": "string",
+                      "description": "Invoice end date in DD MMM YYYY format"
+                    },
+                    "next_invoice_date": {
+                      "type": "string",
+                      "description": "Next invoice date in DD MMM format"
+                    },
+                    "trial_end_date": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Trial end date"
+                    },
+                    "current_month_usage": {
+                      "type": "string",
+                      "description": "Current month total amount in given currency."
+                    },
+                    "upcoming_invoice": {
+                      "type": "object",
+                      "properties": {
+                        "subtotal": {
+                          "type": "string",
+                          "description": "Upcoming invoice amount without tax"
+                        },
+                        "lines": {
+                          "type": "object",
+                          "properties": {
+                            "data": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "description": {
+                                    "type": "string",
+                                    "description": "Description about invoice line item"
+                                  },
+                                  "quantity": {
+                                    "type": "string",
+                                    "description": "User friendly quantity of the line item"
+                                  },
+                                  "unit_price": {
+                                    "type": "number",
+                                    "description": "Price per unit for the given item in given currency."
+                                  },
+                                  "amount": {
+                                    "type": "string",
+                                    "description": "Total amount of the line item"
+                                  }
+                                },
+                                "x-apidog-orders": [
+                                  "description",
+                                  "quantity",
+                                  "unit_price",
+                                  "amount"
+                                ],
+                                "required": [
+                                  "description",
+                                  "quantity",
+                                  "unit_price",
+                                  "amount"
+                                ]
+                              }
+                            }
+                          },
+                          "x-apidog-orders": [
+                            "data"
+                          ],
+                          "required": [
+                            "data"
+                          ],
+                          "description": "Invoice line items"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "subtotal",
+                        "lines"
+                      ],
+                      "description": "Upcoming invoice details",
+                      "required": [
+                        "subtotal",
+                        "lines"
+                      ]
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "invoice_start_date",
+                    "invoice_last_date",
+                    "next_invoice_date",
+                    "trial_end_date",
+                    "current_month_usage",
+                    "upcoming_invoice"
+                  ],
+                  "required": [
+                    "invoice_start_date",
+                    "invoice_last_date",
+                    "next_invoice_date",
+                    "current_month_usage",
+                    "upcoming_invoice"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Upcoming Invoice",
+        "tags": [
+          "Billing"
+        ],
+        "operationId": "get-upcoming-invoice",
+        "description": "Get details about upcoming invoice."
+      }
     }
   },
   "tags": [
@@ -23052,6 +23494,10 @@
     {
       "name": "Audit Logs",
       "description": "Get detailed user activity logs for the entire organisation."
+    },
+    {
+      "name": "Billing",
+      "description": "Get / change all details about billing and invoices."
     },
     {
       "name": "Channel Viewers",
@@ -23169,6 +23615,7 @@
       "name": "Account Endpoints",
       "tags": [
         "User Data",
+        "Billing",
         "Organization Data",
         "Audit Logs"
       ]
