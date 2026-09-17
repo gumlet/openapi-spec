@@ -22087,7 +22087,7 @@
         },
         "summary": "Bulk Delete",
         "tags": [
-          "Bulk Operations"
+          "Video Assets"
         ],
         "operationId": "assets-delete-many",
         "description": "Delete multiple VOD assets at once.",
@@ -22166,7 +22166,7 @@
         },
         "summary": "Bulk Tag",
         "tags": [
-          "Bulk Operations"
+          "Video Assets"
         ],
         "operationId": "assets-tag-many",
         "description": "Add / remove tags from multiple assets at once.",
@@ -22248,10 +22248,6 @@
       "description": "Get detailed user activity logs for the entire organisation."
     },
     {
-      "name": "Bulk Operations",
-      "description": "Operations that affect multiple assets at once."
-    },
-    {
       "name": "Channel Viewers",
       "description": "Invite and remove viewers on a private video channel."
     },
@@ -22328,7 +22324,6 @@
         "Multipart Upload",
         "Audio Upload",
         "Subtitle Upload",
-        "Bulk Operations",
         "Recycle Bin",
         "Video Workspaces",
         "Folders",
