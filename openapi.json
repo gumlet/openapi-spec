@@ -7507,6 +7507,79 @@
         "x-stoplight": {
           "id": "73fyyktivlvzj"
         }
+      },
+      "get": {
+        "summary": "List Webhooks",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Webhook ID"
+                    },
+                    "url": {
+                      "type": "string",
+                      "description": "Webhook URL"
+                    },
+                    "triggers": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of triggers configured for this webhook"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "Creation timestamp in ISO 8601 format"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "description": "Update timestamp in ISO 8601 format"
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of workspace IDs for which the webhook is enabled."
+                    },
+                    "secret_token": {
+                      "type": "string",
+                      "description": "The token which you must validate when you receive the webhook. It's given by you when you create the webhook."
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "url",
+                    "triggers",
+                    "created_at",
+                    "updated_at",
+                    "sources",
+                    "secret_token"
+                  ],
+                  "required": [
+                    "id",
+                    "url",
+                    "triggers",
+                    "created_at",
+                    "updated_at",
+                    "sources"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "operationId": "list-webhooks",
+        "tags": [
+          "Webhook APIs"
+        ],
+        "description": "List all webhooks."
       }
     },
     "/org/webhooks/{webhook_id}": {
@@ -22876,6 +22949,98 @@
             "required": false
           }
         ]
+      }
+    },
+    "/org/webhook/{webhook_id}/history": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "webhook_id",
+            "description": "Webhook ID. You can get it using list webhook endpoint.",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "Webhook event ID"
+                      },
+                      "status": {
+                        "type": "string",
+                        "description": "Status of webhook event"
+                      },
+                      "retry_count": {
+                        "type": "integer",
+                        "description": "Number of retries it needed to deliver webhook."
+                      },
+                      "event": {
+                        "type": "string",
+                        "description": "Name of the webhook event"
+                      },
+                      "asset_id": {
+                        "type": "string",
+                        "description": "Asset ID for which the event was fired"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "description": "Event timestamp in ISO 8601 format"
+                      }
+                    },
+                    "x-apidog-orders": [
+                      "id",
+                      "status",
+                      "retry_count",
+                      "event",
+                      "asset_id",
+                      "created_at"
+                    ],
+                    "required": [
+                      "id",
+                      "status",
+                      "retry_count",
+                      "event",
+                      "asset_id",
+                      "created_at"
+                    ]
+                  }
+                },
+                "examples": {
+                  "Example 1": {
+                    "value": [
+                      {
+                        "id": "6aabc4d9b44b963242be835e",
+                        "status": "success",
+                        "retry_count": 1,
+                        "event": "video.status.stream_ready",
+                        "asset_id": "6aabc4144b9588fb8c4bd235",
+                        "created_at": "2026-09-17T10:45:50.470Z"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get History",
+        "tags": [
+          "Webhook APIs"
+        ],
+        "operationId": "webhook-history",
+        "description": "Get logs history for a given webhook."
       }
     }
   },
