@@ -23228,7 +23228,7 @@
         "tags": [
           "Billing"
         ],
-        "operationId": "get-billing-details",
+        "operationId": "fetch-billing-details",
         "description": "Get billing details for this organization."
       },
       "post": {
