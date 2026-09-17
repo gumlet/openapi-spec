@@ -22239,6 +22239,17 @@
     },
     "/v1/video/assets/{asset_id}/analytics": {
       "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "asset_id",
+            "description": "Gumlet asset ID",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",
@@ -22832,6 +22843,15 @@
         "operationId": "list-channel-subscribers",
         "description": "List all channel subscribers.",
         "parameters": [
+          {
+            "in": "path",
+            "name": "workspace_id",
+            "description": "Gumlet workspace ID. You can get it on Gumlet dashboard or retrieve it using list workspace API.",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
           {
             "in": "query",
             "name": "page_number",
