@@ -23481,7 +23481,7 @@
         "tags": [
           "Billing"
         ],
-        "operationId": "get-upcoming-invoice",
+        "operationId": "fetch-upcoming-invoice",
         "description": "Get details about upcoming invoice."
       }
     }
