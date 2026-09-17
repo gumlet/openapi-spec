@@ -22132,7 +22132,7 @@
             }
           }
         },
-        "x-scalar-method-name": "deleteMany"
+        "x-scalar-method-name": "delete_many"
       }
     },
     "/video/assets/bulk/tag": {
