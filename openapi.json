@@ -22310,7 +22310,7 @@
         }
       }
     },
-    "/v1/video/assets/{asset_id}/analytics": {
+    "/video/assets/{asset_id}/analytics": {
       "post": {
         "parameters": [
           {
@@ -22822,7 +22822,7 @@
         }
       }
     },
-    "/v1/channel/{workspace_id}/viewers": {
+    "/channel/{workspace_id}/viewers": {
       "get": {
         "responses": {
           "200": {
