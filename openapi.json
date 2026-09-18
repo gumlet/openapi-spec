@@ -20216,7 +20216,7 @@
       "post": {
         "summary": "Viewer Analytics",
         "description": "This endpoint retrieves viewer analytics data. This endpoint is use for deep insights on the analytics data.",
-        "operationId": "insights-chart-data",
+        "operationId": "analytics-chart-data",
         "requestBody": {
           "content": {
             "application/json": {
@@ -20621,7 +20621,7 @@
       "post": {
         "summary": "Breakdown Data",
         "description": "This endpoint retrieves breakdown data of the given metrics by given breakdown field",
-        "operationId": "insights-breakdown-data",
+        "operationId": "analytics-breakdown-data",
         "requestBody": {
           "content": {
             "application/json": {
@@ -20990,7 +20990,7 @@
       "post": {
         "summary": "Aggregated Data",
         "description": "This endpoint retrieves aggregated data of the given metrics.",
-        "operationId": "insights-aggregated-data",
+        "operationId": "analytics-aggregated-data",
         "requestBody": {
           "content": {
             "application/json": {
