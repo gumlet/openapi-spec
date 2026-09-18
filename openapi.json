@@ -16144,7 +16144,8 @@
                           "safd.com",
                           "sd.com"
                         ]
-                      }
+                      },
+                      "insights_enabled": true
                     }
                   }
                 },
@@ -16724,11 +16725,7 @@
             "description": "200",
             "content": {
               "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": {}
-                  }
-                },
+                "examples": {},
                 "schema": {
                   "type": "object",
                   "properties": {
@@ -23884,12 +23881,6 @@
       ]
     },
     {
-      "name": "Webhooks",
-      "tags": [
-        "Webhooks"
-      ]
-    },
-    {
       "name": "Image APIs",
       "tags": [
         "Image Sources",
@@ -23900,6 +23891,12 @@
       "name": "Video Analytics",
       "tags": [
         "Video Analytics"
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "tags": [
+        "Webhooks"
       ]
     },
     {
