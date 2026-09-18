@@ -23484,6 +23484,81 @@
         "operationId": "fetch-upcoming-invoice",
         "description": "Get details about upcoming invoice."
       }
+    },
+    "/video/sources/live": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "all_live_sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "description": "Collection ID"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Live stream collection name"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "Creation time in ISO 8601 timestamp",
+                            "format": "date-time"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "format": "date-time",
+                            "description": "Update time in ISO 8601 timestamp"
+                          },
+                          "video_source_id": {
+                            "type": "string",
+                            "description": "Video workspace ID that is attached to this collection. Once the live stream completes, the video gets stored in this workspace for long-term storage."
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "_id",
+                          "name",
+                          "created_at",
+                          "updated_at",
+                          "video_source_id"
+                        ],
+                        "required": [
+                          "_id",
+                          "name",
+                          "created_at",
+                          "updated_at",
+                          "video_source_id"
+                        ]
+                      },
+                      "description": "List of all live stream collections"
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "all_live_sources"
+                  ],
+                  "required": [
+                    "all_live_sources"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "List Collections",
+        "tags": [
+          "Live Stream Collections"
+        ],
+        "operationId": "live-stream-collections",
+        "description": "List all live stream collections"
+      }
     }
   },
   "tags": [
@@ -23518,6 +23593,10 @@
     {
       "name": "Live Stream Assets",
       "description": "Create, control, and monitor live stream assets."
+    },
+    {
+      "name": "Live Stream Collections",
+      "description": "Create and manage live stream collections."
     },
     {
       "name": "Multipart Upload",
@@ -23589,6 +23668,7 @@
     {
       "name": "Live Streams",
       "tags": [
+        "Live Stream Collections",
         "Live Stream Assets"
       ]
     },
