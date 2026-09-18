@@ -23559,6 +23559,113 @@
         "operationId": "live-stream-collections",
         "description": "List all live stream collections"
       }
+    },
+    "/video/sources/live/{live_collection_id}": {
+      "post": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "live_collection_id",
+            "description": "Live stream collection ID.",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get updated collection details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_id": {
+                      "type": "string",
+                      "description": "LIve stream collection ID"
+                    },
+                    "sourceName": {
+                      "type": "string",
+                      "description": "Name of this live stream collection"
+                    },
+                    "deleted": {
+                      "type": "boolean",
+                      "description": "Flag indicating whether the collection is deleted"
+                    },
+                    "org": {
+                      "type": "string",
+                      "description": "Organization ID for this collection"
+                    },
+                    "createdAt": {
+                      "type": "string",
+                      "description": "Creation timestamp in ISO 8601 format",
+                      "format": "date-time"
+                    },
+                    "videoSourceId": {
+                      "type": "string",
+                      "description": "Video workspace ID that is attached to this live collection."
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "_id",
+                    "sourceName",
+                    "deleted",
+                    "org",
+                    "createdAt",
+                    "videoSourceId"
+                  ],
+                  "required": [
+                    "_id",
+                    "sourceName",
+                    "deleted",
+                    "org",
+                    "createdAt",
+                    "videoSourceId"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update Collection",
+        "tags": [
+          "Live Stream Collections"
+        ],
+        "operationId": "live-stream-collection-update",
+        "description": "Update live stream collection.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Live stream collection name"
+                  },
+                  "video_source_id": {
+                    "type": "string",
+                    "description": "Video on demand workspace ID"
+                  }
+                },
+                "x-apidog-orders": [
+                  "name",
+                  "video_source_id"
+                ]
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {
+                    "name": "live-stream-collections",
+                    "video_source_id": "67bea1d66ca0059a95bf7de9"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "tags": [
