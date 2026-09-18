@@ -23502,7 +23502,7 @@
                         "properties": {
                           "name": {
                             "type": "string",
-                            "description": "Live stream collection name"
+                            "description": "Live stream workspace name"
                           },
                           "created_at": {
                             "type": "string",
@@ -23520,7 +23520,7 @@
                           },
                           "id": {
                             "type": "string",
-                            "description": "Collection ID"
+                            "description": "Workspace ID"
                           }
                         },
                         "x-apidog-orders": [
@@ -23552,15 +23552,15 @@
             }
           }
         },
-        "summary": "List Collections",
+        "summary": "List Workspaces",
         "tags": [
-          "Live Stream Collections"
+          "Live Stream Workspaces"
         ],
-        "operationId": "live-stream-collections",
-        "description": "List all live stream collections"
+        "operationId": "list-live-workspaces",
+        "description": "List all live stream workspaces."
       },
       "post": {
-        "summary": "Create Collection",
+        "summary": "Create Workspace",
         "responses": {
           "200": {
             "description": "Successful response",
@@ -23571,7 +23571,7 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "description": "LIve stream collection ID"
+                      "description": "LIve stream workspace ID"
                     },
                     "video_workspace_id": {
                       "type": "string",
@@ -23584,7 +23584,7 @@
                     },
                     "name": {
                       "type": "string",
-                      "description": "Name of the live stream collection"
+                      "description": "Name of the live stream workspace"
                     },
                     "updated_at": {
                       "type": "string",
@@ -23610,11 +23610,11 @@
             }
           }
         },
-        "operationId": "live-stream-collection-create",
+        "operationId": "live-workspace-create",
         "tags": [
-          "Live Stream Collections"
+          "Live Stream Workspaces"
         ],
-        "description": "Create live stream collection.",
+        "description": "Create live stream workspace.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -23638,13 +23638,13 @@
         }
       }
     },
-    "/video/sources/live/{live_collection_id}": {
+    "/video/sources/live/{live_workspace_id}": {
       "post": {
         "parameters": [
           {
             "in": "path",
-            "name": "live_collection_id",
-            "description": "Live stream collection ID.",
+            "name": "live_workspace_id",
+            "description": "Live stream workspace ID.",
             "schema": {
               "type": "string"
             },
@@ -23661,7 +23661,7 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "description": "LIve stream collection ID"
+                      "description": "LIve stream workspace ID"
                     },
                     "video_workspace_id": {
                       "type": "string",
@@ -23674,7 +23674,7 @@
                     },
                     "name": {
                       "type": "string",
-                      "description": "Name of the live stream collection"
+                      "description": "Name of the live stream workspace"
                     },
                     "updated_at": {
                       "type": "string",
@@ -23700,12 +23700,12 @@
             }
           }
         },
-        "summary": "Update Collection",
+        "summary": "Update Workspace",
         "tags": [
-          "Live Stream Collections"
+          "Live Stream Workspaces"
         ],
-        "operationId": "live-stream-collection-update",
-        "description": "Update live stream collection.",
+        "operationId": "live-workspace-update",
+        "description": "Update live stream workspace.",
         "requestBody": {
           "content": {
             "application/json": {
@@ -23742,8 +23742,8 @@
         "parameters": [
           {
             "in": "path",
-            "name": "live_collection_id",
-            "description": "Live stream collection ID.",
+            "name": "live_workspace_id",
+            "description": "Live stream workspace ID.",
             "schema": {
               "type": "string"
             },
@@ -23764,11 +23764,11 @@
             }
           }
         },
-        "operationId": "live-stream-collection-delete",
+        "operationId": "live-workspace-delete",
         "tags": [
-          "Live Stream Collections"
+          "Live Stream Workspaces"
         ],
-        "description": "Delete the live stream collection."
+        "description": "Delete the live stream workspace."
       }
     }
   },
@@ -23806,8 +23806,8 @@
       "description": "Create, control, and monitor live stream assets."
     },
     {
-      "name": "Live Stream Collections",
-      "description": "Create and manage live stream collections."
+      "name": "Live Stream Workspaces",
+      "description": "Create and manage live stream workspaces."
     },
     {
       "name": "Multipart Upload",
@@ -23879,7 +23879,7 @@
     {
       "name": "Live Streams",
       "tags": [
-        "Live Stream Collections",
+        "Live Stream Workspaces",
         "Live Stream Assets"
       ]
     },
