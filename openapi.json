@@ -23750,7 +23750,7 @@
             "required": true
           }
         ],
-        "summary": "Delete Collection",
+        "summary": "Delete Workspace",
         "responses": {
           "200": {
             "description": "Successful response",
