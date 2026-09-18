@@ -20605,7 +20605,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Data API"
+          "Video Analytics"
         ],
         "servers": [
           {
@@ -20977,7 +20977,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Data API"
+          "Video Analytics"
         ],
         "servers": [
           {
@@ -21255,7 +21255,7 @@
         },
         "deprecated": false,
         "tags": [
-          "Data API"
+          "Video Analytics"
         ],
         "servers": [
           {
@@ -23504,10 +23504,6 @@
       "description": "Invite and remove viewers on a private video channel."
     },
     {
-      "name": "Data API",
-      "description": "Query aggregated and chart-ready analytics/insights data."
-    },
-    {
       "name": "Folders",
       "description": "Organize video assets into folders within a workspace."
     },
@@ -23544,6 +23540,10 @@
       "description": "Endpoints to get user details."
     },
     {
+      "name": "Video Analytics",
+      "description": "Query aggregated and chart-ready video analytics data."
+    },
+    {
       "name": "Video Assets",
       "description": "Upload, manage, and retrieve video assets, including thumbnails, subtitles, audio tracks, and chapters."
     },
@@ -23570,7 +23570,7 @@
   ],
   "x-tagGroups": [
     {
-      "name": "Video API",
+      "name": "Video on Demand",
       "tags": [
         "Video Assets",
         "Multipart Upload",
@@ -23595,7 +23595,7 @@
     {
       "name": "Webhooks",
       "tags": [
-        "Webhook APIs"
+        "Webhooks"
       ]
     },
     {
@@ -23606,9 +23606,9 @@
       ]
     },
     {
-      "name": "Video Analytics API",
+      "name": "Video Analytics",
       "tags": [
-        "Data API"
+        "Video Analytics"
       ]
     },
     {
