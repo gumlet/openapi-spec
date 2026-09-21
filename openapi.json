@@ -1934,41 +1934,61 @@
                   "properties": {
                     "asset_id": {
                       "type": "string",
-                      "example": "67e4ece9403562dbea654261"
+                      "examples": [
+                        "67e4ece9403562dbea654261"
+                      ]
                     },
                     "progress": {
                       "type": "integer",
-                      "example": 100,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        100
+                      ]
                     },
                     "created_at": {
                       "type": "integer",
-                      "example": 1743056105661,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        1743056105661
+                      ],
+                      "format": "int64",
+                      "description": "Asset created timestamp in milliseconds since epoch"
                     },
                     "updated_at": {
                       "type": "integer",
-                      "example": 1743056105661,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        1743056105661
+                      ],
+                      "format": "int64",
+                      "description": "Asset updated timestamp in milliseconds since epoch"
                     },
                     "status": {
                       "type": "string",
-                      "example": "ready"
+                      "examples": [
+                        "ready"
+                      ]
                     },
                     "tag": {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": "demo"
+                        "examples": [
+                          "demo"
+                        ]
                       }
                     },
                     "source_id": {
                       "type": "string",
-                      "example": "67e4ece9403562dbea65425f"
+                      "examples": [
+                        "67e4ece9403562dbea65425f"
+                      ]
                     },
                     "collection_id": {
                       "type": "string",
-                      "example": "67e4ece9403562dbea65425f"
+                      "examples": [
+                        "67e4ece9403562dbea65425f"
+                      ]
                     },
                     "input": {
                       "type": "object",
@@ -1978,27 +1998,35 @@
                           "properties": {
                             "format": {
                               "type": "string",
-                              "example": "abr"
+                              "examples": [
+                                "abr"
+                              ]
                             },
                             "resolution": {
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "example": "240p"
+                                "examples": [
+                                  "240p"
+                                ]
                               }
                             },
                             "audio_codec": {
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "example": "aac"
+                                "examples": [
+                                  "aac"
+                                ]
                               }
                             },
                             "video_codec": {
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "example": "libx264"
+                                "examples": [
+                                  "libx264"
+                                ]
                               }
                             },
                             "image_overlay": {
@@ -2006,109 +2034,191 @@
                               "properties": {
                                 "url": {
                                   "type": "string",
-                                  "example": "https://demo.gumlet.io/logo.png"
+                                  "examples": [
+                                    "https://demo.gumlet.io/logo.png"
+                                  ]
                                 },
                                 "vertical_align": {
                                   "type": "string",
-                                  "example": "top"
+                                  "examples": [
+                                    "top"
+                                  ]
                                 },
                                 "horizontal_align": {
                                   "type": "string",
-                                  "example": "right"
+                                  "examples": [
+                                    "right"
+                                  ]
                                 },
                                 "vertical_margin": {
                                   "type": "string",
-                                  "example": "5%"
+                                  "examples": [
+                                    "5%"
+                                  ]
                                 },
                                 "horizontal_margin": {
                                   "type": "string",
-                                  "example": "5%"
+                                  "examples": [
+                                    "5%"
+                                  ]
                                 },
                                 "width": {
                                   "type": "string",
-                                  "example": "20%"
+                                  "examples": [
+                                    "20%"
+                                  ]
                                 },
                                 "height": {
                                   "type": "string",
-                                  "example": "20%"
+                                  "examples": [
+                                    "20%"
+                                  ]
                                 },
                                 "image_downloaded": {
                                   "type": "boolean",
-                                  "example": true,
-                                  "default": true
+                                  "default": true,
+                                  "examples": [
+                                    true
+                                  ]
                                 }
-                              }
+                              },
+                              "x-apidog-orders": [
+                                "url",
+                                "vertical_align",
+                                "horizontal_align",
+                                "vertical_margin",
+                                "horizontal_margin",
+                                "width",
+                                "height",
+                                "image_downloaded"
+                              ]
                             },
                             "thumbnail": {
                               "type": "array",
                               "items": {
                                 "type": "string",
-                                "example": "auto"
+                                "examples": [
+                                  "auto"
+                                ]
                               }
                             },
                             "thumbnail_format": {
                               "type": "string",
-                              "example": "png"
+                              "examples": [
+                                "png"
+                              ]
                             },
                             "mp4_access": {
                               "type": "boolean",
-                              "example": false,
-                              "default": true
+                              "default": true,
+                              "examples": [
+                                false
+                              ]
                             },
                             "audio_only": {
                               "type": "boolean",
-                              "example": false,
-                              "default": true
+                              "default": true,
+                              "examples": [
+                                false
+                              ]
                             },
                             "original_deleted": {
                               "type": "boolean",
-                              "example": true,
-                              "default": true
+                              "default": true,
+                              "examples": [
+                                true
+                              ]
                             },
                             "per_title_encoding": {
                               "type": "boolean",
-                              "example": false,
-                              "default": true
+                              "default": true,
+                              "examples": [
+                                false
+                              ]
                             },
                             "generate_subtitles": {
                               "type": "object",
                               "properties": {
                                 "audio_language": {
                                   "type": "string",
-                                  "example": "en"
+                                  "examples": [
+                                    "en"
+                                  ]
                                 },
                                 "subtitle_languages": {
                                   "type": "array",
                                   "items": {
                                     "type": "string",
-                                    "example": "es"
+                                    "examples": [
+                                      "es"
+                                    ]
                                   }
                                 }
-                              }
+                              },
+                              "x-apidog-orders": [
+                                "audio_language",
+                                "subtitle_languages"
+                              ]
                             },
                             "preview_thumbnails": {
                               "type": "object",
                               "properties": {
                                 "max_tiles": {
                                   "type": "integer",
-                                  "example": 100,
-                                  "default": 0
+                                  "default": 0,
+                                  "examples": [
+                                    100
+                                  ]
                                 }
-                              }
+                              },
+                              "x-apidog-orders": [
+                                "max_tiles"
+                              ]
+                            },
+                            "pre_processing_successful": {
+                              "type": "boolean",
+                              "description": "Flag indicating if the pre-processing was successful"
+                            },
+                            "generate_chapters": {
+                              "type": "boolean",
+                              "description": "Flag if chapter generation is enabled"
                             }
-                          }
+                          },
+                          "x-apidog-orders": [
+                            "format",
+                            "pre_processing_successful",
+                            "generate_chapters",
+                            "resolution",
+                            "audio_codec",
+                            "video_codec",
+                            "image_overlay",
+                            "thumbnail",
+                            "thumbnail_format",
+                            "mp4_access",
+                            "audio_only",
+                            "original_deleted",
+                            "per_title_encoding",
+                            "generate_subtitles",
+                            "preview_thumbnails"
+                          ]
                         },
                         "profile_id": {
                           "type": "string",
-                          "example": "67e4ece9403562dbea65425c"
+                          "examples": [
+                            "67e4ece9403562dbea65425c"
+                          ]
                         },
                         "title": {
                           "type": "string",
-                          "example": " Sample Video"
+                          "examples": [
+                            " Sample Video"
+                          ]
                         },
                         "description": {
                           "type": "string",
-                          "example": "This is a sample video to help you experience Gumlet platform and player."
+                          "examples": [
+                            "This is a sample video to help you experience Gumlet platform and player."
+                          ]
                         },
                         "chapters": {
                           "type": "array",
@@ -2117,75 +2227,121 @@
                             "properties": {
                               "endTime": {
                                 "type": "integer",
-                                "example": 10,
-                                "default": 0
+                                "default": 0,
+                                "examples": [
+                                  10
+                                ]
                               },
                               "label": {
                                 "type": "string",
-                                "example": "First Chapter"
+                                "examples": [
+                                  "First Chapter"
+                                ]
                               }
-                            }
+                            },
+                            "x-apidog-orders": [
+                              "endTime",
+                              "label"
+                            ]
                           }
                         },
                         "source_url": {
                           "type": "string",
-                          "example": "5f462c1561cf8a766464ffc4/647eb18cc90c6c6c35370979/origin-647eb18cc90c6c6c35370979"
+                          "examples": [
+                            "5f462c1561cf8a766464ffc4/647eb18cc90c6c6c35370979/origin-647eb18cc90c6c6c35370979"
+                          ]
                         },
                         "size": {
                           "type": "integer",
-                          "example": 364735178,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            364735178
+                          ]
                         },
                         "duration": {
                           "type": "number",
-                          "example": 183.088,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            183.088
+                          ]
                         },
                         "aspect_ratio": {
                           "type": "string",
-                          "example": "16:9"
+                          "examples": [
+                            "16:9"
+                          ]
                         },
                         "fps": {
                           "type": "number",
-                          "example": 23.98,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            23.98
+                          ]
                         },
                         "width": {
                           "type": "integer",
-                          "example": 3840,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            3840
+                          ]
                         },
                         "height": {
                           "type": "integer",
-                          "example": 2160,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            2160
+                          ]
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "transformations",
+                        "profile_id",
+                        "title",
+                        "description",
+                        "chapters",
+                        "source_url",
+                        "size",
+                        "duration",
+                        "aspect_ratio",
+                        "fps",
+                        "width",
+                        "height"
+                      ]
                     },
                     "output": {
                       "type": "object",
                       "properties": {
                         "format": {
                           "type": "string",
-                          "example": "abr"
+                          "examples": [
+                            "abr"
+                          ]
                         },
                         "status_url": {
                           "type": "string",
-                          "example": "https://api.gumlet.com/v1/video/assets/67e4ece9403562dbea654261"
+                          "examples": [
+                            "https://api.gumlet.com/v1/video/assets/67e4ece9403562dbea654261"
+                          ]
                         },
                         "playback_url": {
                           "type": "string",
-                          "example": "https://video.gumlet.io/67e4ece9403562dbea65425f/67e4ece9403562dbea654261/main.m3u8"
+                          "examples": [
+                            "https://video.gumlet.io/67e4ece9403562dbea65425f/67e4ece9403562dbea654261/main.m3u8"
+                          ]
                         },
                         "dash_playback_url": {
                           "type": "string",
-                          "example": "https://video.gumlet.io/67e4ece9403562dbea65425f/67e4ece9403562dbea654261/main.mpd"
+                          "examples": [
+                            "https://video.gumlet.io/67e4ece9403562dbea65425f/67e4ece9403562dbea654261/main.mpd"
+                          ]
                         },
                         "thumbnail_url": {
                           "type": "array",
                           "items": {
                             "type": "string",
-                            "example": "https://video.gumlet.io/67e4ece9403562dbea65425f/67e4ece9403562dbea654261/thumbnail-1-0.png?v=1743056105661"
+                            "examples": [
+                              "https://video.gumlet.io/67e4ece9403562dbea65425f/67e4ece9403562dbea654261/thumbnail-1-0.png?v=1743056105661"
+                            ]
                           }
                         },
                         "storage_details": {
@@ -2198,23 +2354,37 @@
                                 "properties": {
                                   "fileName": {
                                     "type": "string",
-                                    "example": "1080p.mp4"
+                                    "examples": [
+                                      "1080p.mp4"
+                                    ]
                                   },
                                   "size": {
                                     "type": "integer",
-                                    "example": 91884957,
-                                    "default": 0
+                                    "default": 0,
+                                    "examples": [
+                                      91884957
+                                    ]
                                   },
                                   "resolution": {
                                     "type": "string",
-                                    "example": "1920x1080"
+                                    "examples": [
+                                      "1920x1080"
+                                    ]
                                   },
                                   "duration": {
                                     "type": "integer",
-                                    "example": 183,
-                                    "default": 0
+                                    "default": 0,
+                                    "examples": [
+                                      183
+                                    ]
                                   }
-                                }
+                                },
+                                "x-apidog-orders": [
+                                  "fileName",
+                                  "size",
+                                  "resolution",
+                                  "duration"
+                                ]
                               }
                             },
                             "audio": {
@@ -2224,19 +2394,30 @@
                                 "properties": {
                                   "fileName": {
                                     "type": "string",
-                                    "example": "en_128k.mp4"
+                                    "examples": [
+                                      "en_128k.mp4"
+                                    ]
                                   },
                                   "size": {
                                     "type": "integer",
-                                    "example": 2913025,
-                                    "default": 0
+                                    "default": 0,
+                                    "examples": [
+                                      2913025
+                                    ]
                                   },
                                   "duration": {
                                     "type": "integer",
-                                    "example": 183,
-                                    "default": 0
+                                    "default": 0,
+                                    "examples": [
+                                      183
+                                    ]
                                   }
-                                }
+                                },
+                                "x-apidog-orders": [
+                                  "fileName",
+                                  "size",
+                                  "duration"
+                                ]
                               }
                             },
                             "playlist": {
@@ -2246,14 +2427,22 @@
                                 "properties": {
                                   "fileName": {
                                     "type": "string",
-                                    "example": "1080p.m3u8"
+                                    "examples": [
+                                      "1080p.m3u8"
+                                    ]
                                   },
                                   "size": {
                                     "type": "integer",
-                                    "example": 3790,
-                                    "default": 0
+                                    "default": 0,
+                                    "examples": [
+                                      3790
+                                    ]
                                   }
-                                }
+                                },
+                                "x-apidog-orders": [
+                                  "fileName",
+                                  "size"
+                                ]
                               }
                             },
                             "thumbnail": {
@@ -2263,18 +2452,29 @@
                                 "properties": {
                                   "fileName": {
                                     "type": "string",
-                                    "example": "thumbnail-1-0.png"
+                                    "examples": [
+                                      "thumbnail-1-0.png"
+                                    ]
                                   },
                                   "size": {
                                     "type": "integer",
-                                    "example": 6087369,
-                                    "default": 0
+                                    "default": 0,
+                                    "examples": [
+                                      6087369
+                                    ]
                                   },
                                   "resolution": {
                                     "type": "string",
-                                    "example": "3840x2160"
+                                    "examples": [
+                                      "3840x2160"
+                                    ]
                                   }
-                                }
+                                },
+                                "x-apidog-orders": [
+                                  "fileName",
+                                  "size",
+                                  "resolution"
+                                ]
                               }
                             },
                             "subtitle": {
@@ -2284,14 +2484,22 @@
                                 "properties": {
                                   "fileName": {
                                     "type": "string",
-                                    "example": "es.vtt"
+                                    "examples": [
+                                      "es.vtt"
+                                    ]
                                   },
                                   "size": {
                                     "type": "integer",
-                                    "example": 398,
-                                    "default": 0
+                                    "default": 0,
+                                    "examples": [
+                                      398
+                                    ]
                                   }
-                                }
+                                },
+                                "x-apidog-orders": [
+                                  "fileName",
+                                  "size"
+                                ]
                               }
                             },
                             "previewThumbnail": {
@@ -2301,41 +2509,78 @@
                                 "properties": {
                                   "fileName": {
                                     "type": "string",
-                                    "example": "preview_thumbnails.png"
+                                    "examples": [
+                                      "preview_thumbnails.png"
+                                    ]
                                   },
                                   "size": {
                                     "type": "integer",
-                                    "example": 3089899,
-                                    "default": 0
+                                    "default": 0,
+                                    "examples": [
+                                      3089899
+                                    ]
                                   }
-                                }
+                                },
+                                "x-apidog-orders": [
+                                  "fileName",
+                                  "size"
+                                ]
                               }
                             }
-                          }
+                          },
+                          "x-apidog-orders": [
+                            "video",
+                            "audio",
+                            "playlist",
+                            "thumbnail",
+                            "subtitle",
+                            "previewThumbnail"
+                          ]
                         },
                         "transcription_word_level_timestamps": {
                           "type": "string",
-                          "example": "https://video.gumlet.io/67e4ece9403562dbea65425f/67e4ece9403562dbea654261/67e4ece9403562dbea654261-transcription-word-level-timestamp.json?token=5589a9b725fabe0586e37782c3eb8e083a84e5c2&expires=1744100014337"
+                          "examples": [
+                            "https://video.gumlet.io/67e4ece9403562dbea65425f/67e4ece9403562dbea654261/67e4ece9403562dbea654261-transcription-word-level-timestamp.json?token=5589a9b725fabe0586e37782c3eb8e083a84e5c2&expires=1744100014337"
+                          ]
                         },
                         "storage_bytes": {
                           "type": "integer",
-                          "example": 674034917,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            674034917
+                          ]
                         },
                         "preview_thumbnails_url": {
                           "type": "string",
-                          "example": "https://video.gumlet.io/67e4ece9403562dbea65425f/67e4ece9403562dbea654261/preview_thumbnails.vtt"
+                          "examples": [
+                            "https://video.gumlet.io/67e4ece9403562dbea65425f/67e4ece9403562dbea654261/preview_thumbnails.vtt"
+                          ]
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "format",
+                        "status_url",
+                        "playback_url",
+                        "dash_playback_url",
+                        "thumbnail_url",
+                        "storage_details",
+                        "transcription_word_level_timestamps",
+                        "storage_bytes",
+                        "preview_thumbnails_url"
+                      ]
                     },
                     "processed_at": {
                       "type": "integer",
-                      "example": 1743056105661,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        1743056105661
+                      ]
                     },
                     "folder": {
                       "type": "string",
-                      "example": "Demo Folder"
+                      "examples": [
+                        "Demo Folder"
+                      ]
                     },
                     "playlists": {
                       "type": "array",
@@ -2346,8 +2591,115 @@
                         },
                         "type": "string"
                       }
+                    },
+                    "thumbnail_updated_at": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "Thumbnail updated timestamp in milliseconds since epoch"
+                    },
+                    "collection_updated_at": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "Collection updated timestamp in milliseconds since epoch"
+                    },
+                    "warning": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "description": "Warning code for the asset"
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human friendly warning message"
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "code",
+                          "message"
+                        ],
+                        "required": [
+                          "code",
+                          "message"
+                        ]
+                      }
+                    },
+                    "audioOnly": {
+                      "type": "boolean",
+                      "description": "If `true` the asset is audio only"
+                    },
+                    "video_protection": {
+                      "type": "object",
+                      "properties": {
+                        "signed_url": {
+                          "type": "boolean",
+                          "description": "Flag is signed URL is enabled for this asset"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "signed_url"
+                      ]
+                    },
+                    "access_control": {
+                      "type": "string",
+                      "description": "Access control",
+                      "enum": [
+                        "private",
+                        "public",
+                        "password",
+                        "dashboardOnly"
+                      ],
+                      "x-apidog-enum": [
+                        {
+                          "value": "private",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "public",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "password",
+                          "name": "",
+                          "description": ""
+                        },
+                        {
+                          "value": "dashboardOnly",
+                          "name": "",
+                          "description": ""
+                        }
+                      ]
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "asset_id",
+                    "progress",
+                    "created_at",
+                    "updated_at",
+                    "thumbnail_updated_at",
+                    "collection_updated_at",
+                    "status",
+                    "tag",
+                    "source_id",
+                    "collection_id",
+                    "input",
+                    "output",
+                    "processed_at",
+                    "folder",
+                    "playlists",
+                    "warning",
+                    "audioOnly",
+                    "video_protection",
+                    "access_control"
+                  ],
+                  "required": [
+                    "asset_id",
+                    "collection_updated_at"
+                  ]
                 }
               }
             }
@@ -6222,25 +6574,44 @@
                     "properties": {
                       "id": {
                         "type": "string",
-                        "example": "6566ebd57499c676fe302bfc"
+                        "examples": [
+                          "6566ebd57499c676fe302bfc"
+                        ]
                       },
                       "collection_id": {
                         "type": "string",
-                        "example": "646df1c9173a4a2fcac180b4"
+                        "examples": [
+                          "646df1c9173a4a2fcac180b4"
+                        ]
                       },
                       "title": {
                         "type": "string",
-                        "example": "Playlist-1"
+                        "examples": [
+                          "Playlist-1"
+                        ]
                       },
                       "description": {
                         "type": "string",
-                        "example": "This is updated description"
+                        "examples": [
+                          "This is updated description"
+                        ]
                       },
                       "player_config": {
                         "type": "object",
-                        "properties": {}
+                        "properties": {},
+                        "x-apidog-orders": []
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "id",
+                      "collection_id",
+                      "title",
+                      "description",
+                      "player_config"
+                    ],
+                    "required": [
+                      "id"
+                    ]
                   }
                 }
               }
