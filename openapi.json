@@ -42,17 +42,13 @@
                 "type": "object",
                 "required": [
                   "input",
-                  "collection_id",
+                  "workspace_id",
                   "format"
                 ],
                 "properties": {
                   "input": {
                     "type": "string",
                     "description": "URL or web address of a file that Gumlet should download to create a new asset."
-                  },
-                  "collection_id": {
-                    "type": "string",
-                    "description": "Gumlet video workspace id."
                   },
                   "profile_id": {
                     "type": "string",
@@ -88,7 +84,8 @@
                     "type": "object",
                     "description": "Add your metadata you want to associate with this asset.<br/> Example: <br/> <code>  {  \"internal_video_id\" : \"123Abc\"  }  </code>",
                     "additionalProperties": {},
-                    "properties": {}
+                    "properties": {},
+                    "x-apidog-orders": []
                   },
                   "width": {
                     "type": "string",
@@ -126,7 +123,13 @@
                         "type": "string",
                         "description": "Height of the cropping area in pixels."
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "horizontal_margin",
+                      "vertical_margin",
+                      "width",
+                      "height"
+                    ]
                   },
                   "pad": {
                     "type": "object",
@@ -152,7 +155,14 @@
                         "type": "string",
                         "description": "Color of padding area. **Default: `black`**"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "top",
+                      "left",
+                      "bottom",
+                      "right",
+                      "color"
+                    ]
                   },
                   "trim": {
                     "type": "object",
@@ -177,7 +187,12 @@
                         "description": "Duration can be used in conjunction with `start_offset` parameter, can be specified in number of seconds.",
                         "format": "float"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "start_offset",
+                      "end_offset",
+                      "duration"
+                    ]
                   },
                   "image_overlay": {
                     "type": "object",
@@ -214,7 +229,16 @@
                         "type": "string",
                         "description": "Height of the overlayed image. **Default: `image height`**"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "url",
+                      "horizontal_margin",
+                      "vertical_margin",
+                      "horizontal_align",
+                      "vertical_align",
+                      "width",
+                      "height"
+                    ]
                   },
                   "text_overlay": {
                     "type": "object",
@@ -275,7 +299,22 @@
                         "type": "string",
                         "description": "Padding between the box border and the text can be specified with this parameter in pixels. **Default: `0`**"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "text",
+                      "horizontal_align",
+                      "vertical_align",
+                      "horizontal_margin",
+                      "vertical_margin",
+                      "color",
+                      "font",
+                      "font_size",
+                      "opacity",
+                      "box",
+                      "box_color",
+                      "box_opacity",
+                      "box_border"
+                    ]
                   },
                   "animated_gif": {
                     "type": "object",
@@ -301,7 +340,14 @@
                         "type": "string",
                         "description": "The frame rate of the generated GIF. Defaults to `15` fps. Max `30` fps."
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "start_offset",
+                      "end_offset",
+                      "width",
+                      "height",
+                      "fps"
+                    ]
                   },
                   "additional_tracks": {
                     "type": "array",
@@ -330,7 +376,13 @@
                           "type": "string",
                           "description": "The name of the track containing a human-readable description."
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "url",
+                        "type",
+                        "language_code",
+                        "name"
+                      ]
                     }
                   },
                   "generate_subtitles": {
@@ -345,7 +397,11 @@
                         "type": "string",
                         "description": "Comma separated string of language codes for which subtitle needs to be generated. Maximum four language codes are allowed."
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "audio_language",
+                      "subtitle_languages"
+                    ]
                   },
                   "mp4_access": {
                     "type": "boolean",
@@ -405,7 +461,17 @@
                           "description": "number of pixels from right",
                           "format": "int32"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "text",
+                        "url",
+                        "start_time",
+                        "end_time",
+                        "font_color",
+                        "background_color",
+                        "position_from_top",
+                        "position_from_right"
+                      ]
                     }
                   },
                   "playlist_id": {
@@ -415,14 +481,47 @@
                   "folder": {
                     "type": "string",
                     "description": "Add this asset to an existing folder by `folder_id`."
+                  },
+                  "workspace_id": {
+                    "type": "string",
+                    "description": "Gumlet video workspace id."
                   }
-                }
+                },
+                "x-apidog-orders": [
+                  "input",
+                  "workspace_id",
+                  "profile_id",
+                  "format",
+                  "tag",
+                  "title",
+                  "description",
+                  "metadata",
+                  "width",
+                  "height",
+                  "resolution",
+                  "crop",
+                  "pad",
+                  "trim",
+                  "image_overlay",
+                  "text_overlay",
+                  "animated_gif",
+                  "additional_tracks",
+                  "generate_subtitles",
+                  "mp4_access",
+                  "per_title_encoding",
+                  "process_low_resolution_input",
+                  "audio_only",
+                  "enable_drm",
+                  "call_to_actions",
+                  "playlist_id",
+                  "folder"
+                ]
               },
               "examples": {
                 "Simple Example": {
                   "value": {
                     "format": "ABR",
-                    "collection_id": "<your workspace id>",
+                    "workspace_id": "<your workspace id>",
                     "title": "Example Title",
                     "input": "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8"
                   }
@@ -430,7 +529,7 @@
                 "Detailed Example": {
                   "value": {
                     "format": "ABR",
-                    "collection_id": "646df1c9173a4a2fcac180b4",
+                    "workspace_id": "646df1c9173a4a2fcac180b4",
                     "input": "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8",
                     "description": "some description",
                     "tag": [
