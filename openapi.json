@@ -1919,6 +1919,7 @@
                       "progress": 100,
                       "created_at": 1743056105661,
                       "updated_at": 1743056105661,
+                      "workspace_updated_at": 1743056105661,
                       "status": "ready",
                       "tag": [
                         "demo"
@@ -2963,11 +2964,6 @@
                       "format": "int64",
                       "description": "Thumbnail updated timestamp in milliseconds since epoch"
                     },
-                    "collection_updated_at": {
-                      "type": "integer",
-                      "format": "int64",
-                      "description": "Collection updated timestamp in milliseconds since epoch"
-                    },
                     "warning": {
                       "type": "array",
                       "items": {
@@ -3051,6 +3047,11 @@
                       "x-apidog-orders": [
                         "password"
                       ]
+                    },
+                    "workspace_updated_at": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "Collection updated timestamp in milliseconds since epoch"
                     }
                   },
                   "x-apidog-orders": [
@@ -3059,7 +3060,7 @@
                     "created_at",
                     "updated_at",
                     "thumbnail_updated_at",
-                    "collection_updated_at",
+                    "workspace_updated_at",
                     "status",
                     "tag",
                     "source_id",
@@ -3077,7 +3078,7 @@
                   ],
                   "required": [
                     "asset_id",
-                    "collection_updated_at",
+                    "workspace_updated_at",
                     "status",
                     "created_at"
                   ]
