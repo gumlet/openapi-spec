@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   push-to-scalar-registry:
-    runs-on: gumlet-self-hosted-4vcpu-x64
+    runs-on: ubuntu-26.04
     timeout-minutes: 10
 
     steps:
