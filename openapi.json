@@ -60,7 +60,7 @@
     },
     "responses": {
       "Unauthorized": {
-        "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+        "description": "Unauthorized — missing or invalid API key / bearer token",
         "content": {
           "application/json": {
             "examples": {
@@ -102,7 +102,7 @@
         }
       },
       "Forbidden": {
-        "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+        "description": "Forbidden — unpaid account or insufficient role permissions",
         "content": {
           "application/json": {
             "examples": {
@@ -144,7 +144,7 @@
         }
       },
       "ValidationError": {
-        "description": "Unprocessable Entity \u2014 request validation failed",
+        "description": "Unprocessable Entity — request validation failed",
         "content": {
           "application/json": {
             "examples": {
@@ -186,7 +186,7 @@
         }
       },
       "TooManyRequests": {
-        "description": "Too Many Requests \u2014 rate limit exceeded",
+        "description": "Too Many Requests — rate limit exceeded",
         "content": {
           "application/json": {
             "examples": {
@@ -638,7 +638,7 @@
                       "subtitle_languages": {
                         "type": "string",
                         "description": "Comma separated string of language codes for which subtitle needs to be generated. Maximum four language codes are allowed."
-                    }
+                      }
                     },
                     "x-apidog-orders": [
                       "audio_language",
@@ -1092,7 +1092,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 missing or invalid parameters",
+            "description": "Bad Request — missing or invalid parameters",
             "content": {
               "application/json": {
                 "examples": {
@@ -1169,7 +1169,7 @@
             }
           },
           "402": {
-            "description": "Payment Required \u2014 unpaid invoices",
+            "description": "Payment Required — unpaid invoices",
             "content": {
               "application/json": {
                 "examples": {
@@ -1211,7 +1211,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -1253,7 +1253,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -2033,7 +2033,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 missing or invalid parameters",
+            "description": "Bad Request — missing or invalid parameters",
             "content": {
               "application/json": {
                 "examples": {
@@ -2110,7 +2110,7 @@
             }
           },
           "402": {
-            "description": "Payment Required \u2014 plan limit exhausted",
+            "description": "Payment Required — plan limit exhausted",
             "content": {
               "application/json": {
                 "examples": {
@@ -2152,7 +2152,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -2194,7 +2194,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -3045,15 +3045,11 @@
                           "examples": [
                             2160
                           ]
-                        },
-                        "file_size": {
-                          "type": "string"
                         }
                       },
                       "x-apidog-orders": [
                         "transformations",
                         "profile_id",
-                        "file_size",
                         "title",
                         "description",
                         "chapters",
@@ -3064,9 +3060,6 @@
                         "fps",
                         "width",
                         "height"
-                      ],
-                      "required": [
-                        "file_size"
                       ]
                     },
                     "output": {
@@ -3489,7 +3482,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 invalid asset ID",
+            "description": "Bad Request — invalid asset ID",
             "content": {
               "application/json": {
                 "examples": {
@@ -3566,7 +3559,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 no access to this asset",
+            "description": "Forbidden — no access to this asset",
             "content": {
               "application/json": {
                 "examples": {
@@ -3684,7 +3677,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 invalid asset ID",
+            "description": "Bad Request — invalid asset ID",
             "content": {
               "application/json": {
                 "examples": {
@@ -3761,7 +3754,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -3993,7 +3986,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 invalid parameters or asset not found",
+            "description": "Bad Request — invalid parameters or asset not found",
             "content": {
               "application/json": {
                 "examples": {
@@ -4035,7 +4028,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -4077,7 +4070,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -4161,7 +4154,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -4333,7 +4326,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -4375,7 +4368,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -4573,7 +4566,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -4615,7 +4608,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -4852,7 +4845,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -4894,7 +4887,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -5106,7 +5099,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -5148,7 +5141,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -5385,7 +5378,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -5427,7 +5420,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -5634,7 +5627,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -5676,7 +5669,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -5858,7 +5851,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 chapter validation failed",
+            "description": "Bad Request — chapter validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -5900,7 +5893,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -5942,7 +5935,7 @@
             }
           },
           "402": {
-            "description": "Payment Required \u2014 unpaid invoices",
+            "description": "Payment Required — unpaid invoices",
             "content": {
               "application/json": {
                 "examples": {
@@ -5984,7 +5977,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -6553,7 +6546,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -6595,7 +6588,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -6819,7 +6812,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -6861,7 +6854,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -7014,7 +7007,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -7056,7 +7049,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -7169,7 +7162,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 multipart upload incomplete or aborted",
+            "description": "Bad Request — multipart upload incomplete or aborted",
             "content": {
               "application/json": {
                 "examples": {
@@ -7201,7 +7194,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -7243,7 +7236,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -7748,7 +7741,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -7790,7 +7783,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -8237,7 +8230,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -8279,7 +8272,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -8867,7 +8860,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -8909,7 +8902,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -9287,7 +9280,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -9409,7 +9402,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 profile linked to workspace",
+            "description": "Bad Request — profile linked to workspace",
             "content": {
               "application/json": {
                 "examples": {
@@ -9486,7 +9479,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -9883,7 +9876,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -9925,7 +9918,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -9967,7 +9960,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -10144,7 +10137,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -10186,7 +10179,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -10374,7 +10367,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -10416,7 +10409,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -10579,7 +10572,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -10621,7 +10614,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -11075,7 +11068,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -11117,7 +11110,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -11216,7 +11209,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -11258,7 +11251,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -11562,7 +11555,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -11604,7 +11597,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -11829,7 +11822,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -11871,7 +11864,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -12115,7 +12108,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -12157,7 +12150,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -12199,7 +12192,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -12316,7 +12309,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -12358,7 +12351,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -12557,7 +12550,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -12599,7 +12592,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -12724,7 +12717,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -12766,7 +12759,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -13318,7 +13311,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -13360,7 +13353,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 feature not on plan",
+            "description": "Forbidden — feature not on plan",
             "content": {
               "application/json": {
                 "examples": {
@@ -13402,7 +13395,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -14170,7 +14163,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -14212,7 +14205,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -15248,7 +15241,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -15290,7 +15283,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -17170,7 +17163,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -17212,7 +17205,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -17379,7 +17372,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -17421,7 +17414,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -17631,7 +17624,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -17673,7 +17666,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -18394,7 +18387,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -18436,7 +18429,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -18731,7 +18724,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 monthly live streaming quota exceeded",
+            "description": "Forbidden — monthly live streaming quota exceeded",
             "content": {
               "application/json": {
                 "examples": {
@@ -18773,7 +18766,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -19054,7 +19047,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -19362,7 +19355,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -19445,7 +19438,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 invalid live asset",
+            "description": "Bad Request — invalid live asset",
             "content": {
               "application/json": {
                 "examples": {
@@ -19487,7 +19480,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 live stream cannot be deleted in preparing state",
+            "description": "Unauthorized — live stream cannot be deleted in preparing state",
             "content": {
               "application/json": {
                 "examples": {
@@ -19529,7 +19522,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -19614,7 +19607,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 invalid live asset",
+            "description": "Bad Request — invalid live asset",
             "content": {
               "application/json": {
                 "examples": {
@@ -19656,7 +19649,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 live stream cannot be completed in preparing state",
+            "description": "Unauthorized — live stream cannot be completed in preparing state",
             "content": {
               "application/json": {
                 "examples": {
@@ -19698,7 +19691,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -20035,7 +20028,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -20112,7 +20105,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 invalid or missing asset ID",
+            "description": "Bad Request — invalid or missing asset ID",
             "content": {
               "application/json": {
                 "examples": {
@@ -20154,7 +20147,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -20196,7 +20189,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -20238,7 +20231,7 @@
             }
           },
           "404": {
-            "description": "Not Found \u2014 asset missing or deleted more than 30 days ago",
+            "description": "Not Found — asset missing or deleted more than 30 days ago",
             "content": {
               "application/json": {
                 "examples": {
@@ -20393,7 +20386,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -20435,7 +20428,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -20636,7 +20629,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -21473,7 +21466,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -21515,7 +21508,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -22274,7 +22267,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -22316,7 +22309,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 feature not available on plan",
+            "description": "Forbidden — feature not available on plan",
             "content": {
               "application/json": {
                 "examples": {
@@ -22358,7 +22351,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -23641,7 +23634,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -23683,7 +23676,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -24298,7 +24291,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -24340,7 +24333,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -24504,7 +24497,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -24546,7 +24539,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -24814,7 +24807,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -24856,7 +24849,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -24898,7 +24891,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -25105,7 +25098,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -25147,7 +25140,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -25352,7 +25345,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -25394,7 +25387,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -25753,7 +25746,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -25795,7 +25788,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -25978,7 +25971,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -26020,7 +26013,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -26232,7 +26225,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -26274,7 +26267,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -27036,7 +27029,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -27078,7 +27071,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -27274,7 +27267,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -27316,7 +27309,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -27483,7 +27476,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -27525,7 +27518,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -27685,7 +27678,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -27727,7 +27720,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -28328,7 +28321,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -28558,7 +28551,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -29000,7 +28993,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -29498,7 +29491,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -29902,7 +29895,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -30109,7 +30102,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -30151,7 +30144,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -30485,7 +30478,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -30527,7 +30520,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -30666,7 +30659,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 org API key not allowed",
+            "description": "Bad Request — org API key not allowed",
             "content": {
               "application/json": {
                 "examples": {
@@ -30708,7 +30701,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -30750,7 +30743,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -30972,7 +30965,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -31014,7 +31007,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -31056,7 +31049,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -31384,7 +31377,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -31426,7 +31419,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -31574,7 +31567,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -31616,7 +31609,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -31818,7 +31811,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -31860,7 +31853,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -32414,7 +32407,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -32456,7 +32449,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -32828,7 +32821,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -32870,7 +32863,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -33080,7 +33073,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -33122,7 +33115,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -33325,7 +33318,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -33367,7 +33360,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -33479,7 +33472,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -33521,7 +33514,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -33674,7 +33667,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -33716,7 +33709,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -33984,7 +33977,7 @@
             }
           },
           "400": {
-            "description": "Bad Request \u2014 no active subscription",
+            "description": "Bad Request — no active subscription",
             "content": {
               "application/json": {
                 "examples": {
@@ -34026,7 +34019,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -34068,7 +34061,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -34227,7 +34220,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -34269,7 +34262,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -34416,7 +34409,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -34458,7 +34451,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 live source limit reached on free/starter plan",
+            "description": "Forbidden — live source limit reached on free/starter plan",
             "content": {
               "application/json": {
                 "examples": {
@@ -34484,7 +34477,7 @@
             }
           },
           "422": {
-            "description": "Unprocessable Entity \u2014 request validation failed",
+            "description": "Unprocessable Entity — request validation failed",
             "content": {
               "application/json": {
                 "examples": {
@@ -34658,7 +34651,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -34700,7 +34693,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -34806,7 +34799,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -34848,7 +34841,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -35107,7 +35100,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -35149,7 +35142,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
@@ -35871,7 +35864,7 @@
             }
           },
           "401": {
-            "description": "Unauthorized \u2014 missing or invalid API key / bearer token",
+            "description": "Unauthorized — missing or invalid API key / bearer token",
             "content": {
               "application/json": {
                 "examples": {
@@ -35913,7 +35906,7 @@
             }
           },
           "403": {
-            "description": "Forbidden \u2014 unpaid account or insufficient role permissions",
+            "description": "Forbidden — unpaid account or insufficient role permissions",
             "content": {
               "application/json": {
                 "examples": {
