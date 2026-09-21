@@ -2648,7 +2648,7 @@
                       "enum": [
                         "private",
                         "public",
-                        "password",
+                        "password-protected",
                         "dashboardOnly"
                       ],
                       "x-apidog-enum": [
@@ -2663,7 +2663,7 @@
                           "description": ""
                         },
                         {
-                          "value": "password",
+                          "value": "password-protected",
                           "name": "",
                           "description": ""
                         },
@@ -6372,112 +6372,185 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "659693cadc46251d898930f2"
+                      "examples": [
+                        "659693cadc46251d898930f2"
+                      ]
                     },
                     "collection_id": {
                       "type": "string",
-                      "example": "646df1c9173a4a2fcac180b4"
+                      "examples": [
+                        "646df1c9173a4a2fcac180b4"
+                      ]
                     },
                     "title": {
                       "type": "string",
-                      "example": "Playlist-Title"
+                      "examples": [
+                        "Playlist-Title"
+                      ]
                     },
                     "description": {
                       "type": "string",
-                      "example": "This is description for playlist."
+                      "examples": [
+                        "This is description for playlist."
+                      ]
                     },
                     "player_config": {
                       "type": "object",
                       "properties": {
                         "preload": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "autoplay": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "disable_seek": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "disable_player_controls": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "powered_by_gumlet_overlay": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "allow_drm_protected_videos": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "loop": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "player_color": {
                           "type": "string",
-                          "example": "#6658ea"
+                          "examples": [
+                            "#6658ea"
+                          ]
                         },
                         "include_seo": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "subtitle_enabled": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "pixel_tags": {
                           "type": "object",
-                          "properties": {}
+                          "properties": {},
+                          "x-apidog-orders": []
                         },
                         "logo_width": {
                           "type": "integer",
-                          "example": 100,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            100
+                          ]
                         },
                         "logo_height": {
                           "type": "integer",
-                          "example": 100,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            100
+                          ]
                         },
                         "dynamic_watermark": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "watermark_font_size": {
                           "type": "integer",
-                          "example": 20,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            20
+                          ]
                         },
                         "watermark_font_color": {
                           "type": "string",
-                          "example": "#ff0000"
+                          "examples": [
+                            "#ff0000"
+                          ]
                         },
                         "watermark_bg_color": {
                           "type": "string",
-                          "example": "transparent"
+                          "examples": [
+                            "transparent"
+                          ]
                         },
                         "watermark_interval": {
                           "type": "integer",
-                          "example": 1000,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            1000
+                          ]
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "preload",
+                        "autoplay",
+                        "disable_seek",
+                        "disable_player_controls",
+                        "powered_by_gumlet_overlay",
+                        "allow_drm_protected_videos",
+                        "loop",
+                        "player_color",
+                        "include_seo",
+                        "subtitle_enabled",
+                        "pixel_tags",
+                        "logo_width",
+                        "logo_height",
+                        "dynamic_watermark",
+                        "watermark_font_size",
+                        "watermark_font_color",
+                        "watermark_bg_color",
+                        "watermark_interval"
+                      ]
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "collection_id",
+                    "title",
+                    "description",
+                    "player_config"
+                  ],
+                  "required": [
+                    "id"
+                  ]
                 }
               }
             }
@@ -7102,112 +7175,185 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "6566ebd57499c676fe302bfc"
+                      "examples": [
+                        "6566ebd57499c676fe302bfc"
+                      ]
                     },
                     "collection_id": {
                       "type": "string",
-                      "example": "646df1c9173a4a2fcac180b4"
+                      "examples": [
+                        "646df1c9173a4a2fcac180b4"
+                      ]
                     },
                     "title": {
                       "type": "string",
-                      "example": "Playlist-Title-Updated"
+                      "examples": [
+                        "Playlist-Title-Updated"
+                      ]
                     },
                     "description": {
                       "type": "string",
-                      "example": "This is updated description"
+                      "examples": [
+                        "This is updated description"
+                      ]
                     },
                     "player_config": {
                       "type": "object",
                       "properties": {
                         "preload": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "autoplay": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "disable_seek": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "disable_player_controls": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "powered_by_gumlet_overlay": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "allow_drm_protected_videos": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "loop": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "player_color": {
                           "type": "string",
-                          "example": "#6658ea"
+                          "examples": [
+                            "#6658ea"
+                          ]
                         },
                         "include_seo": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "subtitle_enabled": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "pixel_tags": {
                           "type": "object",
-                          "properties": {}
+                          "properties": {},
+                          "x-apidog-orders": []
                         },
                         "logo_width": {
                           "type": "integer",
-                          "example": 51,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            51
+                          ]
                         },
                         "logo_height": {
                           "type": "integer",
-                          "example": 100,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            100
+                          ]
                         },
                         "dynamic_watermark": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "watermark_font_size": {
                           "type": "integer",
-                          "example": 1,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            1
+                          ]
                         },
                         "watermark_font_color": {
                           "type": "string",
-                          "example": "#ff0000"
+                          "examples": [
+                            "#ff0000"
+                          ]
                         },
                         "watermark_bg_color": {
                           "type": "string",
-                          "example": "transparent"
+                          "examples": [
+                            "transparent"
+                          ]
                         },
                         "watermark_interval": {
                           "type": "integer",
-                          "example": 1000,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            1000
+                          ]
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "preload",
+                        "autoplay",
+                        "disable_seek",
+                        "disable_player_controls",
+                        "powered_by_gumlet_overlay",
+                        "allow_drm_protected_videos",
+                        "loop",
+                        "player_color",
+                        "include_seo",
+                        "subtitle_enabled",
+                        "pixel_tags",
+                        "logo_width",
+                        "logo_height",
+                        "dynamic_watermark",
+                        "watermark_font_size",
+                        "watermark_font_color",
+                        "watermark_bg_color",
+                        "watermark_interval"
+                      ]
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "collection_id",
+                    "title",
+                    "description",
+                    "player_config"
+                  ],
+                  "required": [
+                    "id"
+                  ]
                 }
               }
             }
