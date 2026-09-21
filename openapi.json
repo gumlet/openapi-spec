@@ -1924,8 +1924,7 @@
                       "tag": [
                         "demo"
                       ],
-                      "source_id": "67e4ece9403562dbea65425f",
-                      "collection_id": "67e4ece9403562dbea65425f",
+                      "workspace_id": "67e4ece9403562dbea65425f",
                       "input": {
                         "transformations": {
                           "format": "abr",
@@ -2279,18 +2278,6 @@
                           "demo"
                         ]
                       }
-                    },
-                    "source_id": {
-                      "type": "string",
-                      "examples": [
-                        "67e4ece9403562dbea65425f"
-                      ]
-                    },
-                    "collection_id": {
-                      "type": "string",
-                      "examples": [
-                        "67e4ece9403562dbea65425f"
-                      ]
                     },
                     "input": {
                       "type": "object",
@@ -3052,6 +3039,13 @@
                       "type": "integer",
                       "format": "int64",
                       "description": "Collection updated timestamp in milliseconds since epoch"
+                    },
+                    "workspace_id": {
+                      "type": "string",
+                      "examples": [
+                        "67e4ece9403562dbea65425f"
+                      ],
+                      "description": "Workspace ID"
                     }
                   },
                   "x-apidog-orders": [
@@ -3063,8 +3057,7 @@
                     "workspace_updated_at",
                     "status",
                     "tag",
-                    "source_id",
-                    "collection_id",
+                    "workspace_id",
                     "input",
                     "output",
                     "processed_at",
