@@ -2599,6 +2599,14 @@
                             "thumbnail",
                             "subtitle",
                             "previewThumbnail"
+                          ],
+                          "required": [
+                            "video",
+                            "audio",
+                            "thumbnail",
+                            "playlist",
+                            "subtitle",
+                            "previewThumbnail"
                           ]
                         },
                         "transcription_word_level_timestamps": {
