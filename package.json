@@ -1,0 +1,26 @@
+{
+  "name": "openapi-spec",
+  "version": "1.0.0",
+  "description": "Openapi Spec",
+  "homepage": "https://github.com/gumlet/openapi-spec#readme",
+  "bugs": {
+    "url": "https://github.com/gumlet/openapi-spec/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gumlet/openapi-spec.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "validate": "scalar document validate openapi.json",
+    "login": "scalar auth login --token",
+    "publish": "scalar registry publish --force --namespace gumlet --slug gumlet-rest-apis openapi.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@scalar/cli": "^2.5.1"
+  }
+}

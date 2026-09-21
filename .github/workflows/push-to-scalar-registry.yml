@@ -22,10 +22,10 @@ jobs:
           node-version: 24
           cache: 'npm'
       - name: Install dependencies
-        run: npm install -g @scalar/cli
+        run: npm install
       - name: Validate OpenAPI Document
-        run: scalar document validate openapi.json
+        run: npm run validate
       - name: Log in to Registry
-        run: scalar auth login --token ${{ secrets.SCALAR_API_KEY }}
+        run: npm run login ${{ secrets.SCALAR_API_KEY }}
       - name: Push to Registry
-        run: scalar registry publish --force --namespace gumlet --slug gumlet-rest-apis openapi.json
+        run: npm run publish
