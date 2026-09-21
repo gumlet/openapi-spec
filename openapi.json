@@ -2181,13 +2181,67 @@
                             },
                             "generate_chapters": {
                               "type": "boolean",
-                              "description": "Flag if chapter generation is enabled"
+                              "description": "Flag if AI chapter generation is enabled"
+                            },
+                            "drm": {
+                              "type": "object",
+                              "properties": {
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "widevine",
+                                    "fairplay",
+                                    "clearkey",
+                                    "widevine,fairplay",
+                                    "fairplay,widevine"
+                                  ],
+                                  "x-apidog-enum": [
+                                    {
+                                      "value": "widevine",
+                                      "name": "",
+                                      "description": ""
+                                    },
+                                    {
+                                      "value": "fairplay",
+                                      "name": "",
+                                      "description": ""
+                                    },
+                                    {
+                                      "value": "clearkey",
+                                      "name": "",
+                                      "description": ""
+                                    },
+                                    {
+                                      "value": "widevine,fairplay",
+                                      "name": "",
+                                      "description": ""
+                                    },
+                                    {
+                                      "value": "fairplay,widevine",
+                                      "name": "",
+                                      "description": ""
+                                    }
+                                  ]
+                                }
+                              },
+                              "x-apidog-orders": [
+                                "type"
+                              ],
+                              "required": [
+                                "type"
+                              ]
+                            },
+                            "generate_description": {
+                              "type": "boolean",
+                              "description": "Flag if AI description generation is enabled"
                             }
                           },
                           "x-apidog-orders": [
                             "format",
+                            "drm",
                             "pre_processing_successful",
                             "generate_chapters",
+                            "generate_description",
                             "resolution",
                             "audio_codec",
                             "video_codec",
@@ -2673,6 +2727,18 @@
                           "description": ""
                         }
                       ]
+                    },
+                    "access_controls": {
+                      "type": "object",
+                      "properties": {
+                        "password": {
+                          "type": "string",
+                          "description": "Hidden password field"
+                        }
+                      },
+                      "x-apidog-orders": [
+                        "password"
+                      ]
                     }
                   },
                   "x-apidog-orders": [
@@ -2694,11 +2760,14 @@
                     "warning",
                     "audioOnly",
                     "video_protection",
-                    "access_control"
+                    "access_control",
+                    "access_controls"
                   ],
                   "required": [
                     "asset_id",
-                    "collection_updated_at"
+                    "collection_updated_at",
+                    "status",
+                    "created_at"
                   ]
                 }
               }
@@ -6034,71 +6103,117 @@
                   "properties": {
                     "profile_id": {
                       "type": "string",
-                      "example": "61921fb10822a81d955d1730"
+                      "examples": [
+                        "61921fb10822a81d955d1730"
+                      ]
                     },
                     "name": {
                       "type": "string",
-                      "example": "Gumlet-Profile-2"
+                      "examples": [
+                        "Gumlet-Profile-2"
+                      ]
                     },
                     "transformations": {
                       "type": "object",
                       "properties": {
                         "format": {
                           "type": "string",
-                          "example": "hls"
+                          "examples": [
+                            "hls"
+                          ]
                         },
                         "audio_codec": {
                           "type": "array",
                           "items": {
                             "type": "string",
-                            "example": "aac"
+                            "examples": [
+                              "aac"
+                            ]
                           }
                         },
                         "video_codec": {
                           "type": "array",
                           "items": {
                             "type": "string",
-                            "example": "libx264"
+                            "examples": [
+                              "libx264"
+                            ]
                           }
                         },
                         "thumbnail": {
                           "type": "array",
                           "items": {
                             "type": "string",
-                            "example": "auto"
+                            "examples": [
+                              "auto"
+                            ]
                           }
                         },
                         "thumbnail_format": {
                           "type": "string",
-                          "example": "png"
+                          "examples": [
+                            "png"
+                          ]
                         },
                         "mp4_access": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "per_title_encoding": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "resolution": {
                           "type": "string",
-                          "example": "240p,360p"
+                          "examples": [
+                            "240p,360p"
+                          ]
+                        },
+                        "generate_chapters": {
+                          "type": "boolean",
+                          "description": "Flag that shows if AI generated chapters are enabled"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "format",
+                        "audio_codec",
+                        "video_codec",
+                        "thumbnail",
+                        "thumbnail_format",
+                        "mp4_access",
+                        "per_title_encoding",
+                        "resolution",
+                        "generate_chapters"
+                      ]
                     },
                     "created_at": {
                       "type": "integer",
-                      "example": 1636966321742,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        1636966321742
+                      ]
                     },
                     "updated_at": {
                       "type": "integer",
-                      "example": 1636975593082,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        1636975593082
+                      ]
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "profile_id",
+                    "name",
+                    "transformations",
+                    "created_at",
+                    "updated_at"
+                  ]
                 }
               }
             }
@@ -6177,10 +6292,7 @@
         "deprecated": false,
         "tags": [
           "Video Profiles"
-        ],
-        "x-stoplight": {
-          "id": "gs7dr32im7wkf"
-        }
+        ]
       },
       "delete": {
         "summary": "Delete Profile",
