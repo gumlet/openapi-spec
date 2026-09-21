@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   push-to-scalar-registry:
-    runs-on: ubuntu-latest
+    runs-on: gumlet-self-hosted-4vcpu-x64
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
