@@ -815,10 +815,7 @@
         "deprecated": false,
         "tags": [
           "Video Assets"
-        ],
-        "x-stoplight": {
-          "id": "wrrbz3ioehwrt"
-        }
+        ]
       }
     },
     "/video/assets/upload": {
@@ -3963,6 +3960,10 @@
                       }
                     },
                     "x-apidog-orders": [
+                      "start_at",
+                      "end_at"
+                    ],
+                    "required": [
                       "start_at",
                       "end_at"
                     ]
@@ -12720,6 +12721,10 @@
                       }
                     },
                     "x-apidog-orders": [
+                      "start_at",
+                      "end_at"
+                    ],
+                    "required": [
                       "start_at",
                       "end_at"
                     ]
@@ -23352,11 +23357,13 @@
                     "properties": {
                       "start_at": {
                         "type": "string",
-                        "description": "ISO 8601 start timestamp"
+                        "description": "ISO 8601 start timestamp",
+                        "format": "date"
                       },
                       "end_at": {
                         "type": "string",
-                        "description": "ISO 8601 end timestamp"
+                        "description": "ISO 8601 end timestamp",
+                        "format": "date"
                       }
                     },
                     "x-apidog-orders": [
