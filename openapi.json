@@ -128,7 +128,7 @@
                 "value": {
                   "error": {
                     "code": "internal_server_error",
-                    "message": "We have encountered some server error. We are notified and will fix it soon."
+                    "message": "We have encountered some server error. We have been notified and will fix it soon."
                   }
                 }
               }
@@ -145,7 +145,7 @@
     "/video/assets": {
       "post": {
         "summary": "Create Asset",
-        "description": "An asset refers to a media content/video that is processed, stored, and delivered through Gumlet. This endpoint creates an asset allowing users to ingest media content into the Gumlet system for processing and delivery.",
+        "description": "An asset refers to media content/video that is processed, stored, and delivered through Gumlet. This endpoint creates an asset allowing users to ingest media content into the Gumlet system for processing and delivery.",
         "operationId": "create-asset",
         "requestBody": {
           "content": {
@@ -168,7 +168,7 @@
                   },
                   "format": {
                     "type": "string",
-                    "description": "Transcode and deliver the asset in the requested format. The options can be one of `ABR` (HLS + DASH) and`MP4`.",
+                    "description": "Transcode and deliver the asset in the requested format. The options can be one of `ABR` (HLS + DASH) and `MP4`.",
                     "enum": [
                       "ABR",
                       "MP4"
@@ -209,7 +209,7 @@
                   },
                   "resolution": {
                     "type": "string",
-                    "description": "Required resolutions of the transformed asset in case of HLS or MPEG-DASH delivery format. Can be a comma separated string out of the following values: `240p`, `360p`, `480p`, `540p`, `720p`, and `1080p`. Re-sized rendition will retain the input aspect ratio."
+                    "description": "Required resolutions of the transformed asset in case of HLS or MPEG-DASH delivery format. Can be a comma-separated string out of the following values: `240p`, `360p`, `480p`, `540p`, `720p`, and `1080p`. Resized rendition will retain the input aspect ratio."
                   },
                   "crop": {
                     "type": "object",
@@ -315,7 +315,7 @@
                     "properties": {
                       "url": {
                         "type": "string",
-                        "description": "This is the required parameter for image overlay, it can be a URL to an image that needs to be overlayed."
+                        "description": "This is the required parameter for image overlay; it can be a URL to an image that needs to be overlaid."
                       },
                       "horizontal_margin": {
                         "type": "string",
@@ -327,19 +327,19 @@
                       },
                       "horizontal_align": {
                         "type": "string",
-                        "description": "This parameter specifies the horizontal alignment of the overlayed image and can be either `left` or `right`. **Default: `right`**"
+                        "description": "This parameter specifies the horizontal alignment of the overlaid image and can be either `left` or `right`. **Default: `right`**"
                       },
                       "vertical_align": {
                         "type": "string",
-                        "description": "This parameter specifies the vertical alignment of the overlayed image and can be either `top` or `bottom`. **Default: `bottom`**"
+                        "description": "This parameter specifies the vertical alignment of the overlaid image and can be either `top` or `bottom`. **Default: `bottom`**"
                       },
                       "width": {
                         "type": "string",
-                        "description": "Width of the overlayed image. **Default: `image width`**"
+                        "description": "Width of the overlaid image. **Default: `image width`**"
                       },
                       "height": {
                         "type": "string",
-                        "description": "Height of the overlayed image. **Default: `image height`**"
+                        "description": "Height of the overlaid image. **Default: `image height`**"
                       }
                     },
                     "x-apidog-orders": [
@@ -361,15 +361,15 @@
                     "properties": {
                       "text": {
                         "type": "string",
-                        "description": "Text to be overlayed on video."
+                        "description": "Text to be overlaid on video."
                       },
                       "horizontal_align": {
                         "type": "string",
-                        "description": "This parameter specifies the horizontal alignment of the overlayed image and can be either `left` or `right`. **Default: `right`**"
+                        "description": "This parameter specifies the horizontal alignment of the overlaid text and can be either `left` or `right`. **Default: `right`**"
                       },
                       "vertical_align": {
                         "type": "string",
-                        "description": "This parameter specifies the vertical alignment of the overlayed image and can be either `top` or `bottom`. **Default: `bottom`**"
+                        "description": "This parameter specifies the vertical alignment of the overlaid text and can be either `top` or `bottom`. **Default: `bottom`**"
                       },
                       "horizontal_margin": {
                         "type": "string",
@@ -397,7 +397,7 @@
                       },
                       "box": {
                         "type": "boolean",
-                        "description": "This parameter allows rectangular drawing a box over the overlayed text. **Default: `false`**"
+                        "description": "This parameter allows drawing a rectangular box over the overlaid text. **Default: `false`**"
                       },
                       "box_color": {
                         "type": "string",
@@ -499,7 +499,7 @@
                   },
                   "generate_subtitles": {
                     "type": "object",
-                    "description": "Gumlet allows to generate subtitles from the audio stream (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes)",
+                    "description": "Gumlet allows you to generate subtitles from the audio stream (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes)",
                     "properties": {
                       "audio_language": {
                         "type": "string",
@@ -533,11 +533,11 @@
                   },
                   "enable_drm": {
                     "type": "boolean",
-                    "description": "Enable DRM encryption for transcoded videos. Gumlet supports Widevine and Fairplay DRMs."
+                    "description": "Enable DRM encryption for transcoded videos. Gumlet supports Widevine and FairPlay DRMs."
                   },
                   "call_to_actions": {
                     "type": "array",
-                    "description": "CTA, is an explicit prompt within the video content encouraging viewers to take a particular action.",
+                    "description": "A CTA is an explicit prompt within the video content encouraging viewers to take a particular action.",
                     "items": {
                       "type": "object",
                       "properties": {
@@ -1067,7 +1067,7 @@
     "/video/assets/upload": {
       "post": {
         "summary": "Create Asset Direct Upload",
-        "description": "This endpoint creates a video asset allowing to upload of the video from the local file system and ingest media content into the Gumlet system for processing and delivery.Body Parameters are the same as the Create Asset Body Parameters except for the `input` parameter which this endpoint does not take.A successful response will be returned with `upload_url` field. You can make `PUT` request to that URL to upload video. To upload video using `upload_url` refer to [this](https://docs.gumlet.com/docs/direct-upload#2-use-the-url-to-upload-a-file).",
+        "description": "This endpoint creates a video asset allowing upload of a video from the local file system and ingest media content into the Gumlet system for processing and delivery. Body parameters are the same as the Create Asset body parameters except for the `input` parameter, which this endpoint does not take. A successful response will be returned with `upload_url` field. You can make `PUT` request to that URL to upload video. To upload video using `upload_url` refer to [this](https://docs.gumlet.com/docs/direct-upload#2-use-the-url-to-upload-a-file).",
         "operationId": "create-asset-direct-upload",
         "requestBody": {
           "content": {
@@ -1088,7 +1088,7 @@
                   },
                   "format": {
                     "type": "string",
-                    "description": "Transcode and deliver the asset in the requested format. The options can be one of `ABR` (HLS + DASH) and`MP4`.",
+                    "description": "Transcode and deliver the asset in the requested format. The options can be one of `ABR` (HLS + DASH) and `MP4`.",
                     "enum": [
                       "ABR",
                       "MP4"
@@ -1127,7 +1127,7 @@
                   },
                   "resolution": {
                     "type": "string",
-                    "description": "Required resolutions of the transformed asset in case of HLS or MPEG-DASH delivery format. Can be a comma separated string out of the following values: `240p`, `360p`, `480p`, `540p`, `720p`, and `1080p`. Re-sized rendition will retain the input aspect ratio."
+                    "description": "Required resolutions of the transformed asset in case of HLS or MPEG-DASH delivery format. Can be a comma-separated string out of the following values: `240p`, `360p`, `480p`, `540p`, `720p`, and `1080p`. Resized rendition will retain the input aspect ratio."
                   },
                   "crop": {
                     "type": "object",
@@ -1215,7 +1215,7 @@
                     "properties": {
                       "url": {
                         "type": "string",
-                        "description": "This is the required parameter for image overlay, it can be a URL to an image that needs to be overlayed."
+                        "description": "This is the required parameter for image overlay; it can be a URL to an image that needs to be overlaid."
                       },
                       "horizontal_margin": {
                         "type": "string",
@@ -1227,19 +1227,19 @@
                       },
                       "horizontal_align": {
                         "type": "string",
-                        "description": "This parameter specifies the horizontal alignment of the overlayed image and can be either `left` or `right`. **Default: `right`**"
+                        "description": "This parameter specifies the horizontal alignment of the overlaid image and can be either `left` or `right`. **Default: `right`**"
                       },
                       "vertical_align": {
                         "type": "string",
-                        "description": "This parameter specifies the vertical alignment of the overlayed image and can be either `top` or `bottom`. **Default: `bottom`**"
+                        "description": "This parameter specifies the vertical alignment of the overlaid image and can be either `top` or `bottom`. **Default: `bottom`**"
                       },
                       "width": {
                         "type": "string",
-                        "description": "Width of the overlayed image. **Default: `image width`**"
+                        "description": "Width of the overlaid image. **Default: `image width`**"
                       },
                       "height": {
                         "type": "string",
-                        "description": "Height of the overlayed image. **Default: `image height`**"
+                        "description": "Height of the overlaid image. **Default: `image height`**"
                       }
                     }
                   },
@@ -1252,15 +1252,15 @@
                     "properties": {
                       "text": {
                         "type": "string",
-                        "description": "Text to be overlayed on video."
+                        "description": "Text to be overlaid on video."
                       },
                       "horizontal_align": {
                         "type": "string",
-                        "description": "This parameter specifies the horizontal alignment of the overlayed image and can be either `left` or `right`. **Default: `right`**"
+                        "description": "This parameter specifies the horizontal alignment of the overlaid text and can be either `left` or `right`. **Default: `right`**"
                       },
                       "vertical_align": {
                         "type": "string",
-                        "description": "This parameter specifies the vertical alignment of the overlayed image and can be either `top` or `bottom`. **Default: `bottom`**"
+                        "description": "This parameter specifies the vertical alignment of the overlaid text and can be either `top` or `bottom`. **Default: `bottom`**"
                       },
                       "horizontal_margin": {
                         "type": "string",
@@ -1288,7 +1288,7 @@
                       },
                       "box": {
                         "type": "boolean",
-                        "description": "This parameter allows rectangular drawing a box over the overlayed text. **Default: `false`**"
+                        "description": "This parameter allows drawing a rectangular box over the overlaid text. **Default: `false`**"
                       },
                       "box_color": {
                         "type": "string",
@@ -1362,7 +1362,7 @@
                   },
                   "generate_subtitles": {
                     "type": "object",
-                    "description": "Gumlet allows to generate subtitles from the audio stream (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes)",
+                    "description": "Gumlet allows you to generate subtitles from the audio stream (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes)",
                     "properties": {
                       "audio_language": {
                         "type": "string",
@@ -1392,11 +1392,11 @@
                   },
                   "enable_drm": {
                     "type": "boolean",
-                    "description": "Enable DRM encryption for transcoded videos. Gumlet supports Widevine and Fairplay DRMs."
+                    "description": "Enable DRM encryption for transcoded videos. Gumlet supports Widevine and FairPlay DRMs."
                   },
                   "call_to_actions": {
                     "type": "array",
-                    "description": "CTA, is an explicit prompt within the video content encouraging viewers to take a particular action.",
+                    "description": "A CTA is an explicit prompt within the video content encouraging viewers to take a particular action.",
                     "items": {
                       "type": "object",
                       "properties": {
@@ -1974,7 +1974,7 @@
                           }
                         },
                         "profile_id": "67e4ece9403562dbea65425c",
-                        "title": " Sample Video",
+                        "title": "Sample Video",
                         "description": "This is a sample video to help you experience Gumlet platform and player.",
                         "chapters": [
                           {
@@ -3431,11 +3431,11 @@
                   },
                   "tag": {
                     "type": "string",
-                    "description": "Specify a text string or identifier which can identify an asset or bunch of assets later. You can pass multiple comma separated values."
+                    "description": "Specify a text string or identifier which can identify an asset or bunch of assets later. You can pass multiple comma-separated values."
                   },
                   "call_to_actions": {
                     "type": "array",
-                    "description": "CTA, is an explicit prompt within the video content encouraging viewers to take a particular action.",
+                    "description": "A CTA is an explicit prompt within the video content encouraging viewers to take a particular action.",
                     "items": {
                       "properties": {
                         "text": {
@@ -3909,7 +3909,7 @@
     "/video/assets/{asset_ID}/subtitle/upload": {
       "post": {
         "summary": "Upload Subtitles",
-        "description": "Upload `.srt` or `.vtt`  file to the video asset. The response of this API call gives `upload_url` for each language specified. You need to send a `PUT` request of the subtitle files to those URLs. Once that's done, you need to call the subtitle upload complete API. Only after that, Gumlet will add subtitles to asset.",
+        "description": "Upload `.srt` or `.vtt` file to the video asset. The response of this API call gives `upload_url` for each language specified. You need to send a `PUT` request of the subtitle files to those URLs. Once that's done, you need to call the subtitle upload complete API. Only after that, Gumlet will add subtitles to asset.",
         "operationId": "upload-subtitles",
         "parameters": [
           {
@@ -3930,7 +3930,7 @@
                 "properties": {
                   "language_codes": {
                     "type": "array",
-                    "description": "List of language Code to upload subtitle file  (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes)",
+                    "description": "List of language codes to upload subtitle file (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes)",
                     "items": {
                       "type": "string"
                     }
@@ -4096,7 +4096,7 @@
                       "properties": {
                         "language_code": {
                           "type": "string",
-                          "description": "Language Code for uploaded .srt or .vtt file."
+                          "description": "Language code for uploaded .srt or .vtt file."
                         },
                         "uploaded": {
                           "type": "boolean",
@@ -4229,7 +4229,7 @@
                 "properties": {
                   "language_codes": {
                     "type": "array",
-                    "description": "List of language Code to upload audio file  (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes)",
+                    "description": "List of language codes to upload audio file (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes)",
                     "items": {
                       "type": "string"
                     }
@@ -4395,7 +4395,7 @@
                       "properties": {
                         "language_code": {
                           "type": "string",
-                          "description": "Language Code for uploaded audio file."
+                          "description": "Language code for uploaded audio file."
                         },
                         "uploaded": {
                           "type": "boolean",
@@ -4707,7 +4707,7 @@
                 "properties": {
                   "metrics": {
                     "type": "array",
-                    "description": "Define the metric you need the data for, currently we only support `bandwidth_consumption`, `asset_duration`, `storage_unit`, `top_assets`, `bandwidth_consumption_by_collection`, `errored_videos` and `widget_data`",
+                    "description": "Define the metric you need the data for. Currently we only support `bandwidth_consumption`, `asset_duration`, `storage_unit`, `top_assets`, `bandwidth_consumption_by_collection`, `errored_videos` and `widget_data`",
                     "items": {
                       "type": "string",
                       "enum": [
@@ -5637,7 +5637,7 @@
                   },
                   "resolution": {
                     "type": "string",
-                    "description": "Required resolutions of the transformed asset in case of HLS or MPEG-DASH delivery format. Can be a comma separated string out of the following values:  `240p`, `360p`, `480p`, `540p`, `720p`,  and `1080p `. Re-sized rendition will retain the input aspect ratio."
+                    "description": "Required resolutions of the transformed asset in case of HLS or MPEG-DASH delivery format. Can be a comma-separated string out of the following values: `240p`, `360p`, `480p`, `540p`, `720p`, and `1080p `. Resized rendition will retain the input aspect ratio."
                   },
                   "crop": {
                     "type": "object",
@@ -5725,7 +5725,7 @@
                     "properties": {
                       "url": {
                         "type": "string",
-                        "description": "This is the required parameter for image overlay, it can be a URL to an image that needs to be overlayed."
+                        "description": "This is the required parameter for image overlay; it can be a URL to an image that needs to be overlaid."
                       },
                       "horizontal_margin": {
                         "type": "string",
@@ -5737,19 +5737,19 @@
                       },
                       "horizontal_align": {
                         "type": "string",
-                        "description": "This parameter specifies the horizontal alignment of the overlayed image and can be either `left` or `right`. **Default: `right`**"
+                        "description": "This parameter specifies the horizontal alignment of the overlaid image and can be either `left` or `right`. **Default: `right`**"
                       },
                       "vertical_align": {
                         "type": "string",
-                        "description": "This parameter specifies the vertical alignment of the overlayed image and can be either `top` or `bottom`. **Default: `bottom`**"
+                        "description": "This parameter specifies the vertical alignment of the overlaid image and can be either `top` or `bottom`. **Default: `bottom`**"
                       },
                       "width": {
                         "type": "string",
-                        "description": "Width of the overlayed image. **Default: `image width`**"
+                        "description": "Width of the overlaid image. **Default: `image width`**"
                       },
                       "height": {
                         "type": "string",
-                        "description": "Height of the overlayed image. **Default: `image height`**"
+                        "description": "Height of the overlaid image. **Default: `image height`**"
                       }
                     }
                   },
@@ -5762,15 +5762,15 @@
                     "properties": {
                       "text": {
                         "type": "string",
-                        "description": "Text to be overlayed on video."
+                        "description": "Text to be overlaid on video."
                       },
                       "horizontal_align": {
                         "type": "string",
-                        "description": "This parameter specifies the horizontal alignment of the overlayed image and can be either `left` or `right`. **Default: `right`**"
+                        "description": "This parameter specifies the horizontal alignment of the overlaid text and can be either `left` or `right`. **Default: `right`**"
                       },
                       "vertical_align": {
                         "type": "string",
-                        "description": "This parameter specifies the vertical alignment of the overlayed image and can be either `top` or `bottom`. **Default: `bottom`**"
+                        "description": "This parameter specifies the vertical alignment of the overlaid text and can be either `top` or `bottom`. **Default: `bottom`**"
                       },
                       "horizontal_margin": {
                         "type": "string",
@@ -5798,7 +5798,7 @@
                       },
                       "box": {
                         "type": "boolean",
-                        "description": "This parameter allows rectangular drawing a box over the overlayed text. **Default: `false`**"
+                        "description": "This parameter allows drawing a rectangular box over the overlaid text. **Default: `false`**"
                       },
                       "box_color": {
                         "type": "string",
@@ -5842,7 +5842,7 @@
                   },
                   "generate_subtitles": {
                     "type": "object",
-                    "description": "Gumlet allows to generate subtitles from the audio stream (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes). Remove this object if you do not want to generate AI subtitles.",
+                    "description": "Gumlet allows you to generate subtitles from the audio stream (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes). Remove this object if you do not want to generate AI subtitles.",
                     "properties": {
                       "transcribe": {
                         "type": "boolean",
@@ -5873,7 +5873,7 @@
                   },
                   "enable_drm": {
                     "type": "boolean",
-                    "description": "Enable DRM encryption for transcoded videos. Gumlet supports Widevine and Fairplay DRMs."
+                    "description": "Enable DRM encryption for transcoded videos. Gumlet supports Widevine and FairPlay DRMs."
                   }
                 }
               }
@@ -6597,7 +6597,7 @@
                     "properties": {
                       "url": {
                         "type": "string",
-                        "description": "This is the required parameter for image overlay, it can be a URL to an image that needs to be overlayed."
+                        "description": "This is the required parameter for image overlay; it can be a URL to an image that needs to be overlaid."
                       },
                       "horizontal_margin": {
                         "type": "string",
@@ -6609,19 +6609,19 @@
                       },
                       "horizontal_align": {
                         "type": "string",
-                        "description": "This parameter specifies the horizontal alignment of the overlayed image and can be either `left` or `right`. **Default: `right`**"
+                        "description": "This parameter specifies the horizontal alignment of the overlaid image and can be either `left` or `right`. **Default: `right`**"
                       },
                       "vertical_align": {
                         "type": "string",
-                        "description": "This parameter specifies the vertical alignment of the overlayed image and can be either `top` or `bottom`. **Default: `bottom`**"
+                        "description": "This parameter specifies the vertical alignment of the overlaid image and can be either `top` or `bottom`. **Default: `bottom`**"
                       },
                       "width": {
                         "type": "string",
-                        "description": "Width of the overlayed image. **Default: `image width`**"
+                        "description": "Width of the overlaid image. **Default: `image width`**"
                       },
                       "height": {
                         "type": "string",
-                        "description": "Height of the overlayed image. **Default: `image height`**"
+                        "description": "Height of the overlaid image. **Default: `image height`**"
                       }
                     },
                     "x-apidog-orders": [
@@ -6643,15 +6643,15 @@
                     "properties": {
                       "text": {
                         "type": "string",
-                        "description": "Text to be overlayed on video."
+                        "description": "Text to be overlaid on video."
                       },
                       "horizontal_align": {
                         "type": "string",
-                        "description": "This parameter specifies the horizontal alignment of the overlayed image and can be either `left` or `right`. **Default: `right`**"
+                        "description": "This parameter specifies the horizontal alignment of the overlaid text and can be either `left` or `right`. **Default: `right`**"
                       },
                       "vertical_align": {
                         "type": "string",
-                        "description": "This parameter specifies the vertical alignment of the overlayed image and can be either `top` or `bottom`. **Default: `bottom`**"
+                        "description": "This parameter specifies the vertical alignment of the overlaid text and can be either `top` or `bottom`. **Default: `bottom`**"
                       },
                       "horizontal_margin": {
                         "type": "string",
@@ -6679,7 +6679,7 @@
                       },
                       "box": {
                         "type": "boolean",
-                        "description": "This parameter allows rectangular drawing a box over the overlayed text. **Default: `false`**"
+                        "description": "This parameter allows drawing a rectangular box over the overlaid text. **Default: `false`**"
                       },
                       "box_color": {
                         "type": "string",
@@ -6745,7 +6745,7 @@
                   },
                   "generate_subtitles": {
                     "type": "object",
-                    "description": "Gumlet allows to generate subtitles from the audio stream (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes). You can remove this object if don't want to generate AI subtitles.",
+                    "description": "Gumlet allows you to generate subtitles from the audio stream (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes). You can remove this object if you don't want to generate AI subtitles.",
                     "properties": {
                       "subtitle_languages": {
                         "type": "array",
@@ -6783,7 +6783,7 @@
                   },
                   "enable_drm": {
                     "type": "boolean",
-                    "description": "Enable DRM encryption for transcoded videos. Gumlet supports Widevine and Fairplay DRMs."
+                    "description": "Enable DRM encryption for transcoded videos. Gumlet supports Widevine and FairPlay DRMs."
                   },
                   "vc": {
                     "type": "array",
@@ -8763,7 +8763,7 @@
           {
             "name": "page_number",
             "in": "query",
-            "description": "Optional, Minimun 1",
+            "description": "Optional. Minimum: 1",
             "schema": {
               "type": "integer",
               "format": "int32",
@@ -8773,7 +8773,7 @@
           {
             "name": "page_size",
             "in": "query",
-            "description": "Optional, Minimun 10",
+            "description": "Optional. Minimum: 10",
             "schema": {
               "type": "string",
               "default": "10"
@@ -14267,7 +14267,7 @@
                         }
                       ]
                     },
-                    "description": "Define the metric you need the data for, currently we support \"bandwidth_consumption\", \"requests_count\",\"status_4xx\",\"status_5xx\",\"avg_response_time\"\""
+                    "description": "Define the metric you need the data for. Currently we support `bandwidth_consumption`, `requests_count`, `status_4xx`, `status_5xx`, and `avg_response_time`."
                   },
                   "date_range": {
                     "type": "object",
@@ -14841,7 +14841,7 @@
     "/video/live/assets": {
       "post": {
         "summary": "Create Live Asset",
-        "description": "A live asset refers to a media content/video that is live-streamed through Gumlet. This endpoint creates a live streaming asset allowing users to live stream a video that will be pushed to Gumlet.",
+        "description": "A live asset refers to media content/video that is live-streamed through Gumlet. This endpoint creates a live streaming asset allowing users to live stream a video that will be pushed to Gumlet.",
         "operationId": "create-live-asset",
         "requestBody": {
           "content": {
@@ -14859,7 +14859,7 @@
                   },
                   "resolution": {
                     "type": "string",
-                    "description": "Required resolutions in HLS delivery format for live stream. Can be an array of string out of the following values:  `240p`, `360p`, `480p`, `540p`, `720p`, and `1080p`. Re-sized rendition will retain the input aspect ratio."
+                    "description": "Required resolutions in HLS delivery format for live stream. Can be an array of string out of the following values: `240p`, `360p`, `480p`, `540p`, `720p`, and `1080p`. Resized rendition will retain the input aspect ratio."
                   },
                   "title": {
                     "type": "string",
@@ -15142,7 +15142,7 @@
     "/video/live/assets/update": {
       "post": {
         "summary": "Update Live Asset",
-        "description": "A live asset refers to a media content/video that is live-streamed through Gumlet. This endpoint allows user to update a live streaming asset.",
+        "description": "A live asset refers to media content/video that is live-streamed through Gumlet. This endpoint allows users to update a live streaming asset.",
         "operationId": "create-live-asset-copy",
         "requestBody": {
           "content": {
@@ -15432,7 +15432,7 @@
           {
             "name": "live_asset_id",
             "in": "path",
-            "description": "An live asset id for the previously created asset.",
+            "description": "A live asset id for the previously created asset.",
             "schema": {
               "type": "string"
             },
@@ -19557,7 +19557,7 @@
                         },
                         "cc_color": {
                           "type": "string",
-                          "description": "Closed captions  / subtitle color."
+                          "description": "Closed captions / subtitle color."
                         },
                         "cc_bg_color": {
                           "type": "string",
@@ -19702,7 +19702,7 @@
                         },
                         "dynamic_watermark_type": {
                           "type": "string",
-                          "description": "What to show in dynamic watermark. "
+                          "description": "What to show in dynamic watermark."
                         },
                         "disable_invite_email": {
                           "type": "boolean",
@@ -19856,7 +19856,7 @@
                           },
                           "status": {
                             "type": "string",
-                            "description": "Status "
+                            "description": "Status"
                           }
                         },
                         "x-apidog-orders": [
@@ -22040,7 +22040,6 @@
         }
       }
     },
-    "/video/assets/{asset_ID}/audio/upload-1": {},
     "/channel/{video_workspace_id}/viewers/invite": {
       "post": {
         "summary": "Invite Channel Viewers",
@@ -23026,7 +23025,7 @@
           {
             "name": "live_asset_id",
             "in": "path",
-            "description": "An live asset id for the previously created asset.",
+            "description": "A live asset id for the previously created asset.",
             "schema": {
               "type": "string"
             },
@@ -23371,7 +23370,7 @@
                         }
                       }
                     },
-                    "description": "Metrics result Group by selected dimension, You can select upto 3 dimensions to get nested category result. result will follow selection orders. "
+                    "description": "Group metrics by the selected dimension. You can select up to 3 dimensions for nested category results; results follow the selection order."
                   }
                 }
               }
