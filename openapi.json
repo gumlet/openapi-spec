@@ -2254,6 +2254,9 @@
                             "per_title_encoding",
                             "generate_subtitles",
                             "preview_thumbnails"
+                          ],
+                          "required": [
+                            "format"
                           ]
                         },
                         "profile_id": {
@@ -2345,11 +2348,15 @@
                           "examples": [
                             2160
                           ]
+                        },
+                        "file_size": {
+                          "type": "string"
                         }
                       },
                       "x-apidog-orders": [
                         "transformations",
                         "profile_id",
+                        "file_size",
                         "title",
                         "description",
                         "chapters",
@@ -2360,6 +2367,9 @@
                         "fps",
                         "width",
                         "height"
+                      ],
+                      "required": [
+                        "file_size"
                       ]
                     },
                     "output": {
