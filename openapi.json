@@ -28596,6 +28596,130 @@
           }
         ]
       }
+    },
+    "/video/assets/{asset_id}/multipartupload/abort": {
+      "post": {
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "path",
+            "description": "An asset id for the asset.",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          }
+        },
+        "summary": "Abort Upload",
+        "tags": [
+          "Multipart Upload"
+        ],
+        "operationId": "multipart-upload-abort",
+        "description": "This call aborts multi-part upload and deletes the already uploaded parts from the storage.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/video/assets/{asset_id}/multipartupload/list": {
+      "post": {
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "path",
+            "description": "An asset id for the asset.",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "parts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "PartNumber": {
+                            "type": "integer",
+                            "description": "Part number"
+                          },
+                          "Size": {
+                            "type": "integer",
+                            "format": "uint64",
+                            "description": "Size of the uploaded part"
+                          },
+                          "ETag": {
+                            "type": "string",
+                            "description": "ETag of the uploaded part"
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "PartNumber",
+                          "Size",
+                          "ETag"
+                        ],
+                        "required": [
+                          "PartNumber"
+                        ]
+                      }
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "parts"
+                  ],
+                  "required": [
+                    "parts"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "summary": "List Uploads",
+        "tags": [
+          "Multipart Upload"
+        ],
+        "operationId": "multipart-upload-list",
+        "description": "Lists all parts uploaded so far.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
+      }
     }
   },
   "tags": [
