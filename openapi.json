@@ -6788,8 +6788,15 @@
                   "vc": {
                     "type": "array",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "libx264",
+                        "libsvtav1"
+                      ]
                     },
+                    "default": [
+                      "libx264"
+                    ],
                     "description": "Video Codecs"
                   },
                   "generate_chapters": {
