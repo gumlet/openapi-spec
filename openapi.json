@@ -2576,17 +2576,22 @@
                                 "default": 0,
                                 "examples": [
                                   10
-                                ]
+                                ],
+                                "deprecated": true
                               },
                               "label": {
                                 "type": "string",
                                 "examples": [
                                   "First Chapter"
                                 ]
+                              },
+                              "startTime": {
+                                "type": "integer"
                               }
                             },
                             "x-apidog-orders": [
                               "endTime",
+                              "startTime",
                               "label"
                             ]
                           }
