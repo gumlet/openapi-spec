@@ -16917,31 +16917,38 @@
                             "type": "string",
                             "examples": [
                               "646df1c9173a4a2fcac180b4"
-                            ]
+                            ],
+                            "description": "Workspace ID"
                           },
                           "name": {
                             "type": "string",
                             "examples": [
                               "collection_name"
-                            ]
+                            ],
+                            "description": "Workspace name"
                           },
                           "type": {
                             "type": "string",
                             "examples": [
                               "aws"
-                            ]
+                            ],
+                            "description": "Workspace type"
                           },
                           "created_at": {
                             "type": "string",
                             "examples": [
                               "2023-05-24T11:15:21.624Z"
-                            ]
+                            ],
+                            "format": "date-time",
+                            "description": "Workspace created time in ISO 8601"
                           },
                           "updated_at": {
                             "type": "string",
                             "examples": [
                               "2024-01-24T11:57:48.744Z"
-                            ]
+                            ],
+                            "format": "date-time",
+                            "description": "Workspace updated timestamo in ISO 8601"
                           },
                           "video_protection": {
                             "type": "object",
@@ -17879,222 +17886,359 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "65b01610e99b77f116c0e32b"
+                      "examples": [
+                        "65b01610e99b77f116c0e32b"
+                      ],
+                      "description": "Workspace ID"
                     },
                     "name": {
                       "type": "string",
-                      "example": "zoom-workspace"
+                      "examples": [
+                        "zoom-workspace"
+                      ],
+                      "description": "Workspace name"
                     },
                     "type": {
                       "type": "string",
-                      "example": "zoom"
+                      "examples": [
+                        "zoom"
+                      ],
+                      "description": "Workspace type"
                     },
                     "created_at": {
                       "type": "string",
-                      "example": "2024-01-23T19:40:00.447Z"
+                      "examples": [
+                        "2024-01-23T19:40:00.447Z"
+                      ],
+                      "format": "date-time",
+                      "description": "Created at time in ISO 8601 format"
                     },
                     "updated_at": {
                       "type": "string",
-                      "example": "2024-01-23T19:40:00.447Z"
+                      "examples": [
+                        "2024-01-23T19:40:00.447Z"
+                      ],
+                      "format": "date-time",
+                      "description": "Updated at time in ISO 8601"
                     },
                     "video_protection": {
                       "type": "object",
-                      "properties": {}
+                      "properties": {},
+                      "x-apidog-orders": []
                     },
                     "player_config": {
                       "type": "object",
                       "properties": {
                         "preload": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "autoplay": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "disable_seek": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "disable_player_controls": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "powered_by_gumlet_overlay": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "allow_drm_protected_videos": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "loop": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "player_color": {
                           "type": "string",
-                          "example": "#6658ea"
+                          "examples": [
+                            "#6658ea"
+                          ]
                         },
                         "include_seo": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "subtitle_enabled": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "pixel_tags": {
                           "type": "object",
-                          "properties": {}
+                          "properties": {},
+                          "x-apidog-orders": []
                         },
                         "logo_width": {
                           "type": "integer",
-                          "example": 100,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            100
+                          ]
                         },
                         "logo_height": {
                           "type": "integer",
-                          "example": 100,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            100
+                          ]
                         },
                         "dynamic_watermark": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "watermark_font_size": {
                           "type": "integer",
-                          "example": 20,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            20
+                          ]
                         },
                         "watermark_font_color": {
                           "type": "string",
-                          "example": "#ff0000"
+                          "examples": [
+                            "#ff0000"
+                          ]
                         },
                         "watermark_bg_color": {
                           "type": "string",
-                          "example": "transparent"
+                          "examples": [
+                            "transparent"
+                          ]
                         },
                         "watermark_interval": {
                           "type": "integer",
-                          "example": 1000,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            1000
+                          ]
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "preload",
+                        "autoplay",
+                        "disable_seek",
+                        "disable_player_controls",
+                        "powered_by_gumlet_overlay",
+                        "allow_drm_protected_videos",
+                        "loop",
+                        "player_color",
+                        "include_seo",
+                        "subtitle_enabled",
+                        "pixel_tags",
+                        "logo_width",
+                        "logo_height",
+                        "dynamic_watermark",
+                        "watermark_font_size",
+                        "watermark_font_color",
+                        "watermark_bg_color",
+                        "watermark_interval"
+                      ],
+                      "description": "Player configuration for this workspace"
                     },
                     "default_profile_id": {
                       "type": "string",
-                      "example": "646df1c9173a4a2fcac180b7"
+                      "examples": [
+                        "646df1c9173a4a2fcac180b7"
+                      ],
+                      "description": "Default profile for this workspace"
                     },
                     "insight_property_id": {
                       "type": "string",
-                      "example": "65b01610e99b77f116c0e329"
+                      "examples": [
+                        "65b01610e99b77f116c0e329"
+                      ]
                     },
                     "zoom": {
                       "type": "object",
                       "properties": {
                         "secret": {
                           "type": "string",
-                          "example": "yourSecret"
+                          "examples": [
+                            "yourSecret"
+                          ]
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "secret"
+                      ]
                     },
                     "embed_details": {
                       "type": "object",
                       "properties": {
                         "powered_by_gumlet_overlay": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "allow_drm_protected_videos": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "preload": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "autoplay": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "logo_width": {
                           "type": "integer",
-                          "example": 100,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            100
+                          ]
                         },
                         "logo_height": {
                           "type": "integer",
-                          "example": 100,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            100
+                          ]
                         },
                         "player_color": {
                           "type": "string",
-                          "example": "#6658ea"
+                          "examples": [
+                            "#6658ea"
+                          ]
                         },
                         "is_seo": {
                           "type": "boolean",
-                          "example": true,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            true
+                          ]
                         },
                         "dynamic_watermark": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "watermark_font_size": {
                           "type": "integer",
-                          "example": 20,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            20
+                          ]
                         },
                         "watermark_font_color": {
                           "type": "string",
-                          "example": "#ff0000"
+                          "examples": [
+                            "#ff0000"
+                          ]
                         },
                         "watermark_bg_color": {
                           "type": "string",
-                          "example": "transparent"
+                          "examples": [
+                            "transparent"
+                          ]
                         },
                         "watermark_interval": {
                           "type": "integer",
-                          "example": 1000,
-                          "default": 0
+                          "default": 0,
+                          "examples": [
+                            1000
+                          ]
                         },
                         "disable_seek": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "disable_player_controls": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "loop": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "subtitle_enabled": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "powered_by_gumlet_overlay",
+                        "allow_drm_protected_videos",
+                        "preload",
+                        "autoplay",
+                        "logo_width",
+                        "logo_height",
+                        "player_color",
+                        "is_seo",
+                        "dynamic_watermark",
+                        "watermark_font_size",
+                        "watermark_font_color",
+                        "watermark_bg_color",
+                        "watermark_interval",
+                        "disable_seek",
+                        "disable_player_controls",
+                        "loop",
+                        "subtitle_enabled"
+                      ]
                     },
                     "folders": {
                       "type": "array",
@@ -18103,23 +18247,47 @@
                           "id": "mju7qgwlj4vva"
                         },
                         "type": "string"
-                      }
+                      },
+                      "description": "List of folders inside this workspace"
                     },
                     "channel_settings": {
                       "type": "object",
                       "properties": {
                         "active": {
                           "type": "boolean",
-                          "example": false,
-                          "default": true
+                          "default": true,
+                          "examples": [
+                            false
+                          ]
                         },
                         "privacy_type": {
                           "type": "string",
-                          "example": "private"
+                          "examples": [
+                            "private"
+                          ]
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "active",
+                        "privacy_type"
+                      ]
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "name",
+                    "type",
+                    "created_at",
+                    "updated_at",
+                    "video_protection",
+                    "player_config",
+                    "default_profile_id",
+                    "insight_property_id",
+                    "zoom",
+                    "embed_details",
+                    "folders",
+                    "channel_settings"
+                  ]
                 }
               }
             }
@@ -18910,31 +19078,36 @@
                       "type": "string",
                       "examples": [
                         "646df1c9173a4a2fcac180b4"
-                      ]
+                      ],
+                      "description": "Workspace ID"
                     },
                     "name": {
                       "type": "string",
                       "examples": [
                         "aws-source"
-                      ]
+                      ],
+                      "description": "Workspace name"
                     },
                     "type": {
                       "type": "string",
                       "examples": [
                         "aws"
-                      ]
+                      ],
+                      "description": "Workspace type"
                     },
                     "created_at": {
                       "type": "string",
                       "examples": [
                         "2023-05-24T11:15:21.624Z"
-                      ]
+                      ],
+                      "format": "date-time"
                     },
                     "updated_at": {
                       "type": "string",
                       "examples": [
                         "2024-01-24T11:24:16.003Z"
-                      ]
+                      ],
+                      "format": "date-time"
                     },
                     "video_protection": {
                       "type": "object",
@@ -20321,61 +20494,108 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "67e4f01d403562dbea6542d4"
+                      "examples": [
+                        "67e4f01d403562dbea6542d4"
+                      ],
+                      "description": "Folder ID"
                     },
                     "name": {
                       "type": "string",
-                      "example": "Course Assets"
+                      "examples": [
+                        "Course Assets"
+                      ],
+                      "description": "Folder name"
                     },
                     "video_source_id": {
                       "type": "string",
-                      "example": "67e4ece9403562dbea65425f"
+                      "examples": [
+                        "67e4ece9403562dbea65425f"
+                      ],
+                      "description": "Workspace ID"
                     },
                     "parent_id": {
                       "type": [
                         "string",
                         "null"
                       ],
-                      "example": null
+                      "examples": [
+                        null
+                      ],
+                      "description": "Parent folder ID"
                     },
                     "path": {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": "67e4f01d403562dbea6542d4"
-                      }
+                        "examples": [
+                          "67e4f01d403562dbea6542d4"
+                        ]
+                      },
+                      "description": "Path details"
                     },
                     "path_names": {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": "Course Assets"
+                        "examples": [
+                          "Course Assets"
+                        ]
                       }
                     },
                     "depth": {
                       "type": "integer",
-                      "example": 0,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        0
+                      ],
+                      "description": "Depth of this folder from root"
                     },
                     "subdirectory_count": {
                       "type": "integer",
-                      "example": 2,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        2
+                      ],
+                      "description": "Number of subfolders inside this folder"
                     },
                     "asset_count": {
                       "type": "integer",
-                      "example": 12,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        12
+                      ],
+                      "description": "Number of assets inside this folder"
                     },
                     "created_at": {
                       "type": "string",
-                      "example": "2026-03-18T10:00:00.000Z"
+                      "examples": [
+                        "2026-03-18T10:00:00.000Z"
+                      ],
+                      "format": "date-time",
+                      "description": "Folder creation time in ISO 8601 format"
                     },
                     "updated_at": {
                       "type": "string",
-                      "example": "2026-03-18T10:15:00.000Z"
+                      "examples": [
+                        "2026-03-18T10:15:00.000Z"
+                      ],
+                      "format": "date-time",
+                      "description": "Folder update time in ISO 8601 format"
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "name",
+                    "video_source_id",
+                    "parent_id",
+                    "path",
+                    "path_names",
+                    "depth",
+                    "subdirectory_count",
+                    "asset_count",
+                    "created_at",
+                    "updated_at"
+                  ]
                 }
               }
             }
@@ -20435,10 +20655,7 @@
         "deprecated": false,
         "tags": [
           "Folders"
-        ],
-        "x-stoplight": {
-          "id": "s0ytspywrm8jb"
-        }
+        ]
       },
       "get": {
         "summary": "List Folders",
@@ -20494,61 +20711,108 @@
                     "properties": {
                       "id": {
                         "type": "string",
-                        "example": "67e4f01d403562dbea6542d4"
+                        "examples": [
+                          "67e4f01d403562dbea6542d4"
+                        ],
+                        "description": "Folder ID"
                       },
                       "name": {
                         "type": "string",
-                        "example": "Course Assets"
+                        "examples": [
+                          "Course Assets"
+                        ],
+                        "description": "Folder name"
                       },
                       "video_source_id": {
                         "type": "string",
-                        "example": "67e4ece9403562dbea65425f"
+                        "examples": [
+                          "67e4ece9403562dbea65425f"
+                        ],
+                        "description": "Workspace ID"
                       },
                       "parent_id": {
                         "type": [
                           "string",
                           "null"
                         ],
-                        "example": null
+                        "examples": [
+                          null
+                        ],
+                        "description": "Parent folder ID"
                       },
                       "path": {
                         "type": "array",
                         "items": {
                           "type": "string",
-                          "example": "67e4f01d403562dbea6542d4"
-                        }
+                          "examples": [
+                            "67e4f01d403562dbea6542d4"
+                          ]
+                        },
+                        "description": "Path of the folder"
                       },
                       "path_names": {
                         "type": "array",
                         "items": {
                           "type": "string",
-                          "example": "Course Assets"
+                          "examples": [
+                            "Course Assets"
+                          ]
                         }
                       },
                       "depth": {
                         "type": "integer",
-                        "example": 0,
-                        "default": 0
+                        "default": 0,
+                        "examples": [
+                          0
+                        ],
+                        "description": "Depth from root folder"
                       },
                       "subdirectory_count": {
                         "type": "integer",
-                        "example": 2,
-                        "default": 0
+                        "default": 0,
+                        "examples": [
+                          2
+                        ],
+                        "description": "Number of child folders"
                       },
                       "asset_count": {
                         "type": "integer",
-                        "example": 12,
-                        "default": 0
+                        "default": 0,
+                        "examples": [
+                          12
+                        ],
+                        "description": "Number of assets inside this folder"
                       },
                       "created_at": {
                         "type": "string",
-                        "example": "2026-03-18T10:00:00.000Z"
+                        "examples": [
+                          "2026-03-18T10:00:00.000Z"
+                        ],
+                        "format": "date-time",
+                        "description": "Folder creation time in ISO 8601 format"
                       },
                       "updated_at": {
                         "type": "string",
-                        "example": "2026-03-18T10:15:00.000Z"
+                        "examples": [
+                          "2026-03-18T10:15:00.000Z"
+                        ],
+                        "format": "date-time",
+                        "description": "Folder update time in ISO 8601 format"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "id",
+                      "name",
+                      "video_source_id",
+                      "parent_id",
+                      "path",
+                      "path_names",
+                      "depth",
+                      "subdirectory_count",
+                      "asset_count",
+                      "created_at",
+                      "updated_at"
+                    ]
                   }
                 }
               }
@@ -20606,10 +20870,7 @@
         "deprecated": false,
         "tags": [
           "Folders"
-        ],
-        "x-stoplight": {
-          "id": "6p3tyspj1nvn7"
-        }
+        ]
       }
     },
     "/video/workspaces/{workspace_id}/folders/{folder_id}": {
@@ -20664,61 +20925,108 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "67e4f01d403562dbea6542d4"
+                      "examples": [
+                        "67e4f01d403562dbea6542d4"
+                      ],
+                      "description": "Folder ID"
                     },
                     "name": {
                       "type": "string",
-                      "example": "Course Assets"
+                      "examples": [
+                        "Course Assets"
+                      ],
+                      "description": "Folder name"
                     },
                     "video_source_id": {
                       "type": "string",
-                      "example": "67e4ece9403562dbea65425f"
+                      "examples": [
+                        "67e4ece9403562dbea65425f"
+                      ],
+                      "description": "Workspace ID"
                     },
                     "parent_id": {
                       "type": [
                         "string",
                         "null"
                       ],
-                      "example": null
+                      "examples": [
+                        null
+                      ],
+                      "description": "Parent folder ID"
                     },
                     "path": {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": "67e4f01d403562dbea6542d4"
-                      }
+                        "examples": [
+                          "67e4f01d403562dbea6542d4"
+                        ]
+                      },
+                      "description": "Path for this folder"
                     },
                     "path_names": {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": "Course Assets"
+                        "examples": [
+                          "Course Assets"
+                        ]
                       }
                     },
                     "depth": {
                       "type": "integer",
-                      "example": 0,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        0
+                      ],
+                      "description": "Depth of this folder from the root"
                     },
                     "subdirectory_count": {
                       "type": "integer",
-                      "example": 2,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        2
+                      ],
+                      "description": "Number of folders inside this folder"
                     },
                     "asset_count": {
                       "type": "integer",
-                      "example": 12,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        12
+                      ],
+                      "description": "Number of assets in this folder"
                     },
                     "created_at": {
                       "type": "string",
-                      "example": "2026-03-18T10:00:00.000Z"
+                      "examples": [
+                        "2026-03-18T10:00:00.000Z"
+                      ],
+                      "format": "date-time",
+                      "description": "Folder creation time in ISO 8601 format"
                     },
                     "updated_at": {
                       "type": "string",
-                      "example": "2026-03-18T10:15:00.000Z"
+                      "examples": [
+                        "2026-03-18T10:15:00.000Z"
+                      ],
+                      "format": "date-time",
+                      "description": "Folder update time in ISO 8601 format"
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "name",
+                    "video_source_id",
+                    "parent_id",
+                    "path",
+                    "path_names",
+                    "depth",
+                    "subdirectory_count",
+                    "asset_count",
+                    "created_at",
+                    "updated_at"
+                  ]
                 }
               }
             }
@@ -21041,7 +21349,8 @@
                       }
                     }
                   ],
-                  "type": "object"
+                  "type": "object",
+                  "properties": {}
                 }
               }
             }
@@ -21140,10 +21449,7 @@
         "deprecated": false,
         "tags": [
           "Folders"
-        ],
-        "x-stoplight": {
-          "id": "gniqycuuu62xd"
-        }
+        ]
       },
       "delete": {
         "summary": "Delete Folder",
@@ -21287,10 +21593,7 @@
         "deprecated": false,
         "tags": [
           "Folders"
-        ],
-        "x-stoplight": {
-          "id": "7kqaxix8196fo"
-        }
+        ]
       }
     },
     "/video/workspaces/{workspace_id}/remove-assets-from-folder": {
