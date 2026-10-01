@@ -9007,7 +9007,7 @@
         ]
       },
       "delete": {
-        "description": "Deletes this playlist.",
+        "description": "Deletes a playlist by plalist ID.",
         "responses": {
           "200": {
             "description": ""
@@ -9076,9 +9076,7 @@
         "tags": [
           "Video Playlists"
         ],
-        "x-stoplight": {
-          "id": "gocfme0boqws3"
-        }
+        "summary": "Delete Playlist"
       }
     },
     "/video/playlist/{playlist_id}/assets": {
@@ -9239,43 +9237,78 @@
                         "properties": {
                           "id": {
                             "type": "string",
-                            "example": "6593d0e5e1b4f8a05db8df0d"
+                            "examples": [
+                              "6593d0e5e1b4f8a05db8df0d"
+                            ],
+                            "description": "Asset ID"
                           },
                           "title": {
                             "type": "string",
-                            "example": "video asset title 1"
+                            "examples": [
+                              "video asset title 1"
+                            ],
+                            "description": "Asset title"
                           },
                           "description": {
                             "type": "string",
-                            "example": "Asset description"
+                            "examples": [
+                              "Asset description"
+                            ],
+                            "description": "Asset description"
                           },
                           "status": {
                             "type": "string",
-                            "example": "ready"
+                            "examples": [
+                              "ready"
+                            ],
+                            "description": "Status"
                           },
                           "created_at": {
                             "type": "string",
-                            "example": "2024-01-02T09:01:25.079Z"
+                            "examples": [
+                              "2024-01-02T09:01:25.079Z"
+                            ]
                           },
                           "duration": {
                             "type": "integer",
-                            "example": 885,
-                            "default": 0
+                            "default": 0,
+                            "examples": [
+                              885
+                            ],
+                            "description": "Asset duration"
                           }
-                        }
-                      }
+                        },
+                        "x-apidog-orders": [
+                          "id",
+                          "title",
+                          "description",
+                          "status",
+                          "created_at",
+                          "duration"
+                        ]
+                      },
+                      "description": "List of assets inside playlist"
                     },
                     "has_next_page": {
                       "type": "boolean",
-                      "example": true,
-                      "default": true
+                      "default": true,
+                      "examples": [
+                        true
+                      ]
                     },
                     "next_page": {
                       "type": "integer",
-                      "example": 2,
-                      "default": 0
+                      "default": 0,
+                      "examples": [
+                        2
+                      ]
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "asset_list",
+                    "has_next_page",
+                    "next_page"
+                  ]
                 }
               }
             }
@@ -9640,39 +9673,65 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "65eed75eadeea8478f14ebd4"
+                      "examples": [
+                        "65eed75eadeea8478f14ebd4"
+                      ],
+                      "description": "Webhook ID"
                     },
                     "url": {
                       "type": "string",
-                      "example": "https://webhook.site/16df065a-b398-48bc-b825-b0804979c5f1"
+                      "examples": [
+                        "https://webhook.site/16df065a-b398-48bc-b825-b0804979c5f1"
+                      ],
+                      "description": "Webhook URL"
                     },
                     "triggers": {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": "status"
-                      }
+                        "examples": [
+                          "status"
+                        ]
+                      },
+                      "description": "List of triggers"
                     },
                     "created_at": {
                       "type": "string",
-                      "example": "2024-03-11T10:05:18.316Z"
+                      "examples": [
+                        "2024-03-11T10:05:18.316Z"
+                      ]
                     },
                     "updated_at": {
                       "type": "string",
-                      "example": "2024-03-11T10:05:18.316Z"
+                      "examples": [
+                        "2024-03-11T10:05:18.316Z"
+                      ]
                     },
                     "sources": {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": "5f462c1561cf8a766464ffc4"
+                        "examples": [
+                          "5f462c1561cf8a766464ffc4"
+                        ]
                       }
                     },
                     "secret_token": {
                       "type": "string",
-                      "example": "rnVNfIKgnH"
+                      "examples": [
+                        "rnVNfIKgnH"
+                      ]
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "url",
+                    "triggers",
+                    "created_at",
+                    "updated_at",
+                    "sources",
+                    "secret_token"
+                  ]
                 }
               }
             }
@@ -9887,39 +9946,64 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "example": "65eed75eadeea8478f14ebd4"
+                      "examples": [
+                        "65eed75eadeea8478f14ebd4"
+                      ],
+                      "description": "Webhook ID"
                     },
                     "url": {
                       "type": "string",
-                      "example": "https://webhook.site/16df065a-b398-48bc-b825-b0804979c5f2"
+                      "examples": [
+                        "https://webhook.site/16df065a-b398-48bc-b825-b0804979c5f2"
+                      ],
+                      "description": "Webhook URL"
                     },
                     "triggers": {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": "status"
+                        "examples": [
+                          "status"
+                        ]
                       }
                     },
                     "created_at": {
                       "type": "string",
-                      "example": "2024-03-11T10:05:18.316Z"
+                      "examples": [
+                        "2024-03-11T10:05:18.316Z"
+                      ]
                     },
                     "updated_at": {
                       "type": "string",
-                      "example": "2024-03-11T10:10:37.461Z"
+                      "examples": [
+                        "2024-03-11T10:10:37.461Z"
+                      ]
                     },
                     "sources": {
                       "type": "array",
                       "items": {
                         "type": "string",
-                        "example": "5f462c1561cf8a766464ffc4"
+                        "examples": [
+                          "5f462c1561cf8a766464ffc4"
+                        ]
                       }
                     },
                     "secret_token": {
                       "type": "string",
-                      "example": "rnVNfIKgnH"
+                      "examples": [
+                        "rnVNfIKgnH"
+                      ]
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "url",
+                    "triggers",
+                    "created_at",
+                    "updated_at",
+                    "sources",
+                    "secret_token"
+                  ]
                 }
               }
             }
@@ -10447,34 +10531,40 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Image source ID"
                     },
                     "namespace": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Souce namespace"
                     },
                     "type": {
-                      "type": "string"
-                    },
-                    "cdn_type": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Source type"
                     },
                     "cdn_cache_time": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "CDN cache time in seconds"
                     },
                     "canonical_url": {
                       "type": "boolean"
                     },
                     "browser_cache_time": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "Browser cache time in seconds"
                     },
                     "is_cloudfront": {
                       "type": "boolean"
                     },
                     "created_at": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Source created timestamp in ISO 8601",
+                      "format": "date-time"
                     },
                     "updated_at": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Source updated timestamp in ISO 8601",
+                      "format": "date-time"
                     },
                     "webfolder": {
                       "type": "object",
@@ -10482,7 +10572,10 @@
                         "base_url": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "base_url"
+                      ]
                     },
                     "default_params": {
                       "type": "object",
@@ -10493,13 +10586,18 @@
                         "compress": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "format",
+                        "compress"
+                      ]
                     },
                     "subdomain": {
                       "type": "string"
                     },
                     "is_active": {
-                      "type": "boolean"
+                      "type": "boolean",
+                      "description": "Boolean flag indicating if source is active"
                     }
                   },
                   "x-examples": {
@@ -10524,7 +10622,22 @@
                       "subdomain": "google-demo.gumlet.io",
                       "is_active": true
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "namespace",
+                    "type",
+                    "cdn_cache_time",
+                    "canonical_url",
+                    "browser_cache_time",
+                    "is_cloudfront",
+                    "created_at",
+                    "updated_at",
+                    "webfolder",
+                    "default_params",
+                    "subdomain",
+                    "is_active"
+                  ]
                 }
               }
             }
@@ -10623,10 +10736,7 @@
         "deprecated": false,
         "tags": [
           "Image Sources"
-        ],
-        "x-stoplight": {
-          "id": "hublbrwwbpzvk"
-        }
+        ]
       },
       "get": {
         "summary": "List Sources",
@@ -10650,205 +10760,34 @@
                             "type": "string",
                             "examples": [
                               "646df1c9173a4a2fcac180b4"
-                            ]
+                            ],
+                            "description": "Image source ID"
                           },
                           "type": {
-                            "type": "string",
+                            "type": [
+                              "string",
+                              "null"
+                            ],
                             "examples": [
                               "aws"
-                            ]
+                            ],
+                            "description": "Source type"
                           },
                           "created_at": {
                             "type": "string",
+                            "description": "Created at timestamo in ISO 8601",
                             "examples": [
                               "2023-05-24T11:15:21.624Z"
-                            ]
+                            ],
+                            "format": "date-time"
                           },
                           "updated_at": {
                             "type": "string",
+                            "description": "Updated at timestamo in ISO 8601",
                             "examples": [
                               "2024-01-24T11:57:48.744Z"
-                            ]
-                          },
-                          "video_protection": {
-                            "type": "object",
-                            "properties": {
-                              "signed_url": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  true
-                                ]
-                              },
-                              "signed_url_secret": {
-                                "type": "string",
-                                "examples": [
-                                  "47a3e2fbb1318f033b882c632bc103a8"
-                                ]
-                              }
-                            },
-                            "x-apidog-orders": [
-                              "signed_url",
-                              "signed_url_secret"
-                            ]
-                          },
-                          "player_config": {
-                            "type": "object",
-                            "properties": {
-                              "preload": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "autoplay": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "disable_seek": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "disable_player_controls": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "powered_by_gumlet_overlay": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "allow_drm_protected_videos": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "loop": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "player_color": {
-                                "type": "string",
-                                "examples": [
-                                  "#6658ea"
-                                ]
-                              },
-                              "include_seo": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  true
-                                ]
-                              },
-                              "subtitle_enabled": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "pixel_tags": {
-                                "type": "object",
-                                "properties": {},
-                                "x-apidog-orders": []
-                              },
-                              "logo_width": {
-                                "type": "integer",
-                                "default": 0,
-                                "examples": [
-                                  100
-                                ]
-                              },
-                              "logo_height": {
-                                "type": "integer",
-                                "default": 0,
-                                "examples": [
-                                  100
-                                ]
-                              },
-                              "dynamic_watermark": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "watermark_font_size": {
-                                "type": "integer",
-                                "default": 0,
-                                "examples": [
-                                  20
-                                ]
-                              },
-                              "watermark_font_color": {
-                                "type": "string",
-                                "examples": [
-                                  "#ff0000"
-                                ]
-                              },
-                              "watermark_bg_color": {
-                                "type": "string",
-                                "examples": [
-                                  "transparent"
-                                ]
-                              },
-                              "watermark_interval": {
-                                "type": "integer",
-                                "default": 0,
-                                "examples": [
-                                  1000
-                                ]
-                              }
-                            },
-                            "x-apidog-orders": [
-                              "preload",
-                              "autoplay",
-                              "disable_seek",
-                              "disable_player_controls",
-                              "powered_by_gumlet_overlay",
-                              "allow_drm_protected_videos",
-                              "loop",
-                              "player_color",
-                              "include_seo",
-                              "subtitle_enabled",
-                              "pixel_tags",
-                              "logo_width",
-                              "logo_height",
-                              "dynamic_watermark",
-                              "watermark_font_size",
-                              "watermark_font_color",
-                              "watermark_bg_color",
-                              "watermark_interval"
-                            ]
-                          },
-                          "default_profile_id": {
-                            "type": "string",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b7"
-                            ]
-                          },
-                          "insight_property_id": {
-                            "type": "string",
-                            "examples": [
-                              "646df0aa173a4a2fcac18009"
-                            ]
+                            ],
+                            "format": "date-time"
                           },
                           "aws": {
                             "type": "object",
@@ -10889,240 +10828,12 @@
                               "base_path"
                             ]
                           },
-                          "embed_details": {
-                            "type": "object",
-                            "properties": {
-                              "pixel_tags": {
-                                "type": "object",
-                                "properties": {},
-                                "x-apidog-orders": []
-                              },
-                              "preload": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "autoplay": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "logo_width": {
-                                "type": "integer",
-                                "default": 0,
-                                "examples": [
-                                  100
-                                ]
-                              },
-                              "logo_height": {
-                                "type": "integer",
-                                "default": 0,
-                                "examples": [
-                                  100
-                                ]
-                              },
-                              "player_color": {
-                                "type": "string",
-                                "examples": [
-                                  "#6658ea"
-                                ]
-                              },
-                              "is_seo": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  true
-                                ]
-                              },
-                              "dynamic_watermark": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "disable_seek": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "disable_player_controls": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "allow_drm_protected_videos": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "powered_by_gumlet_overlay": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "loop": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "subtitle_enabled": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "watermark_bg_color": {
-                                "type": "string",
-                                "examples": [
-                                  "transparent"
-                                ]
-                              },
-                              "watermark_font_color": {
-                                "type": "string",
-                                "examples": [
-                                  "#ff0000"
-                                ]
-                              },
-                              "watermark_font_size": {
-                                "type": "integer",
-                                "default": 0,
-                                "examples": [
-                                  20
-                                ]
-                              },
-                              "watermark_interval": {
-                                "type": "integer",
-                                "default": 0,
-                                "examples": [
-                                  1000
-                                ]
-                              }
-                            },
-                            "x-apidog-orders": [
-                              "pixel_tags",
-                              "preload",
-                              "autoplay",
-                              "logo_width",
-                              "logo_height",
-                              "player_color",
-                              "is_seo",
-                              "dynamic_watermark",
-                              "disable_seek",
-                              "disable_player_controls",
-                              "allow_drm_protected_videos",
-                              "powered_by_gumlet_overlay",
-                              "loop",
-                              "subtitle_enabled",
-                              "watermark_bg_color",
-                              "watermark_font_color",
-                              "watermark_font_size",
-                              "watermark_interval"
-                            ]
-                          },
-                          "folders": {
-                            "type": "array",
-                            "items": {
-                              "type": "string",
-                              "examples": [
-                                "folder"
-                              ]
-                            }
-                          },
-                          "channel_settings": {
-                            "type": "object",
-                            "properties": {
-                              "title": {
-                                "type": "string",
-                                "examples": [
-                                  "my channel"
-                                ]
-                              },
-                              "active": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  false
-                                ]
-                              },
-                              "description": {
-                                "type": "string",
-                                "examples": [
-                                  "desc"
-                                ]
-                              },
-                              "privacy_type": {
-                                "type": "string",
-                                "examples": [
-                                  "private"
-                                ]
-                              },
-                              "custom_logo": {
-                                "type": "boolean",
-                                "default": true,
-                                "examples": [
-                                  true
-                                ]
-                              },
-                              "logo_url": {
-                                "type": "string",
-                                "examples": [
-                                  "https://dev-video.gumlet.io/646df1c9172a4a2fcac180b4/channel/logo.png"
-                                ]
-                              },
-                              "cname": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string",
-                                  "examples": [
-                                    "okj.com"
-                                  ]
-                                }
-                              },
-                              "temp_cname": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string",
-                                  "examples": [
-                                    "okj.com"
-                                  ]
-                                }
-                              }
-                            },
-                            "x-apidog-orders": [
-                              "title",
-                              "active",
-                              "description",
-                              "privacy_type",
-                              "custom_logo",
-                              "logo_url",
-                              "cname",
-                              "temp_cname"
-                            ]
-                          },
                           "namespace": {
                             "type": "string",
                             "examples": [
                               "collection_name"
-                            ]
-                          },
-                          "subdomain": {
-                            "type": "string"
+                            ],
+                            "description": "Source namespace (i.e. subdomain of gumlet.io)"
                           },
                           "webfolder": {
                             "type": "object",
@@ -11309,15 +11020,7 @@
                           "type",
                           "created_at",
                           "updated_at",
-                          "video_protection",
-                          "player_config",
-                          "default_profile_id",
-                          "insight_property_id",
                           "aws",
-                          "embed_details",
-                          "folders",
-                          "channel_settings",
-                          "subdomain",
                           "webfolder",
                           "cname",
                           "wasabi",
@@ -11331,7 +11034,6 @@
                           "cloudinary"
                         ],
                         "required": [
-                          "subdomain",
                           "namespace",
                           "id"
                         ]
@@ -11394,10 +11096,12 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Image source ID"
                     },
                     "namespace": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Source namespace (i.e. subdomain of gumlet.io)"
                     },
                     "type": {
                       "type": "string",
@@ -11490,26 +11194,29 @@
                         }
                       ]
                     },
-                    "cdn_type": {
-                      "type": "string"
-                    },
                     "cdn_cache_time": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "CDN cache time in seconds"
                     },
                     "canonical_url": {
                       "type": "boolean"
                     },
                     "browser_cache_time": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "Browser cache time in seconds"
                     },
                     "is_cloudfront": {
                       "type": "boolean"
                     },
                     "created_at": {
-                      "type": "string"
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Created timestamp in ISO 8601"
                     },
                     "updated_at": {
-                      "type": "string"
+                      "type": "string",
+                      "format": "date-time",
+                      "description": "Updated timestamp in ISO 8601"
                     },
                     "webfolder": {
                       "type": "object",
@@ -12307,7 +12014,6 @@
                     "id",
                     "namespace",
                     "type",
-                    "cdn_type",
                     "cdn_cache_time",
                     "canonical_url",
                     "browser_cache_time",
@@ -12339,7 +12045,8 @@
                   ],
                   "required": [
                     "type",
-                    "namespace"
+                    "namespace",
+                    "id"
                   ]
                 }
               }
@@ -13310,10 +13017,12 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Image source ID"
                     },
                     "namespace": {
-                      "type": "string"
+                      "type": "string",
+                      "description": "Source namespace"
                     },
                     "type": {
                       "type": "string",
@@ -13341,26 +13050,27 @@
                         }
                       ]
                     },
-                    "cdn_type": {
-                      "type": "string"
-                    },
                     "cdn_cache_time": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "CDN cache time in seconds"
                     },
                     "canonical_url": {
                       "type": "boolean"
                     },
                     "browser_cache_time": {
-                      "type": "integer"
+                      "type": "integer",
+                      "description": "Browser cache time in seconds"
                     },
                     "is_cloudfront": {
                       "type": "boolean"
                     },
                     "created_at": {
-                      "type": "string"
+                      "type": "string",
+                      "format": "date-time"
                     },
                     "updated_at": {
-                      "type": "string"
+                      "type": "string",
+                      "format": "date-time"
                     },
                     "webfolder": {
                       "type": "object",
@@ -14112,7 +13822,6 @@
                     "id",
                     "namespace",
                     "type",
-                    "cdn_type",
                     "cdn_cache_time",
                     "canonical_url",
                     "browser_cache_time",
@@ -14241,10 +13950,7 @@
         "deprecated": false,
         "tags": [
           "Image Sources"
-        ],
-        "x-stoplight": {
-          "id": "eik63l5w65q6w"
-        }
+        ]
       },
       "delete": {
         "summary": "Delete Source",
@@ -14372,10 +14078,7 @@
         "deprecated": false,
         "tags": [
           "Image Sources"
-        ],
-        "x-stoplight": {
-          "id": "bbevpkv6hdvi3"
-        }
+        ]
       }
     },
     "/purge/{subdomain}": {
