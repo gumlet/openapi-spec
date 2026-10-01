@@ -17289,6 +17289,34 @@
                                 "type": "string",
                                 "examples": [
                                   "private"
+                                ],
+                                "enum": [
+                                  "public",
+                                  "private",
+                                  "password-protected",
+                                  "dashboardOnly"
+                                ],
+                                "x-apidog-enum": [
+                                  {
+                                    "value": "public",
+                                    "name": "",
+                                    "description": ""
+                                  },
+                                  {
+                                    "value": "private",
+                                    "name": "",
+                                    "description": ""
+                                  },
+                                  {
+                                    "value": "password-protected",
+                                    "name": "",
+                                    "description": ""
+                                  },
+                                  {
+                                    "value": "dashboardOnly",
+                                    "name": "",
+                                    "description": ""
+                                  }
                                 ]
                               },
                               "custom_logo": {
@@ -19254,6 +19282,34 @@
                           "type": "string",
                           "examples": [
                             "private"
+                          ],
+                          "enum": [
+                            "password-protected",
+                            "public",
+                            "private",
+                            "dashboardOnly"
+                          ],
+                          "x-apidog-enum": [
+                            {
+                              "value": "password-protected",
+                              "name": "",
+                              "description": ""
+                            },
+                            {
+                              "value": "public",
+                              "name": "",
+                              "description": ""
+                            },
+                            {
+                              "value": "private",
+                              "name": "",
+                              "description": ""
+                            },
+                            {
+                              "value": "dashboardOnly",
+                              "name": "",
+                              "description": ""
+                            }
                           ]
                         },
                         "custom_logo": {
@@ -19661,7 +19717,7 @@
                           "enum": [
                             "private",
                             "public",
-                            "password",
+                            "password-protected",
                             "dashboardOnly"
                           ],
                           "x-apidog-enum": [
@@ -19676,7 +19732,7 @@
                               "description": "Videos can be accessed by anyone and can also be indexed by search engines."
                             },
                             {
-                              "value": "password",
+                              "value": "password-protected",
                               "name": "",
                               "description": "Videos are password protected."
                             },
