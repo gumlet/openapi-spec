@@ -29723,7 +29723,7 @@
         "summary": "Video asset status",
         "description": "Gumlet delivers this notification with HTTP POST and a JSON body to the webhook URL you configured. The `x-gumlet-token` header is the secret token stored on that webhook, or an empty string when none is stored. A response status from 200 through 299 is recorded as success. Any other status, a timeout, or a connection error is recorded as retrying. Gumlet waits up to 25 seconds for the response and follows up to 5 redirects.\n\nSent when a video asset changes status and the webhook trigger list contains that event, or contains `status`. Delivery is limited to webhooks whose video workspace list includes the asset workspace. An empty workspace list matches every video workspace in the organization.\n\nEvents:\n\n- `video.status.created` — asset was created\n- `video.status.downloaded` — source file was downloaded for processing\n- `video.status.stream_ready` — a single rendition is available to stream, immediately after upload\n- `video.status.optimized` — asset was optimized\n- `video.status.ready` — asset is ready to embed\n- `video.status.repackaged` — a subtitle or audio stream was added\n- `video.status.errored` — processing failed. `output` is omitted and `error` is included when the asset has one\n- `video.status.deleted` — asset was deleted. `output` is omitted",
         "tags": [
-          "Webhooks"
+          "Webhook Notifications"
         ],
         "security": [],
         "parameters": [
@@ -29836,7 +29836,7 @@
         "summary": "Live video status",
         "description": "Gumlet delivers this notification with HTTP POST and a JSON body to the webhook URL you configured. The `x-gumlet-token` header is the secret token stored on that webhook, or an empty string when none is stored. A response status from 200 through 299 is recorded as success. Any other status, a timeout, or a connection error is recorded as retrying. Gumlet waits up to 25 seconds for the response and follows up to 5 redirects.\n\nSent when a live video asset changes status and the webhook trigger list contains that event, or contains `live-video-status`. Delivery is limited to webhooks whose live workspace list includes the live source. An empty live workspace list matches every live source in the organization.\n\nEvents:\n\n- `live.video.status.created` — live session was created\n- `live.video.status.preparing` — session is preparing\n- `live.video.status.ready` — session is ready for a source to connect\n- `live.video.status.connected` — a source connected\n- `live.video.status.active` — session is streaming. Width, height, and aspect ratio are included when metadata is available\n- `live.video.status.disconnected` — source disconnected\n- `live.video.status.complete` — session ended. Recording fields are included when a recording exists",
         "tags": [
-          "Webhooks"
+          "Webhook Notifications"
         ],
         "security": [],
         "parameters": [
@@ -29929,7 +29929,7 @@
         "summary": "Product event",
         "description": "Gumlet delivers this notification with HTTP POST and a JSON body to the webhook URL you configured. The `x-gumlet-token` header is the secret token stored on that webhook, or an empty string when none is stored. A response status from 200 through 299 is recorded as success. Any other status, a timeout, or a connection error is recorded as retrying. Gumlet waits up to 25 seconds for the response and follows up to 5 redirects.\n\nSent when the webhook trigger list contains the exact event name. `event.video.analytics` is matched against the webhook's video workspaces. `event.image.analytics` is matched against its image sources. Every other event is matched against the video workspace list. An empty list matches every workspace or image source in the organization.\n\nThe body is the originating event payload. Gumlet sets `type` to the event name before delivery.\n\nEvents:\n\n- `event.video.uploaded` — a video was uploaded\n- `event.video.updated` — video details changed, such as title, tags, description, or privacy\n- `event.video.analytics` — video analytics event\n- `event.image.analytics` — image analytics event\n- `event.embed.viewed` — an embed was viewed for the first time\n- `event.embed.cta_clicked` — a call to action was clicked on an embed\n- `event.embed.form_submitted` — an embed form captured a lead\n- `event.playlist.created` — a playlist was created\n- `event.playlist.asset` — an asset was added to or removed from a playlist\n- `event.playlist.deleted` — a playlist was deleted\n- `event.comment.all` — a comment was added, replied to, or resolved\n- `event.channel.member_joined` — a viewer joined a channel",
         "tags": [
-          "Webhooks"
+          "Webhook Notifications"
         ],
         "security": [],
         "parameters": [
@@ -30061,6 +30061,10 @@
     {
       "name": "Webhooks",
       "description": "Create webhook listeners and receive video status, live video status, and product events. Gumlet POSTs JSON to your URL with the `x-gumlet-token` header."
+    },
+    {
+      "name": "Webhook Notifications",
+      "description": "Details about webhook notification events."
     }
   ],
   "x-tagGroups": [
@@ -30105,7 +30109,8 @@
     {
       "name": "Webhooks",
       "tags": [
-        "Webhooks"
+        "Webhooks",
+        "Webhook Notifications"
       ]
     },
     {
