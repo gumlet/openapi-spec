@@ -10060,7 +10060,7 @@
       "post": {
         "summary": "Create Webhook",
         "description": "Creates a new webhook listener. Gumlet POSTs JSON to `url` for each matching event and sends `secret_token` in the `x-gumlet-token` header. Payload schemas are documented in the webhooks section.",
-        "operationId": "create-webhook-endpoint",
+        "operationId": "create-webhook",
         "requestBody": {
           "content": {
             "application/json": {
@@ -10385,7 +10385,7 @@
             "$ref": "#/components/responses/Forbidden"
           }
         },
-        "operationId": "list-webhook-endpoints",
+        "operationId": "list-webhooks",
         "tags": [
           "Webhooks"
         ],
@@ -10396,7 +10396,7 @@
       "post": {
         "summary": "Update Webhook",
         "description": "Update a webhook listener.",
-        "operationId": "update-webhook-endpoint",
+        "operationId": "update-webhook",
         "parameters": [
           {
             "name": "webhook_id",
@@ -10618,7 +10618,7 @@
       "delete": {
         "summary": "Delete Webhook",
         "description": "Delete webhook listener endpoint.",
-        "operationId": "delete-webhook-endpoint",
+        "operationId": "delete-webhook",
         "parameters": [
           {
             "name": "webhook_id",
