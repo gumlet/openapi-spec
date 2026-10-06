@@ -27629,7 +27629,8 @@
           "Webhooks"
         ],
         "operationId": "webhook-history",
-        "description": "Get logs history for a given webhook."
+        "description": "Get logs history for a given webhook.",
+        "x-scalar-method": "webhookEndpoints.history"
       }
     },
     "/mixed/billing/invoice/history": {
