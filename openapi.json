@@ -10277,9 +10277,7 @@
         "tags": [
           "Webhooks"
         ],
-        "x-stoplight": {
-          "id": "73fyyktivlvzj"
-        }
+        "x-scalar-method": "webhookEndpoints.create"
       },
       "get": {
         "summary": "List Webhooks",
@@ -10389,7 +10387,8 @@
         "tags": [
           "Webhooks"
         ],
-        "description": "List all webhooks."
+        "description": "List all webhooks.",
+        "x-scalar-method": "webhookEndpoints.list"
       }
     },
     "/org/webhooks/{webhook_id}": {
@@ -10611,9 +10610,7 @@
         "tags": [
           "Webhooks"
         ],
-        "x-stoplight": {
-          "id": "cj3d5p1p3xcxm"
-        }
+        "x-scalar-method": "webhookEndpoints.update"
       },
       "delete": {
         "summary": "Delete Webhook",
@@ -10742,9 +10739,7 @@
         "tags": [
           "Webhooks"
         ],
-        "x-stoplight": {
-          "id": "62i31r1exgnzy"
-        }
+        "x-scalar-method": "webhookEndpoints.delete"
       }
     },
     "/image/sources": {
