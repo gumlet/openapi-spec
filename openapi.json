@@ -13616,7 +13616,6 @@
                         "azure"
                       ],
                       "required": [
-                        "conditions",
                         "name",
                         "type",
                         "replace_operation"
