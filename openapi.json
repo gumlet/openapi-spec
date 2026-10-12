@@ -10360,6 +10360,12 @@
                           "secret_token": {
                             "type": "string",
                             "description": "Secret you supplied when creating the webhook. Gumlet sends this value in the `x-gumlet-token` header of each webhook POST."
+                          },
+                          "live_sources": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
                           }
                         },
                         "x-apidog-orders": [
@@ -10369,6 +10375,7 @@
                           "created_at",
                           "updated_at",
                           "sources",
+                          "live_sources",
                           "secret_token"
                         ]
                       }
@@ -10468,10 +10475,19 @@
                     }
                   },
                   "sources": {
-                    "type": "string",
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
                     "description": "List of video collection identifiers for which webhooks are needed to be invoked."
                   }
-                }
+                },
+                "x-apidog-orders": [
+                  "url",
+                  "secret_token",
+                  "triggers",
+                  "sources"
+                ]
               }
             }
           }
@@ -12706,7 +12722,8 @@
                       "linode",
                       "backblaze",
                       "cloudflare",
-                      "imgix"
+                      "imgix",
+                      "wordpress"
                     ],
                     "x-apidog-enum": [
                       {
@@ -12771,6 +12788,11 @@
                       },
                       {
                         "value": "imgix",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "wordpress",
                         "name": "",
                         "description": ""
                       }
@@ -13175,7 +13197,23 @@
                         "conditions": {
                           "type": "array",
                           "items": {
-                            "type": "string"
+                            "type": "object",
+                            "properties": {
+                              "function": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              }
+                            },
+                            "x-apidog-orders": [
+                              "function",
+                              "value"
+                            ],
+                            "required": [
+                              "function",
+                              "value"
+                            ]
                           }
                         },
                         "name": {
@@ -24528,15 +24566,24 @@
                         "properties": {
                           "x": {
                             "type": "integer",
-                            "example": 1647475200000,
-                            "default": 0
+                            "default": 0,
+                            "examples": [
+                              1647475200000
+                            ]
                           },
                           "y": {},
                           "unit": {
                             "type": "string",
-                            "example": "views"
+                            "examples": [
+                              "views"
+                            ]
                           }
-                        }
+                        },
+                        "x-apidog-orders": [
+                          "x",
+                          "y",
+                          "unit"
+                        ]
                       }
                     },
                     "unique_views": {
@@ -24546,15 +24593,24 @@
                         "properties": {
                           "x": {
                             "type": "integer",
-                            "example": 1647475200000,
-                            "default": 0
+                            "default": 0,
+                            "examples": [
+                              1647475200000
+                            ]
                           },
                           "y": {},
                           "unit": {
                             "type": "string",
-                            "example": "users"
+                            "examples": [
+                              "users"
+                            ]
                           }
-                        }
+                        },
+                        "x-apidog-orders": [
+                          "x",
+                          "y",
+                          "unit"
+                        ]
                       }
                     },
                     "analytics_data": {
@@ -24576,12 +24632,31 @@
                                 "type": "string"
                               }
                             },
-                            "type": "object"
+                            "type": "object",
+                            "x-apidog-orders": [
+                              "x",
+                              "y",
+                              "unit"
+                            ]
                           }
                         }
-                      }
+                      },
+                      "x-apidog-orders": [
+                        "views"
+                      ]
+                    },
+                    "breakdowns": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apidog-orders": []
                     }
-                  }
+                  },
+                  "x-apidog-orders": [
+                    "views",
+                    "unique_views",
+                    "analytics_data",
+                    "breakdowns"
+                  ]
                 }
               }
             }
@@ -24720,10 +24795,7 @@
           {
             "url": "https://api.gumlet.com/v1"
           }
-        ],
-        "x-stoplight": {
-          "id": "04zbqux39i8iv"
-        }
+        ]
       }
     },
     "/insights/breakdown-data": {
