@@ -13617,8 +13617,7 @@
                       ],
                       "required": [
                         "name",
-                        "type",
-                        "replace_operation"
+                        "type"
                       ]
                     },
                     "description": "List of fallback origins"
