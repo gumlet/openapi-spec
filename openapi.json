@@ -608,8 +608,7 @@
                 "type": "object",
                 "required": [
                   "input",
-                  "workspace_id",
-                  "format"
+                  "workspace_id"
                 ],
                 "properties": {
                   "input": {
@@ -10289,88 +10288,97 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "id": {
-                      "type": "string",
-                      "description": "Webhook ID"
-                    },
-                    "url": {
-                      "type": "string",
-                      "description": "Webhook URL"
-                    },
-                    "triggers": {
+                    "all_webhooks": {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "enum": [
-                          "status",
-                          "live-video-status",
-                          "video.status.created",
-                          "video.status.downloaded",
-                          "video.status.optimized",
-                          "video.status.ready",
-                          "video.status.errored",
-                          "video.status.deleted",
-                          "video.status.repackaged",
-                          "video.status.stream_ready",
-                          "live.video.status.created",
-                          "live.video.status.ready",
-                          "live.video.status.preparing",
-                          "live.video.status.connected",
-                          "live.video.status.active",
-                          "live.video.status.complete",
-                          "live.video.status.disconnected",
-                          "event.embed.viewed",
-                          "event.embed.cta_clicked",
-                          "event.video.updated",
-                          "event.video.uploaded",
-                          "event.playlist.created",
-                          "event.playlist.asset",
-                          "event.playlist.deleted",
-                          "event.video.analytics",
-                          "event.image.analytics",
-                          "event.embed.form_submitted",
-                          "event.comment.all",
-                          "event.channel.member_joined"
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Webhook ID"
+                          },
+                          "url": {
+                            "type": [
+                              "string",
+                              "null"
+                            ],
+                            "description": "Webhook URL"
+                          },
+                          "triggers": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "status",
+                                "live-video-status",
+                                "video.status.created",
+                                "video.status.downloaded",
+                                "video.status.optimized",
+                                "video.status.ready",
+                                "video.status.errored",
+                                "video.status.deleted",
+                                "video.status.repackaged",
+                                "video.status.stream_ready",
+                                "live.video.status.created",
+                                "live.video.status.ready",
+                                "live.video.status.preparing",
+                                "live.video.status.connected",
+                                "live.video.status.active",
+                                "live.video.status.complete",
+                                "live.video.status.disconnected",
+                                "event.embed.viewed",
+                                "event.embed.cta_clicked",
+                                "event.video.updated",
+                                "event.video.uploaded",
+                                "event.playlist.created",
+                                "event.playlist.asset",
+                                "event.playlist.deleted",
+                                "event.video.analytics",
+                                "event.image.analytics",
+                                "event.embed.form_submitted",
+                                "event.comment.all",
+                                "event.channel.member_joined"
+                              ]
+                            },
+                            "description": "Events that invoke this webhook. `status` subscribes to every video asset status event. `live-video-status` subscribes to every live video status event. Any other value subscribes to that event only."
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "Creation timestamp in ISO 8601 format"
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "description": "Update timestamp in ISO 8601 format"
+                          },
+                          "sources": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "List of workspace IDs for which the webhook is enabled."
+                          },
+                          "secret_token": {
+                            "type": "string",
+                            "description": "Secret you supplied when creating the webhook. Gumlet sends this value in the `x-gumlet-token` header of each webhook POST."
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "id",
+                          "url",
+                          "triggers",
+                          "created_at",
+                          "updated_at",
+                          "sources",
+                          "secret_token"
                         ]
-                      },
-                      "description": "Events that invoke this webhook. `status` subscribes to every video asset status event. `live-video-status` subscribes to every live video status event. Any other value subscribes to that event only."
-                    },
-                    "created_at": {
-                      "type": "string",
-                      "description": "Creation timestamp in ISO 8601 format"
-                    },
-                    "updated_at": {
-                      "type": "string",
-                      "description": "Update timestamp in ISO 8601 format"
-                    },
-                    "sources": {
-                      "type": "array",
-                      "items": {
-                        "type": "string"
-                      },
-                      "description": "List of workspace IDs for which the webhook is enabled."
-                    },
-                    "secret_token": {
-                      "type": "string",
-                      "description": "Secret you supplied when creating the webhook. Gumlet sends this value in the `x-gumlet-token` header of each webhook POST."
+                      }
                     }
                   },
                   "x-apidog-orders": [
-                    "id",
-                    "url",
-                    "triggers",
-                    "created_at",
-                    "updated_at",
-                    "sources",
-                    "secret_token"
+                    "all_webhooks"
                   ],
                   "required": [
-                    "id",
-                    "url",
-                    "triggers",
-                    "created_at",
-                    "updated_at",
-                    "sources"
+                    "all_webhooks"
                   ]
                 }
               }
@@ -11603,9 +11611,6 @@
         "tags": [
           "Image Sources"
         ],
-        "x-stoplight": {
-          "id": "25t5xel9wzl7p"
-        },
         "parameters": [
           {
             "in": "query",
@@ -12700,7 +12705,75 @@
                       "azure",
                       "linode",
                       "backblaze",
-                      "cloudflare"
+                      "cloudflare",
+                      "imgix"
+                    ],
+                    "x-apidog-enum": [
+                      {
+                        "value": "proxy",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "direct-upload",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "webfolder",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "aws",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "gcs",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "dostorage",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "wasabi",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "cloudinary",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "azure",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "linode",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "backblaze",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "cloudflare",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "imgix",
+                        "name": "",
+                        "description": ""
+                      }
                     ]
                   },
                   "webfolder": {
@@ -13483,6 +13556,10 @@
                       ]
                     },
                     "description": "List of fallback origins"
+                  },
+                  "secure_urls": {
+                    "type": "boolean",
+                    "description": "Whether the URL signing is enabled"
                   }
                 },
                 "x-apidog-orders": [
@@ -13506,6 +13583,7 @@
                   "browser_cache_time",
                   "cdn_cache_time",
                   "is_active",
+                  "secure_urls",
                   "cname",
                   "fallback_origins"
                 ]
@@ -24180,7 +24258,6 @@
                 "type": "object",
                 "required": [
                   "metrics",
-                  "workspace_id",
                   "date_range"
                 ],
                 "properties": {
@@ -24193,7 +24270,7 @@
                   },
                   "workspace_id": {
                     "type": "string",
-                    "description": "The five to ten character unique identifier of the Gumlet workspace ID available on the Video Workspaces."
+                    "description": "Gumlet workspace ID"
                   },
                   "date_range": {
                     "type": "object",
@@ -24213,7 +24290,11 @@
                         "description": "Use <b>yyyy-MM-dd</b> format",
                         "format": "date"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "start_at",
+                      "end_at"
+                    ]
                   },
                   "filters": {
                     "type": "array",
@@ -24278,7 +24359,12 @@
                         "name",
                         "value"
                       ],
-                      "type": "object"
+                      "type": "object",
+                      "x-apidog-orders": [
+                        "name",
+                        "value",
+                        "operator"
+                      ]
                     }
                   },
                   "group_by": {
@@ -24327,13 +24413,32 @@
                               ]
                             }
                           },
-                          "type": "object"
+                          "type": "object",
+                          "x-apidog-orders": [
+                            "name"
+                          ]
                         }
                       }
                     },
-                    "description": "Group metrics by the selected dimension. You can select up to 3 dimensions for nested category results; results follow the selection order."
+                    "description": "Group metrics by the selected dimension. You can select up to 3 dimensions for nested category results; results follow the selection order.",
+                    "x-apidog-orders": [
+                      "group_by"
+                    ]
+                  },
+                  "download": {
+                    "type": "boolean",
+                    "description": "Whether the request is to download the chart data"
                   }
-                }
+                },
+                "x-apidog-orders": [
+                  "metrics",
+                  "workspace_id",
+                  "date_range",
+                  "filters",
+                  "group_by",
+                  "download",
+                  "chart_dimension"
+                ]
               }
             }
           }
