@@ -10377,6 +10377,9 @@
                           "sources",
                           "live_sources",
                           "secret_token"
+                        ],
+                        "required": [
+                          "id"
                         ]
                       }
                     }
@@ -12164,7 +12167,23 @@
                           "conditions": {
                             "type": "array",
                             "items": {
-                              "type": "string"
+                              "type": "object",
+                              "properties": {
+                                "function": {
+                                  "type": "string"
+                                },
+                                "value": {
+                                  "type": "string"
+                                }
+                              },
+                              "x-apidog-orders": [
+                                "function",
+                                "value"
+                              ],
+                              "required": [
+                                "function",
+                                "value"
+                              ]
                             }
                           },
                           "replace_operation": {
@@ -12549,6 +12568,12 @@
                         "properties": {},
                         "x-apidog-orders": []
                       }
+                    },
+                    "temp_cname": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
                     }
                   },
                   "x-examples": {
@@ -12607,7 +12632,8 @@
                     "hetzner",
                     "fallback_origins",
                     "wordpress",
-                    "response_headers"
+                    "response_headers",
+                    "temp_cname"
                   ],
                   "required": [
                     "type",
@@ -12681,10 +12707,7 @@
         "operationId": "get_image-sources-source-id",
         "tags": [
           "Image Sources"
-        ],
-        "x-stoplight": {
-          "id": "npgcaxb2d1coo"
-        }
+        ]
       },
       "post": {
         "summary": "Update Source",
@@ -12723,7 +12746,8 @@
                       "backblaze",
                       "cloudflare",
                       "imgix",
-                      "wordpress"
+                      "wordpress",
+                      "hetzner"
                     ],
                     "x-apidog-enum": [
                       {
@@ -12793,6 +12817,11 @@
                       },
                       {
                         "value": "wordpress",
+                        "name": "",
+                        "description": ""
+                      },
+                      {
+                        "value": "hetzner",
                         "name": "",
                         "description": ""
                       }
@@ -14477,6 +14506,12 @@
                       "type": "object",
                       "properties": {},
                       "x-apidog-orders": []
+                    },
+                    "temp_cname": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
                     }
                   },
                   "x-apidog-orders": [
@@ -14508,7 +14543,8 @@
                     "secure_urls",
                     "secure_token",
                     "response_headers",
-                    "fallback_origins"
+                    "fallback_origins",
+                    "temp_cname"
                   ],
                   "required": [
                     "type"
