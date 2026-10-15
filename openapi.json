@@ -5489,12 +5489,12 @@
                     "properties": {
                       "start_at": {
                         "type": "string",
-                        "description": "The starting date to consider",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       },
                       "end_at": {
                         "type": "string",
-                        "description": "The ending date to consider",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       }
                     },
@@ -5915,10 +5915,11 @@
           {
             "name": "start_at",
             "in": "query",
-            "description": "Date string in \"yyyy-mm-dd\" format",
+            "description": "Date in yyyy-MM-dd format",
             "required": true,
             "schema": {
               "type": "string",
+              "format": "date",
               "examples": [
                 "2026-06-21"
               ]
@@ -5927,10 +5928,11 @@
           {
             "name": "end_at",
             "in": "query",
-            "description": "Date string in \"yyyy-mm-dd\" format",
+            "description": "Date in yyyy-MM-dd format",
             "required": true,
             "schema": {
               "type": "string",
+              "format": "date",
               "examples": [
                 "2026-06-30"
               ]
@@ -15027,12 +15029,12 @@
                     "properties": {
                       "start_at": {
                         "type": "string",
-                        "description": "The starting date to consider",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       },
                       "end_at": {
                         "type": "string",
-                        "description": "The ending date to consider",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       }
                     },
@@ -22498,17 +22500,19 @@
           {
             "name": "start_date",
             "in": "query",
-            "description": "Asset created_at lower bound.",
+            "description": "Asset created_at lower bound. Date in yyyy-MM-dd format.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "date"
             }
           },
           {
             "name": "end_date",
             "in": "query",
-            "description": "Asset created_at upper bound.",
+            "description": "Asset created_at upper bound. Date in yyyy-MM-dd format.",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "date"
             }
           },
           {
@@ -26313,11 +26317,13 @@
                     "properties": {
                       "start_at": {
                         "type": "string",
-                        "description": "Starting date for audit logs. It's a string in YYYY-MM-DD format."
+                        "format": "date",
+                        "description": "Date in yyyy-MM-dd format"
                       },
                       "end_at": {
                         "type": "string",
-                        "description": "Ending date for audit logs. It's a string in YYYY-MM-DD format."
+                        "format": "date",
+                        "description": "Date in yyyy-MM-dd format"
                       }
                     },
                     "x-apidog-orders": [
@@ -29114,13 +29120,13 @@
                     "properties": {
                       "start_at": {
                         "type": "string",
-                        "description": "Start date in ISO 8601 date format (YYYY-MM-DD)",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       },
                       "end_at": {
                         "type": "string",
                         "format": "date",
-                        "description": "End date in ISO 8601 date format (YYYY-MM-DD)"
+                        "description": "Date in yyyy-MM-dd format"
                       }
                     },
                     "x-apidog-orders": [
