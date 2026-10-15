@@ -5432,7 +5432,7 @@
                 "properties": {
                   "metrics": {
                     "type": "array",
-                    "description": "Define the metric you need the data for. Currently we only support `bandwidth_consumption`, `asset_duration`, `storage_unit`, `top_assets`, `bandwidth_consumption_by_collection`, `errored_videos` and `widget_data`",
+                    "description": "Define the metric you need the data for. Supported values: `bandwidth_consumption`, `asset_duration`, `storage_unit`, `top_assets`, `drm_requests`, `ai_credit_usage`, and `errored_videos`.",
                     "items": {
                       "type": "string",
                       "enum": [
@@ -15019,7 +15019,7 @@
                         }
                       ]
                     },
-                    "description": "Define the metric you need the data for. Currently we support `bandwidth_consumption`, `requests_count`, `status_4xx`, `status_5xx`, and `avg_response_time`."
+                    "description": "Define the metric you need the data for. Supported values: `bandwidth_consumption`, `requests_count`, `transformations_count`, `bandwidth_savings`, `origin_hit_rate`, `avg_transformation_response_time`, `status_4xx`, `status_5xx`, `cdn_hit_rate`, `content_type`, `status_2xx`, `avg_response_time`, `top_assets`, `bandwidth_consumption_by_source`, and `ai_credit_usage`."
                   },
                   "date_range": {
                     "type": "object",
@@ -24335,9 +24335,19 @@
                 "properties": {
                   "metrics": {
                     "type": "array",
-                    "description": "Get data for one or more `metrics` in the same request. Please add any of these metrics. `views`, `unique_views`, `impressions`. `completion_percent_by_views`, `playing_time`, `concurrent_users`, `widget_form_submitted`, `cta_clicks`",
+                    "description": "Get data for one or more metrics in the same request. Supported values: `views`, `unique_views`, `impressions`, `completion_percent_by_views`, `playing_time`, `concurrent_users`, `widget_form_submitted`, and `cta_clicks`.",
                     "items": {
-                      "type": "string"
+                      "type": "string",
+                      "enum": [
+                        "views",
+                        "unique_views",
+                        "impressions",
+                        "completion_percent_by_views",
+                        "playing_time",
+                        "concurrent_users",
+                        "widget_form_submitted",
+                        "cta_clicks"
+                      ]
                     }
                   },
                   "workspace_id": {
@@ -24346,7 +24356,7 @@
                   },
                   "date_range": {
                     "type": "object",
-                    "description": "The timeframe to get the data for. \nCurrently, we only support a maximum of *60 days* between `start_at` and `end_at`.",
+                    "description": "The timeframe to get the data for. The maximum range between start_at and end_at is 60 days.",
                     "required": [
                       "start_at",
                       "end_at"
@@ -24354,12 +24364,12 @@
                     "properties": {
                       "start_at": {
                         "type": "string",
-                        "description": "Use <b>yyyy-MM-dd</b> format",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       },
                       "end_at": {
                         "type": "string",
-                        "description": "Use <b>yyyy-MM-dd</b> format",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       }
                     },
@@ -24850,7 +24860,7 @@
                 "properties": {
                   "date_range": {
                     "type": "object",
-                    "description": "The timeframe to get the data for. \nCurrently, we only support a maximum of *60 days* between `start_at` and `end_at`.",
+                    "description": "The timeframe to get the data for. The maximum range between start_at and end_at is 60 days.",
                     "required": [
                       "start_at",
                       "end_at"
@@ -24858,12 +24868,12 @@
                     "properties": {
                       "start_at": {
                         "type": "string",
-                        "description": "Use <b>yyyy-MM-dd</b> format",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       },
                       "end_at": {
                         "type": "string",
-                        "description": "Use <b>yyyy-MM-dd</b> format",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       }
                     }
@@ -25306,19 +25316,23 @@
                   },
                   "timeframe": {
                     "type": "object",
-                    "description": "The timeframe to get the data for. Currently we only support maximum difference between `start_at` and `end_at` to be *60 days*",
+                    "description": "The timeframe to get the data for. The maximum range between start_at and end_at is 60 days.",
                     "properties": {
                       "start_at": {
                         "type": "string",
-                        "description": "Use <b>yyyy-MM-dd</b> format",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       },
                       "end_at": {
                         "type": "string",
-                        "description": "Use <b>yyyy-MM-dd</b> format",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       }
-                    }
+                    },
+                    "required": [
+                      "start_at",
+                      "end_at"
+                    ]
                   },
                   "filters": {
                     "type": "array",
@@ -27339,12 +27353,12 @@
                     "properties": {
                       "start_at": {
                         "type": "string",
-                        "description": "ISO 8601 start timestamp",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       },
                       "end_at": {
                         "type": "string",
-                        "description": "ISO 8601 end timestamp",
+                        "description": "Date in yyyy-MM-dd format",
                         "format": "date"
                       }
                     },
