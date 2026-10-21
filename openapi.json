@@ -24326,7 +24326,7 @@
       "post": {
         "summary": "Viewer Analytics",
         "description": "This endpoint retrieves viewer analytics data. This endpoint is use for deep insights on the analytics data.",
-        "operationId": "analytics-chart-data",
+        "operationId": "viewer-analytics-data",
         "requestBody": {
           "content": {
             "application/json": {
