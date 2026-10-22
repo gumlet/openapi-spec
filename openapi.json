@@ -6592,16 +6592,16 @@
                     "type": "object",
                     "description": "Gumlet allows you to generate subtitles from the audio stream (use <a href='https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes'> ISO 639-1 </a> Language Codes). Remove this object if you do not want to generate AI subtitles.",
                     "properties": {
-                      "transcribe": {
-                        "type": "boolean",
-                        "description": "This will generate the subtitles in the native audio.",
-                        "default": true
-                      },
                       "subtitle_languages": {
                         "type": "string",
                         "description": "Array of string of language codes for which subtitle needs to be generated. Maximum four language codes are allowed."
                       }
                     }
+                  },
+                  "transcribe": {
+                    "type": "boolean",
+                    "description": "This will generate the subtitles in the native audio.",
+                    "default": false
                   },
                   "mp4_access": {
                     "type": "boolean",
@@ -7501,17 +7501,17 @@
                         "items": {
                           "type": "string"
                         }
-                      },
-                      "transcribe": {
-                        "type": "boolean",
-                        "default": true,
-                        "description": "This is by default true to generate the subtitles in the native audio."
                       }
                     },
                     "x-apidog-orders": [
                       "subtitle_languages",
                       "transcribe"
                     ]
+                  },
+                  "transcribe": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "To generate the subtitles in the native audio."
                   },
                   "mp4_access": {
                     "type": "boolean",
