@@ -4121,7 +4121,7 @@
                 "properties": {
                   "asset_id": {
                     "type": "string",
-                    "description": "Asset Id"
+                    "description": "Asset ID to update. This is a required parameter."
                   },
                   "title": {
                     "type": "string",
@@ -8590,7 +8590,8 @@
             "description": "Workspace ID",
             "schema": {
               "type": "string"
-            }
+            },
+            "required": true
           }
         ],
         "responses": {
@@ -18248,7 +18249,13 @@
                       "whitelisted_referrers": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "signed_url",
+                      "signed_url_secret",
+                      "blacklisted_countries",
+                      "whitelisted_referrers"
+                    ]
                   },
                   "aws": {
                     "type": "object",
@@ -18278,7 +18285,15 @@
                       "endpoint": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "bucket_region",
+                      "access_key",
+                      "secret",
+                      "base_path",
+                      "endpoint"
+                    ]
                   },
                   "proxy": {
                     "type": "object",
@@ -18290,7 +18305,10 @@
                       "whitelisted_domains": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "whitelisted_domains"
+                    ]
                   },
                   "gcs": {
                     "type": "object",
@@ -18306,7 +18324,11 @@
                       "service_account_key": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "service_account_key"
+                    ]
                   },
                   "dostorage": {
                     "type": "object",
@@ -18333,7 +18355,14 @@
                       "base_path": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "bucket_region",
+                      "access_key",
+                      "secret",
+                      "base_path"
+                    ]
                   },
                   "wasabi": {
                     "type": "object",
@@ -18360,7 +18389,14 @@
                       "base_path": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "bucket_region",
+                      "access_key",
+                      "secret",
+                      "base_path"
+                    ]
                   },
                   "cloudinary": {
                     "type": "object",
@@ -18376,7 +18412,11 @@
                       "cloud_name": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "host_name",
+                      "cloud_name"
+                    ]
                   },
                   "azure": {
                     "type": "object",
@@ -18400,7 +18440,13 @@
                       "azure_path": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "azure_account_name",
+                      "azure_container_name",
+                      "azure_shared_token",
+                      "azure_path"
+                    ]
                   },
                   "linode": {
                     "type": "object",
@@ -18424,7 +18470,13 @@
                       "secret": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "bucket_region",
+                      "access_key",
+                      "secret"
+                    ]
                   },
                   "backblaze": {
                     "type": "object",
@@ -18455,7 +18507,15 @@
                       "base_path": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "bucket_region",
+                      "endpoint",
+                      "access_key",
+                      "secret",
+                      "base_path"
+                    ]
                   },
                   "cloudflare": {
                     "type": "object",
@@ -18482,7 +18542,14 @@
                       "base_path": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "bucket_name",
+                      "access_key",
+                      "account_id",
+                      "secret",
+                      "base_path"
+                    ]
                   },
                   "zoom": {
                     "type": "object",
@@ -18494,18 +18561,64 @@
                       "secret": {
                         "type": "string"
                       }
-                    }
+                    },
+                    "x-apidog-orders": [
+                      "secret"
+                    ]
+                  },
+                  "data_localization": {
+                    "type": "string",
+                    "enum": [
+                      "us",
+                      "in",
+                      "eu"
+                    ],
+                    "x-apidog-enum": [
+                      {
+                        "value": "us",
+                        "name": "USA",
+                        "description": ""
+                      },
+                      {
+                        "value": "in",
+                        "name": "India",
+                        "description": ""
+                      },
+                      {
+                        "value": "eu",
+                        "name": "Europe",
+                        "description": ""
+                      }
+                    ],
+                    "default": "us",
+                    "description": "Data localization region"
                   }
-                }
+                },
+                "x-apidog-orders": [
+                  "name",
+                  "type",
+                  "default_profile_id",
+                  "insight_property_id",
+                  "data_localization",
+                  "video_protection",
+                  "aws",
+                  "proxy",
+                  "gcs",
+                  "dostorage",
+                  "wasabi",
+                  "cloudinary",
+                  "azure",
+                  "linode",
+                  "backblaze",
+                  "cloudflare",
+                  "zoom"
+                ]
               },
               "examples": {
                 "Request Example": {
                   "value": {
-                    "name": "zoom-workspace",
-                    "type": "zoom",
-                    "zoom": {
-                      "secret": "yourSecret"
-                    }
+                    "name": "My Workspace",
+                    "type": "direct-upload"
                   }
                 }
               }
