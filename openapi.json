@@ -28272,14 +28272,14 @@
                     },
                     "current_month_usage": {
                       "type": "string",
-                      "description": "Current month total amount in given currency."
+                      "description": "Current month total amount in given currency. This amount includes taxes."
                     },
                     "upcoming_invoice": {
                       "type": "object",
                       "properties": {
                         "subtotal": {
                           "type": "string",
-                          "description": "Upcoming invoice amount without tax"
+                          "description": "Upcoming invoice amount excluding tax"
                         },
                         "lines": {
                           "type": "object",
