@@ -18120,6 +18120,33 @@
                           "on_streaming_halt": {
                             "type": "boolean",
                             "description": "Whether the workspace is disabled for streaming. `true` means it's disabled."
+                          },
+                          "data_localization": {
+                            "type": "string",
+                            "enum": [
+                              "us",
+                              "in",
+                              "eu"
+                            ],
+                            "x-apidog-enum": [
+                              {
+                                "value": "us",
+                                "name": "USA",
+                                "description": ""
+                              },
+                              {
+                                "value": "in",
+                                "name": "India",
+                                "description": ""
+                              },
+                              {
+                                "value": "eu",
+                                "name": "Europe",
+                                "description": ""
+                              }
+                            ],
+                            "default": "us",
+                            "description": "Data storage region"
                           }
                         },
                         "x-apidog-orders": [
@@ -18136,7 +18163,8 @@
                           "embed_details",
                           "folders",
                           "channel_settings",
-                          "on_streaming_halt"
+                          "on_streaming_halt",
+                          "data_localization"
                         ]
                       }
                     }
@@ -20969,6 +20997,33 @@
                           "is_varified"
                         ]
                       }
+                    },
+                    "data_localization": {
+                      "type": "string",
+                      "enum": [
+                        "us",
+                        "in",
+                        "eu"
+                      ],
+                      "x-apidog-enum": [
+                        {
+                          "value": "us",
+                          "name": "USA",
+                          "description": ""
+                        },
+                        {
+                          "value": "in",
+                          "name": "India",
+                          "description": ""
+                        },
+                        {
+                          "value": "eu",
+                          "name": "Europe",
+                          "description": ""
+                        }
+                      ],
+                      "default": "us",
+                      "description": "Data storage region"
                     }
                   },
                   "x-apidog-orders": [
@@ -20978,6 +21033,7 @@
                     "created_at",
                     "updated_at",
                     "default_profile_id",
+                    "data_localization",
                     "default_profile_updated_at",
                     "insights_enabled",
                     "video_protection",
