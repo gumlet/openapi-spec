@@ -1049,33 +1049,12 @@
                   },
                   "workspace_id": {
                     "type": "string",
-                    "description": "Gumlet video workspace ID. Preferred. `collection_id` and `source_id` are deprecated aliases for the same ID.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ]
-                  },
-                  "collection_id": {
-                    "type": "string",
-                    "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ],
-                    "deprecated": true
-                  },
-                  "source_id": {
-                    "type": "string",
-                    "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ],
-                    "deprecated": true
+                    "description": "Gumlet video workspace id."
                   }
                 },
                 "x-apidog-orders": [
                   "input",
                   "workspace_id",
-                  "collection_id",
-                  "source_id",
                   "profile_id",
                   "format",
                   "tag",
@@ -1109,9 +1088,7 @@
                     "format": "ABR",
                     "workspace_id": "<your workspace id>",
                     "title": "Example Title",
-                    "input": "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8",
-                    "collection_id": "<your workspace id>",
-                    "source_id": "<your workspace id>"
+                    "input": "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8"
                   }
                 },
                 "Detailed Example": {
@@ -1142,9 +1119,7 @@
                         "background_color": "#ffffff"
                       }
                     ],
-                    "folder": "697375fbfa2d1037283140e4",
-                    "collection_id": "646df1c9173a4a2fcac180b4",
-                    "source_id": "646df1c9173a4a2fcac180b4"
+                    "folder": "697375fbfa2d1037283140e4"
                   }
                 }
               }
@@ -1550,23 +1525,7 @@
                       "examples": [
                         "646df1c9173a4a2fcac180b4"
                       ],
-                      "description": "Workspace ID"
-                    },
-                    "collection_id": {
-                      "type": "string",
-                      "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                      "examples": [
-                        "646df1c9173a4a2fcac180b4"
-                      ],
-                      "deprecated": true
-                    },
-                    "source_id": {
-                      "type": "string",
-                      "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                      "examples": [
-                        "646df1c9173a4a2fcac180b4"
-                      ],
-                      "deprecated": true
+                      "description": "Workdspace ID"
                     }
                   },
                   "x-apidog-orders": [
@@ -1577,8 +1536,6 @@
                     "status",
                     "tag",
                     "workspace_id",
-                    "collection_id",
-                    "source_id",
                     "input",
                     "output",
                     "playlists"
@@ -1707,9 +1664,6 @@
                   "collection_id": {
                     "type": "string",
                     "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ],
                     "deprecated": true
                   },
                   "profile_id": {
@@ -2076,18 +2030,10 @@
                   },
                   "workspace_id": {
                     "type": "string",
-                    "description": "Gumlet video workspace ID. Preferred. `collection_id` and `source_id` are deprecated aliases for the same ID.",
+                    "description": "Gumlet video workspace ID. Preferred over deprecated `collection_id` / `source_id` (same ID).",
                     "examples": [
                       "646df1c9173a4a2fcac180b4"
                     ]
-                  },
-                  "source_id": {
-                    "type": "string",
-                    "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ],
-                    "deprecated": true
                   }
                 }
               },
@@ -2121,8 +2067,7 @@
                       }
                     ],
                     "folder": "697375fbfa2d1037283140e4",
-                    "workspace_id": "646df1c9173a4a2fcac180b4",
-                    "source_id": "646df1c9173a4a2fcac180b4"
+                    "workspace_id": "646df1c9173a4a2fcac180b4"
                   }
                 }
               }
@@ -2499,26 +2444,7 @@
                     },
                     "workspace_id": {
                       "type": "string",
-                      "description": "Workspace ID",
-                      "examples": [
-                        "646df1c9173a4a2fcac180b4"
-                      ]
-                    },
-                    "collection_id": {
-                      "type": "string",
-                      "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                      "examples": [
-                        "646df1c9173a4a2fcac180b4"
-                      ],
-                      "deprecated": true
-                    },
-                    "source_id": {
-                      "type": "string",
-                      "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                      "examples": [
-                        "646df1c9173a4a2fcac180b4"
-                      ],
-                      "deprecated": true
+                      "description": "Workdspace ID"
                     }
                   },
                   "x-apidog-orders": [
@@ -2530,8 +2456,6 @@
                     "tag",
                     "input",
                     "workspace_id",
-                    "collection_id",
-                    "source_id",
                     "output",
                     "upload_url",
                     "playlists"
@@ -3010,9 +2934,7 @@
                       "playlists": [
                         "6580370331f481c578e07287",
                         "657c24f3e3340004404eed59"
-                      ],
-                      "collection_id": "67e4ece9403562dbea65425f",
-                      "source_id": "67e4ece9403562dbea65425f"
+                      ]
                     }
                   }
                 },
@@ -3837,22 +3759,6 @@
                         "67e4ece9403562dbea65425f"
                       ],
                       "description": "Workspace ID"
-                    },
-                    "collection_id": {
-                      "type": "string",
-                      "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                      "examples": [
-                        "67e4ece9403562dbea65425f"
-                      ],
-                      "deprecated": true
-                    },
-                    "source_id": {
-                      "type": "string",
-                      "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                      "examples": [
-                        "67e4ece9403562dbea65425f"
-                      ],
-                      "deprecated": true
                     }
                   },
                   "x-apidog-orders": [
@@ -3865,8 +3771,6 @@
                     "status",
                     "tag",
                     "workspace_id",
-                    "collection_id",
-                    "source_id",
                     "input",
                     "output",
                     "processed_at",
@@ -5620,22 +5524,16 @@
                       "collection_id": {
                         "type": "string",
                         "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                        "examples": [
-                          "646df1c9173a4a2fcac180b4"
-                        ],
                         "deprecated": true
                       },
                       "source_id": {
                         "type": "string",
                         "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                        "deprecated": true,
-                        "examples": [
-                          "646df1c9173a4a2fcac180b4"
-                        ]
+                        "deprecated": true
                       },
                       "workspace_id": {
                         "type": "string",
-                        "description": "Gumlet video workspace ID. Preferred. `collection_id` and `source_id` are deprecated aliases for the same ID.",
+                        "description": "Gumlet video workspace ID. Preferred over deprecated `collection_id` / `source_id` (same ID).",
                         "examples": [
                           "646df1c9173a4a2fcac180b4"
                         ]
@@ -5877,10 +5775,7 @@
                           },
                           "workspace_id": {
                             "type": "string",
-                            "description": "Workspace ID",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ]
+                            "description": "Workspace ID"
                           },
                           "duration": {
                             "type": "string",
@@ -5893,28 +5788,10 @@
                           "collection_name": {
                             "type": "string",
                             "description": "Workspace Name"
-                          },
-                          "collection_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
-                          },
-                          "source_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
                           }
                         },
                         "x-apidog-orders": [
                           "workspace_id",
-                          "collection_id",
-                          "source_id",
                           "asset_id",
                           "units",
                           "duration",
@@ -6084,13 +5961,10 @@
           {
             "name": "workspace_id",
             "in": "query",
-            "description": "Gumlet video workspace ID. Preferred. Provide one of `workspace_id`, `collection_id`, or `source_id` (same ID).",
+            "description": "Gumlet video workspace ID. Preferred. Provide `workspace_id`, or deprecated `collection_id` / `source_id` (same ID).",
             "required": false,
             "schema": {
-              "type": "string",
-              "examples": [
-                "646df1c9173a4a2fcac180b4"
-              ]
+              "type": "string"
             }
           },
           {
@@ -6102,19 +5976,6 @@
             },
             "deprecated": true,
             "required": false
-          },
-          {
-            "name": "source_id",
-            "in": "query",
-            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-            "required": false,
-            "deprecated": true,
-            "schema": {
-              "type": "string",
-              "examples": [
-                "646df1c9173a4a2fcac180b4"
-              ]
-            }
           },
           {
             "name": "page",
@@ -8436,9 +8297,6 @@
                   "collection_id": {
                     "type": "string",
                     "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ],
                     "deprecated": true
                   },
                   "title": {
@@ -8451,24 +8309,15 @@
                   },
                   "workspace_id": {
                     "type": "string",
-                    "description": "Gumlet video workspace ID. Preferred. `collection_id` and `source_id` are deprecated aliases for the same ID.",
+                    "description": "Gumlet video workspace ID. Preferred over deprecated `collection_id` / `source_id` (same ID).",
                     "examples": [
                       "646df1c9173a4a2fcac180b4"
                     ]
-                  },
-                  "source_id": {
-                    "type": "string",
-                    "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ],
-                    "deprecated": true
                   }
                 },
                 "x-apidog-orders": [
                   "workspace_id",
                   "collection_id",
-                  "source_id",
                   "title",
                   "description"
                 ]
@@ -8479,8 +8328,7 @@
                     "title": "Playlist-Title",
                     "description": "This is description for playlist.",
                     "collection_id": "{{video-source-id}}",
-                    "workspace_id": "{{video-source-id}}",
-                    "source_id": "{{video-source-id}}"
+                    "workspace_id": "{{video-source-id}}"
                   }
                 }
               }
@@ -8519,8 +8367,7 @@
                         "watermark_bg_color": "transparent",
                         "watermark_interval": 1000
                       },
-                      "workspace_id": "646df1c9173a4a2fcac180b4",
-                      "source_id": "646df1c9173a4a2fcac180b4"
+                      "workspace_id": "646df1c9173a4a2fcac180b4"
                     }
                   }
                 },
@@ -8709,21 +8556,12 @@
                       "examples": [
                         "646df1c9173a4a2fcac180b4"
                       ]
-                    },
-                    "source_id": {
-                      "type": "string",
-                      "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                      "examples": [
-                        "646df1c9173a4a2fcac180b4"
-                      ],
-                      "deprecated": true
                     }
                   },
                   "x-apidog-orders": [
                     "id",
                     "workspace_id",
                     "collection_id",
-                    "source_id",
                     "title",
                     "description",
                     "player_config"
@@ -8800,13 +8638,10 @@
           {
             "name": "workspace_id",
             "in": "query",
-            "description": "Gumlet video workspace ID. Preferred. Provide one of `workspace_id`, `collection_id`, or `source_id` (same ID).",
+            "description": "Gumlet video workspace ID. Preferred. Provide one of `workspace_id` or the deprecated aliases below (same ID).",
             "required": false,
             "schema": {
-              "type": "string",
-              "examples": [
-                "646df1c9173a4a2fcac180b4"
-              ]
+              "type": "string"
             }
           },
           {
@@ -8818,19 +8653,6 @@
             },
             "required": false,
             "deprecated": true
-          },
-          {
-            "name": "source_id",
-            "in": "query",
-            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-            "required": false,
-            "deprecated": true,
-            "schema": {
-              "type": "string",
-              "examples": [
-                "646df1c9173a4a2fcac180b4"
-              ]
-            }
           }
         ],
         "responses": {
@@ -8846,25 +8668,19 @@
                         "collection_id": "646df1c9173a4a2fcac180b4",
                         "title": "Playlist-1",
                         "description": "This is updated description",
-                        "player_config": {},
-                        "workspace_id": "646df1c9173a4a2fcac180b4",
-                        "source_id": "646df1c9173a4a2fcac180b4"
+                        "player_config": {}
                       },
                       {
                         "id": "65802cc5bda4c3f74c99eacf",
                         "collection_id": "646df1c9173a4a2fcac180b4",
                         "title": "Playlist-2",
-                        "player_config": {},
-                        "workspace_id": "646df1c9173a4a2fcac180b4",
-                        "source_id": "646df1c9173a4a2fcac180b4"
+                        "player_config": {}
                       },
                       {
                         "id": "65802cc6bda4c3f74c99eae5",
                         "collection_id": "646df1c9173a4a2fcac180b4",
                         "title": "Playlist-3",
-                        "player_config": {},
-                        "workspace_id": "646df1c9173a4a2fcac180b4",
-                        "source_id": "646df1c9173a4a2fcac180b4"
+                        "player_config": {}
                       }
                     ]
                   }
@@ -8915,21 +8731,12 @@
                         "examples": [
                           "646df1c9173a4a2fcac180b4"
                         ]
-                      },
-                      "source_id": {
-                        "type": "string",
-                        "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                        "examples": [
-                          "646df1c9173a4a2fcac180b4"
-                        ],
-                        "deprecated": true
                       }
                     },
                     "x-apidog-orders": [
                       "id",
                       "workspace_id",
                       "collection_id",
-                      "source_id",
                       "title",
                       "description",
                       "player_config"
@@ -9476,8 +9283,7 @@
                         "watermark_bg_color": "transparent",
                         "watermark_interval": 1000
                       },
-                      "workspace_id": "646df1c9173a4a2fcac180b4",
-                      "source_id": "646df1c9173a4a2fcac180b4"
+                      "workspace_id": "646df1c9173a4a2fcac180b4"
                     }
                   }
                 },
@@ -9665,21 +9471,12 @@
                       "examples": [
                         "646df1c9173a4a2fcac180b4"
                       ]
-                    },
-                    "source_id": {
-                      "type": "string",
-                      "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                      "examples": [
-                        "646df1c9173a4a2fcac180b4"
-                      ],
-                      "deprecated": true
                     }
                   },
                   "x-apidog-orders": [
                     "id",
                     "workspace_id",
                     "collection_id",
-                    "source_id",
                     "title",
                     "description",
                     "player_config"
@@ -23249,8 +23046,8 @@
                             "examples": [
                               "5f462c1561cf8a766464ffc4"
                             ],
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "deprecated": true
+                            "deprecated": true,
+                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility."
                           },
                           "input": {
                             "type": "object",
@@ -23500,14 +23297,6 @@
                             "examples": [
                               "5f462c1561cf8a766464ffc4"
                             ]
-                          },
-                          "collection_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "5f462c1561cf8a766464ffc4"
-                            ],
-                            "deprecated": true
                           }
                         },
                         "x-apidog-orders": [
@@ -23517,7 +23306,6 @@
                           "status",
                           "tag",
                           "workspace_id",
-                          "collection_id",
                           "source_id",
                           "input",
                           "output"
@@ -24255,9 +24043,7 @@
                             "thumbnail_url": [
                               "https://video.gumlet.io/5f462c1561cf8a766464ffc4/6192269e0822a81d955d1a4b/thumbnail-1-0.png"
                             ]
-                          },
-                          "workspace_id": "5f462c1561cf8a766464ffc4",
-                          "collection_id": "5f462c1561cf8a766464ffc4"
+                          }
                         }
                       ],
                       "total_asset_count": 2159,
@@ -24339,11 +24125,8 @@
                           "source_id": {
                             "type": "string",
                             "example": "5f462c1561cf8a766464ffc4",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "5f462c1561cf8a766464ffc4"
-                            ],
-                            "deprecated": true
+                            "deprecated": true,
+                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility."
                           },
                           "input": {
                             "type": "object",
@@ -24500,14 +24283,6 @@
                             "examples": [
                               "5f462c1561cf8a766464ffc4"
                             ]
-                          },
-                          "collection_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "5f462c1561cf8a766464ffc4"
-                            ],
-                            "deprecated": true
                           }
                         }
                       }
@@ -26969,10 +26744,7 @@
                           },
                           "workspace_id": {
                             "type": "string",
-                            "description": "Workspace ID",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ]
+                            "description": "Workspace ID for the asset."
                           },
                           "title": {
                             "type": "string",
@@ -27003,29 +26775,11 @@
                           "deleted_by": {
                             "type": "string",
                             "description": "User ID of the user who deleted the asset."
-                          },
-                          "collection_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
-                          },
-                          "source_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
                           }
                         },
                         "x-apidog-orders": [
                           "asset_id",
                           "workspace_id",
-                          "collection_id",
-                          "source_id",
                           "title",
                           "description",
                           "tags",
@@ -27246,31 +27000,19 @@
                   "source_id": {
                     "type": "string",
                     "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ],
                     "deprecated": true
                   },
                   "workspace_id": {
                     "type": "string",
-                    "description": "Gumlet video workspace ID. Preferred. `collection_id` and `source_id` are deprecated aliases for the same ID.",
+                    "description": "Gumlet video workspace ID. Preferred over deprecated `collection_id` / `source_id` (same ID).",
                     "examples": [
                       "646df1c9173a4a2fcac180b4"
                     ]
-                  },
-                  "collection_id": {
-                    "type": "string",
-                    "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ],
-                    "deprecated": true
                   }
                 },
                 "x-apidog-orders": [
                   "asset_list",
                   "workspace_id",
-                  "collection_id",
                   "source_id"
                 ],
                 "required": [
@@ -27286,8 +27028,7 @@
                       "64249a8858fd3a208b987702",
                       "64784bae843b155b829bbf84"
                     ],
-                    "workspace_id": "60bd2ba353ff754d28179ee6",
-                    "collection_id": "60bd2ba353ff754d28179ee6"
+                    "workspace_id": "60bd2ba353ff754d28179ee6"
                   }
                 }
               }
@@ -27396,9 +27137,6 @@
                   "source_id": {
                     "type": "string",
                     "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ],
                     "deprecated": true
                   },
                   "add_tags": {
@@ -27417,24 +27155,15 @@
                   },
                   "workspace_id": {
                     "type": "string",
-                    "description": "Gumlet video workspace ID. Preferred. `collection_id` and `source_id` are deprecated aliases for the same ID.",
+                    "description": "Gumlet video workspace ID. Preferred over deprecated `collection_id` / `source_id` (same ID).",
                     "examples": [
                       "646df1c9173a4a2fcac180b4"
                     ]
-                  },
-                  "collection_id": {
-                    "type": "string",
-                    "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                    "examples": [
-                      "646df1c9173a4a2fcac180b4"
-                    ],
-                    "deprecated": true
                   }
                 },
                 "x-apidog-orders": [
                   "asset_list",
                   "workspace_id",
-                  "collection_id",
                   "source_id",
                   "add_tags",
                   "remove_tags"
@@ -27460,8 +27189,7 @@
                       "6221db301c8b821b0519fba0",
                       "61e8f2726ec832ab2ac4fa6e"
                     ],
-                    "workspace_id": "60bd2ba353ff754d28179ee6",
-                    "collection_id": "60bd2ba353ff754d28179ee6"
+                    "workspace_id": "60bd2ba353ff754d28179ee6"
                   }
                 }
               }
@@ -27757,10 +27485,7 @@
                               },
                               "workspace_id": {
                                 "type": "string",
-                                "description": "Workspace ID",
-                                "examples": [
-                                  "646df1c9173a4a2fcac180b4"
-                                ]
+                                "description": "Workspace ID"
                               },
                               "timestamp": {
                                 "type": "string",
@@ -27773,28 +27498,10 @@
                               "name": {
                                 "type": "string",
                                 "description": "Name submitted"
-                              },
-                              "collection_id": {
-                                "type": "string",
-                                "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                                "examples": [
-                                  "646df1c9173a4a2fcac180b4"
-                                ],
-                                "deprecated": true
-                              },
-                              "source_id": {
-                                "type": "string",
-                                "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                                "examples": [
-                                  "646df1c9173a4a2fcac180b4"
-                                ],
-                                "deprecated": true
                               }
                             },
                             "x-apidog-orders": [
                               "workspace_id",
-                              "collection_id",
-                              "source_id",
                               "asset_id",
                               "page_url",
                               "playback_time_instant_milli",
@@ -29822,10 +29529,7 @@
                           },
                           "workspace_id": {
                             "type": "string",
-                            "description": "Workspace ID",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ]
+                            "description": "Workspace ID in which the folder resides"
                           },
                           "highlight": {
                             "type": "array",
@@ -29892,22 +29596,6 @@
                                 "texts"
                               ]
                             }
-                          },
-                          "collection_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
-                          },
-                          "source_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
                           }
                         },
                         "x-apidog-orders": [
@@ -29915,8 +29603,6 @@
                           "created_at",
                           "updated_at",
                           "workspace_id",
-                          "collection_id",
-                          "source_id",
                           "highlight"
                         ],
                         "required": [
@@ -29951,10 +29637,7 @@
                           },
                           "workspace_id": {
                             "type": "string",
-                            "description": "Workspace ID",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ]
+                            "description": "Workspace ID on in which this asset resides"
                           },
                           "created_at": {
                             "type": "integer",
@@ -30031,22 +29714,6 @@
                                 "texts"
                               ]
                             }
-                          },
-                          "collection_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
-                          },
-                          "source_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
                           }
                         },
                         "x-apidog-orders": [
@@ -30054,8 +29721,6 @@
                           "title",
                           "tags",
                           "workspace_id",
-                          "collection_id",
-                          "source_id",
                           "created_at",
                           "updated_at",
                           "highlight"
@@ -30101,10 +29766,7 @@
                           },
                           "workspace_id": {
                             "type": "string",
-                            "description": "Workspace ID",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ]
+                            "description": "Workspace ID on in which this playlist resides"
                           },
                           "highlight": {
                             "type": "array",
@@ -30171,22 +29833,6 @@
                                 "texts"
                               ]
                             }
-                          },
-                          "collection_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
-                          },
-                          "source_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
                           }
                         },
                         "x-apidog-orders": [
@@ -30196,8 +29842,6 @@
                           "created_at",
                           "updated_at",
                           "workspace_id",
-                          "collection_id",
-                          "source_id",
                           "highlight"
                         ],
                         "required": [
@@ -30237,10 +29881,7 @@
                           },
                           "workspace_id": {
                             "type": "string",
-                            "description": "Workspace ID",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ]
+                            "description": "Workspace ID on in which this channel resides"
                           },
                           "highlight": {
                             "type": "array",
@@ -30307,22 +29948,6 @@
                                 "texts"
                               ]
                             }
-                          },
-                          "collection_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
-                          },
-                          "source_id": {
-                            "type": "string",
-                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-                            "examples": [
-                              "646df1c9173a4a2fcac180b4"
-                            ],
-                            "deprecated": true
                           }
                         },
                         "x-apidog-orders": [
@@ -30331,8 +29956,6 @@
                           "created_at",
                           "updated_at",
                           "workspace_id",
-                          "collection_id",
-                          "source_id",
                           "highlight"
                         ],
                         "required": [
@@ -30431,13 +30054,10 @@
           {
             "name": "workspace_id",
             "in": "query",
-            "description": "Gumlet video workspace ID. Preferred. Provide one of `workspace_id`, `collection_id`, or `source_id` (same ID).",
+            "description": "Gumlet video workspace ID. Preferred. Provide `workspace_id`, or deprecated `collection_id` / `source_id` (same ID).",
             "required": false,
             "schema": {
-              "type": "string",
-              "examples": [
-                "646df1c9173a4a2fcac180b4"
-              ]
+              "type": "string"
             }
           },
           {
@@ -30449,19 +30069,6 @@
             "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
             "deprecated": true,
             "required": false
-          },
-          {
-            "name": "source_id",
-            "in": "query",
-            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
-            "required": false,
-            "deprecated": true,
-            "schema": {
-              "type": "string",
-              "examples": [
-                "646df1c9173a4a2fcac180b4"
-              ]
-            }
           },
           {
             "in": "query",
