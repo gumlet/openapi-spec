@@ -21431,7 +21431,8 @@
                       "subdirectory_count": 0,
                       "asset_count": 0,
                       "created_at": "2026-03-18T10:00:00.000Z",
-                      "updated_at": "2026-03-18T10:00:00.000Z"
+                      "updated_at": "2026-03-18T10:00:00.000Z",
+                      "workspace_id": "67e4ece9403562dbea65425f"
                     }
                   }
                 },
@@ -21457,7 +21458,8 @@
                       "examples": [
                         "67e4ece9403562dbea65425f"
                       ],
-                      "description": "Workspace ID"
+                      "description": "Deprecated. Use `workspace_id` instead. Still returned for backwards compatibility.",
+                      "deprecated": true
                     },
                     "parent_id": {
                       "type": [
@@ -21527,11 +21529,19 @@
                       ],
                       "format": "date-time",
                       "description": "Folder update time in ISO 8601 format"
+                    },
+                    "workspace_id": {
+                      "type": "string",
+                      "examples": [
+                        "67e4ece9403562dbea65425f"
+                      ],
+                      "description": "Workspace ID"
                     }
                   },
                   "x-apidog-orders": [
                     "id",
                     "name",
+                    "workspace_id",
                     "video_source_id",
                     "parent_id",
                     "path",
@@ -21645,7 +21655,8 @@
                         "subdirectory_count": 2,
                         "asset_count": 12,
                         "created_at": "2026-03-18T10:00:00.000Z",
-                        "updated_at": "2026-03-18T10:15:00.000Z"
+                        "updated_at": "2026-03-18T10:15:00.000Z",
+                        "workspace_id": "67e4ece9403562dbea65425f"
                       }
                     ]
                   }
@@ -21674,7 +21685,8 @@
                         "examples": [
                           "67e4ece9403562dbea65425f"
                         ],
-                        "description": "Workspace ID"
+                        "description": "Deprecated. Use `workspace_id` instead. Still returned for backwards compatibility.",
+                        "deprecated": true
                       },
                       "parent_id": {
                         "type": [
@@ -21744,11 +21756,19 @@
                         ],
                         "format": "date-time",
                         "description": "Folder update time in ISO 8601 format"
+                      },
+                      "workspace_id": {
+                        "type": "string",
+                        "examples": [
+                          "67e4ece9403562dbea65425f"
+                        ],
+                        "description": "Workspace ID"
                       }
                     },
                     "x-apidog-orders": [
                       "id",
                       "name",
+                      "workspace_id",
                       "video_source_id",
                       "parent_id",
                       "path",
@@ -21862,7 +21882,8 @@
                       "subdirectory_count": 2,
                       "asset_count": 12,
                       "created_at": "2026-03-18T10:00:00.000Z",
-                      "updated_at": "2026-03-18T10:15:00.000Z"
+                      "updated_at": "2026-03-18T10:15:00.000Z",
+                      "workspace_id": "67e4ece9403562dbea65425f"
                     }
                   }
                 },
@@ -21888,7 +21909,8 @@
                       "examples": [
                         "67e4ece9403562dbea65425f"
                       ],
-                      "description": "Workspace ID"
+                      "description": "Deprecated. Use `workspace_id` instead. Still returned for backwards compatibility.",
+                      "deprecated": true
                     },
                     "parent_id": {
                       "type": [
@@ -21958,11 +21980,19 @@
                       ],
                       "format": "date-time",
                       "description": "Folder update time in ISO 8601 format"
+                    },
+                    "workspace_id": {
+                      "type": "string",
+                      "examples": [
+                        "67e4ece9403562dbea65425f"
+                      ],
+                      "description": "Workspace ID"
                     }
                   },
                   "x-apidog-orders": [
                     "id",
                     "name",
+                    "workspace_id",
                     "video_source_id",
                     "parent_id",
                     "path",
@@ -22207,7 +22237,8 @@
                       "subdirectory_count": 0,
                       "asset_count": 0,
                       "created_at": "2026-01-25T05:22:41.527Z",
-                      "updated_at": "2026-08-18T18:18:58.193Z"
+                      "updated_at": "2026-08-18T18:18:58.193Z",
+                      "workspace_id": "5f553b6cec202a5b44e3dd69"
                     }
                   },
                   "Assets Moved": {
@@ -22231,7 +22262,9 @@
                         },
                         "video_source_id": {
                           "type": "string",
-                          "example": "67e4ece9403562dbea65425f"
+                          "example": "67e4ece9403562dbea65425f",
+                          "deprecated": true,
+                          "description": "Deprecated. Use `workspace_id` instead. Still returned for backwards compatibility."
                         },
                         "parent_id": {
                           "type": [
@@ -22278,6 +22311,13 @@
                           "type": "string",
                           "example": "2026-03-18T10:15:00.000Z",
                           "description": "ISO Timestamp"
+                        },
+                        "workspace_id": {
+                          "type": "string",
+                          "examples": [
+                            "67e4ece9403562dbea65425f"
+                          ],
+                          "description": "Workspace ID"
                         }
                       }
                     },
@@ -22884,7 +22924,8 @@
                           "subdirectory_count": 2,
                           "asset_count": 12,
                           "created_at": "2026-03-18T10:00:00.000Z",
-                          "updated_at": "2026-03-18T10:15:00.000Z"
+                          "updated_at": "2026-03-18T10:15:00.000Z",
+                          "workspace_id": "67e4ece9403562dbea65425f"
                         }
                       ],
                       "all_assets": [
@@ -22926,7 +22967,9 @@
                             "type": "string",
                             "examples": [
                               "67e4ece9403562dbea65425f"
-                            ]
+                            ],
+                            "deprecated": true,
+                            "description": "Deprecated. Use `workspace_id` instead. Still returned for backwards compatibility."
                           },
                           "parent_id": {
                             "type": [
@@ -22987,11 +23030,19 @@
                             "examples": [
                               "2026-03-18T10:15:00.000Z"
                             ]
+                          },
+                          "workspace_id": {
+                            "type": "string",
+                            "examples": [
+                              "67e4ece9403562dbea65425f"
+                            ],
+                            "description": "Workspace ID"
                           }
                         },
                         "x-apidog-orders": [
                           "id",
                           "name",
+                          "workspace_id",
                           "video_source_id",
                           "parent_id",
                           "path",
