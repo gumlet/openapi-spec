@@ -1,7 +1,10 @@
 # .github/workflows/push-to-scalar-registry.yml
 name: Check OpenAPI Spec
 on:
-  push:
+  pull_request:
+    # Omitting the branches block means it applies to PRs against any branch
+    paths:
+      - 'openapi.json'
 
 jobs:
   test:
