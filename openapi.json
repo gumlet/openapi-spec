@@ -617,7 +617,7 @@
                   },
                   "profile_id": {
                     "type": "string",
-                    "description": "Provide `profile_id` of the previously created video profile. This parameter will override all the parameters (except `input` and `collection_id`) from the video profile."
+                    "description": "Provide `profile_id` of the previously created video profile. This parameter will override all the parameters (except `input` and `workspace_id`) from the video profile."
                   },
                   "format": {
                     "type": "string",
@@ -1199,7 +1199,8 @@
                       },
                       "playlists": [
                         "6597acd5ed6f26a9c5ca9633"
-                      ]
+                      ],
+                      "workspace_id": "646df1c9173a4a2fcac180b4"
                     }
                   }
                 },
@@ -1657,16 +1658,17 @@
               "schema": {
                 "type": "object",
                 "required": [
-                  "collection_id"
+                  "workspace_id"
                 ],
                 "properties": {
                   "collection_id": {
                     "type": "string",
-                    "description": "Gumlet video workspace id."
+                    "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
+                    "deprecated": true
                   },
                   "profile_id": {
                     "type": "string",
-                    "description": "Provide `profile_id` of the previously created video profile. This parameter will override all the parameters (except `input` and `collection_id`) from the video profile."
+                    "description": "Provide `profile_id` of the previously created video profile. This parameter will override all the parameters (except `input` and `workspace_id`) from the video profile."
                   },
                   "format": {
                     "type": "string",
@@ -2025,6 +2027,13 @@
                   "folder": {
                     "type": "string",
                     "description": "Add this asset to an existing folder by `folder_id`."
+                  },
+                  "workspace_id": {
+                    "type": "string",
+                    "description": "Gumlet video workspace ID. Preferred over deprecated `collection_id` / `source_id` (same ID).",
+                    "examples": [
+                      "646df1c9173a4a2fcac180b4"
+                    ]
                   }
                 }
               },
@@ -2057,7 +2066,8 @@
                         "background_color": "#ffffff"
                       }
                     ],
-                    "folder": "697375fbfa2d1037283140e4"
+                    "folder": "697375fbfa2d1037283140e4",
+                    "workspace_id": "646df1c9173a4a2fcac180b4"
                   }
                 }
               }
@@ -2135,7 +2145,8 @@
                       "upload_url": "https://gumlet-video-user-uploads.s3-accelerate.dualstack.amazonaws.com/gumlet-user-uploads-dev-deletable/646df1c9173a4a2fcac180b4/65b169dfe99b77f116c0e4aa/origin-65b169dfe99b77f116c0e4aa?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIA4WNLTXWDAC3AKBPV%2F20240124%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20240124T194953Z&X-Amz-Expires=3600&X-Amz-Signature=b724bd728efd589ec6cb4d0fab17947448c02788823619433720e8fddf0f1155&X-Amz-SignedHeaders=host&x-id=PutObject",
                       "playlists": [
                         "6597acd5ed6f26a9c5ca9633"
-                      ]
+                      ],
+                      "workspace_id": "646df1c9173a4a2fcac180b4"
                     }
                   }
                 },
@@ -5512,15 +5523,24 @@
                     "properties": {
                       "collection_id": {
                         "type": "string",
-                        "description": "The ID of the `workspace` you want to filter the data for."
+                        "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
+                        "deprecated": true
                       },
                       "source_id": {
                         "type": "string",
-                        "description": "The ID of the `workspace` you want to filter the data for. Deprecated.",
+                        "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
                         "deprecated": true
+                      },
+                      "workspace_id": {
+                        "type": "string",
+                        "description": "Gumlet video workspace ID. Preferred over deprecated `collection_id` / `source_id` (same ID).",
+                        "examples": [
+                          "646df1c9173a4a2fcac180b4"
+                        ]
                       }
                     },
                     "x-apidog-orders": [
+                      "workspace_id",
                       "collection_id",
                       "source_id"
                     ]
@@ -5939,12 +5959,23 @@
             }
           },
           {
-            "name": "collection_id",
-            "description": "Gumlet workspace ID",
+            "name": "workspace_id",
             "in": "query",
+            "description": "Gumlet video workspace ID. Preferred. Provide `workspace_id`, or deprecated `collection_id` / `source_id` (same ID).",
+            "required": false,
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "collection_id",
+            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": true,
+            "required": false
           },
           {
             "name": "page",
@@ -8259,13 +8290,14 @@
               "schema": {
                 "type": "object",
                 "required": [
-                  "collection_id",
-                  "title"
+                  "title",
+                  "workspace_id"
                 ],
                 "properties": {
                   "collection_id": {
                     "type": "string",
-                    "description": "Workspace ID in which the playlist should be created"
+                    "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
+                    "deprecated": true
                   },
                   "title": {
                     "type": "string",
@@ -8274,9 +8306,17 @@
                   "description": {
                     "type": "string",
                     "description": "Playlist description"
+                  },
+                  "workspace_id": {
+                    "type": "string",
+                    "description": "Gumlet video workspace ID. Preferred over deprecated `collection_id` / `source_id` (same ID).",
+                    "examples": [
+                      "646df1c9173a4a2fcac180b4"
+                    ]
                   }
                 },
                 "x-apidog-orders": [
+                  "workspace_id",
                   "collection_id",
                   "title",
                   "description"
@@ -8287,7 +8327,8 @@
                   "value": {
                     "title": "Playlist-Title",
                     "description": "This is description for playlist.",
-                    "collection_id": "{{video-source-id}}"
+                    "collection_id": "{{video-source-id}}",
+                    "workspace_id": "{{video-source-id}}"
                   }
                 }
               }
@@ -8325,7 +8366,8 @@
                         "watermark_font_color": "#ff0000",
                         "watermark_bg_color": "transparent",
                         "watermark_interval": 1000
-                      }
+                      },
+                      "workspace_id": "646df1c9173a4a2fcac180b4"
                     }
                   }
                 },
@@ -8344,7 +8386,8 @@
                       "examples": [
                         "646df1c9173a4a2fcac180b4"
                       ],
-                      "description": "Workspace ID"
+                      "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
+                      "deprecated": true
                     },
                     "title": {
                       "type": "string",
@@ -8506,10 +8549,18 @@
                         "watermark_interval"
                       ],
                       "description": "Player config for assets in the playlist"
+                    },
+                    "workspace_id": {
+                      "type": "string",
+                      "description": "Workspace ID",
+                      "examples": [
+                        "646df1c9173a4a2fcac180b4"
+                      ]
                     }
                   },
                   "x-apidog-orders": [
                     "id",
+                    "workspace_id",
                     "collection_id",
                     "title",
                     "description",
@@ -8585,13 +8636,23 @@
         "operationId": "get-all-playlists",
         "parameters": [
           {
+            "name": "workspace_id",
+            "in": "query",
+            "description": "Gumlet video workspace ID. Preferred. Provide one of `workspace_id` or the deprecated aliases below (same ID).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "collection_id",
             "in": "query",
-            "description": "Workspace ID",
+            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": false,
+            "deprecated": true
           }
         ],
         "responses": {
@@ -8641,7 +8702,8 @@
                         "examples": [
                           "646df1c9173a4a2fcac180b4"
                         ],
-                        "description": "Workspace ID"
+                        "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
+                        "deprecated": true
                       },
                       "title": {
                         "type": "string",
@@ -8662,10 +8724,18 @@
                         "properties": {},
                         "x-apidog-orders": [],
                         "description": "Player configuration for the playlist"
+                      },
+                      "workspace_id": {
+                        "type": "string",
+                        "description": "Workspace ID",
+                        "examples": [
+                          "646df1c9173a4a2fcac180b4"
+                        ]
                       }
                     },
                     "x-apidog-orders": [
                       "id",
+                      "workspace_id",
                       "collection_id",
                       "title",
                       "description",
@@ -9212,7 +9282,8 @@
                         "watermark_font_color": "#ff0000",
                         "watermark_bg_color": "transparent",
                         "watermark_interval": 1000
-                      }
+                      },
+                      "workspace_id": "646df1c9173a4a2fcac180b4"
                     }
                   }
                 },
@@ -9231,7 +9302,8 @@
                       "examples": [
                         "646df1c9173a4a2fcac180b4"
                       ],
-                      "description": "Workspace ID"
+                      "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
+                      "deprecated": true
                     },
                     "title": {
                       "type": "string",
@@ -9392,10 +9464,18 @@
                         "watermark_bg_color",
                         "watermark_interval"
                       ]
+                    },
+                    "workspace_id": {
+                      "type": "string",
+                      "description": "Workspace ID",
+                      "examples": [
+                        "646df1c9173a4a2fcac180b4"
+                      ]
                     }
                   },
                   "x-apidog-orders": [
                     "id",
+                    "workspace_id",
                     "collection_id",
                     "title",
                     "description",
@@ -21351,7 +21431,8 @@
                       "subdirectory_count": 0,
                       "asset_count": 0,
                       "created_at": "2026-03-18T10:00:00.000Z",
-                      "updated_at": "2026-03-18T10:00:00.000Z"
+                      "updated_at": "2026-03-18T10:00:00.000Z",
+                      "workspace_id": "67e4ece9403562dbea65425f"
                     }
                   }
                 },
@@ -21377,7 +21458,8 @@
                       "examples": [
                         "67e4ece9403562dbea65425f"
                       ],
-                      "description": "Workspace ID"
+                      "description": "Deprecated. Use `workspace_id` instead. Still returned for backwards compatibility.",
+                      "deprecated": true
                     },
                     "parent_id": {
                       "type": [
@@ -21447,11 +21529,19 @@
                       ],
                       "format": "date-time",
                       "description": "Folder update time in ISO 8601 format"
+                    },
+                    "workspace_id": {
+                      "type": "string",
+                      "examples": [
+                        "67e4ece9403562dbea65425f"
+                      ],
+                      "description": "Workspace ID"
                     }
                   },
                   "x-apidog-orders": [
                     "id",
                     "name",
+                    "workspace_id",
                     "video_source_id",
                     "parent_id",
                     "path",
@@ -21565,7 +21655,8 @@
                         "subdirectory_count": 2,
                         "asset_count": 12,
                         "created_at": "2026-03-18T10:00:00.000Z",
-                        "updated_at": "2026-03-18T10:15:00.000Z"
+                        "updated_at": "2026-03-18T10:15:00.000Z",
+                        "workspace_id": "67e4ece9403562dbea65425f"
                       }
                     ]
                   }
@@ -21594,7 +21685,8 @@
                         "examples": [
                           "67e4ece9403562dbea65425f"
                         ],
-                        "description": "Workspace ID"
+                        "description": "Deprecated. Use `workspace_id` instead. Still returned for backwards compatibility.",
+                        "deprecated": true
                       },
                       "parent_id": {
                         "type": [
@@ -21664,11 +21756,19 @@
                         ],
                         "format": "date-time",
                         "description": "Folder update time in ISO 8601 format"
+                      },
+                      "workspace_id": {
+                        "type": "string",
+                        "examples": [
+                          "67e4ece9403562dbea65425f"
+                        ],
+                        "description": "Workspace ID"
                       }
                     },
                     "x-apidog-orders": [
                       "id",
                       "name",
+                      "workspace_id",
                       "video_source_id",
                       "parent_id",
                       "path",
@@ -21782,7 +21882,8 @@
                       "subdirectory_count": 2,
                       "asset_count": 12,
                       "created_at": "2026-03-18T10:00:00.000Z",
-                      "updated_at": "2026-03-18T10:15:00.000Z"
+                      "updated_at": "2026-03-18T10:15:00.000Z",
+                      "workspace_id": "67e4ece9403562dbea65425f"
                     }
                   }
                 },
@@ -21808,7 +21909,8 @@
                       "examples": [
                         "67e4ece9403562dbea65425f"
                       ],
-                      "description": "Workspace ID"
+                      "description": "Deprecated. Use `workspace_id` instead. Still returned for backwards compatibility.",
+                      "deprecated": true
                     },
                     "parent_id": {
                       "type": [
@@ -21878,11 +21980,19 @@
                       ],
                       "format": "date-time",
                       "description": "Folder update time in ISO 8601 format"
+                    },
+                    "workspace_id": {
+                      "type": "string",
+                      "examples": [
+                        "67e4ece9403562dbea65425f"
+                      ],
+                      "description": "Workspace ID"
                     }
                   },
                   "x-apidog-orders": [
                     "id",
                     "name",
+                    "workspace_id",
                     "video_source_id",
                     "parent_id",
                     "path",
@@ -22127,7 +22237,8 @@
                       "subdirectory_count": 0,
                       "asset_count": 0,
                       "created_at": "2026-01-25T05:22:41.527Z",
-                      "updated_at": "2026-08-18T18:18:58.193Z"
+                      "updated_at": "2026-08-18T18:18:58.193Z",
+                      "workspace_id": "5f553b6cec202a5b44e3dd69"
                     }
                   },
                   "Assets Moved": {
@@ -22151,7 +22262,9 @@
                         },
                         "video_source_id": {
                           "type": "string",
-                          "example": "67e4ece9403562dbea65425f"
+                          "example": "67e4ece9403562dbea65425f",
+                          "deprecated": true,
+                          "description": "Deprecated. Use `workspace_id` instead. Still returned for backwards compatibility."
                         },
                         "parent_id": {
                           "type": [
@@ -22198,6 +22311,13 @@
                           "type": "string",
                           "example": "2026-03-18T10:15:00.000Z",
                           "description": "ISO Timestamp"
+                        },
+                        "workspace_id": {
+                          "type": "string",
+                          "examples": [
+                            "67e4ece9403562dbea65425f"
+                          ],
+                          "description": "Workspace ID"
                         }
                       }
                     },
@@ -22804,7 +22924,8 @@
                           "subdirectory_count": 2,
                           "asset_count": 12,
                           "created_at": "2026-03-18T10:00:00.000Z",
-                          "updated_at": "2026-03-18T10:15:00.000Z"
+                          "updated_at": "2026-03-18T10:15:00.000Z",
+                          "workspace_id": "67e4ece9403562dbea65425f"
                         }
                       ],
                       "all_assets": [
@@ -22846,7 +22967,9 @@
                             "type": "string",
                             "examples": [
                               "67e4ece9403562dbea65425f"
-                            ]
+                            ],
+                            "deprecated": true,
+                            "description": "Deprecated. Use `workspace_id` instead. Still returned for backwards compatibility."
                           },
                           "parent_id": {
                             "type": [
@@ -22907,11 +23030,19 @@
                             "examples": [
                               "2026-03-18T10:15:00.000Z"
                             ]
+                          },
+                          "workspace_id": {
+                            "type": "string",
+                            "examples": [
+                              "67e4ece9403562dbea65425f"
+                            ],
+                            "description": "Workspace ID"
                           }
                         },
                         "x-apidog-orders": [
                           "id",
                           "name",
+                          "workspace_id",
                           "video_source_id",
                           "parent_id",
                           "path",
@@ -22965,7 +23096,9 @@
                             "type": "string",
                             "examples": [
                               "5f462c1561cf8a766464ffc4"
-                            ]
+                            ],
+                            "deprecated": true,
+                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility."
                           },
                           "input": {
                             "type": "object",
@@ -23208,6 +23341,13 @@
                               "playback_url",
                               "thumbnail_url"
                             ]
+                          },
+                          "workspace_id": {
+                            "type": "string",
+                            "description": "Workspace ID",
+                            "examples": [
+                              "5f462c1561cf8a766464ffc4"
+                            ]
                           }
                         },
                         "x-apidog-orders": [
@@ -23216,6 +23356,7 @@
                           "created_at",
                           "status",
                           "tag",
+                          "workspace_id",
                           "source_id",
                           "input",
                           "output"
@@ -24034,7 +24175,9 @@
                           },
                           "source_id": {
                             "type": "string",
-                            "example": "5f462c1561cf8a766464ffc4"
+                            "example": "5f462c1561cf8a766464ffc4",
+                            "deprecated": true,
+                            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility."
                           },
                           "input": {
                             "type": "object",
@@ -24184,6 +24327,13 @@
                                 }
                               }
                             }
+                          },
+                          "workspace_id": {
+                            "type": "string",
+                            "description": "Workspace ID",
+                            "examples": [
+                              "5f462c1561cf8a766464ffc4"
+                            ]
                           }
                         }
                       }
@@ -26900,16 +27050,25 @@
                   },
                   "source_id": {
                     "type": "string",
-                    "description": "Workspace ID from which assets needs to be deleted."
+                    "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
+                    "deprecated": true
+                  },
+                  "workspace_id": {
+                    "type": "string",
+                    "description": "Gumlet video workspace ID. Preferred over deprecated `collection_id` / `source_id` (same ID).",
+                    "examples": [
+                      "646df1c9173a4a2fcac180b4"
+                    ]
                   }
                 },
                 "x-apidog-orders": [
                   "asset_list",
+                  "workspace_id",
                   "source_id"
                 ],
                 "required": [
                   "asset_list",
-                  "source_id"
+                  "workspace_id"
                 ]
               },
               "examples": {
@@ -26919,7 +27078,8 @@
                     "asset_list": [
                       "64249a8858fd3a208b987702",
                       "64784bae843b155b829bbf84"
-                    ]
+                    ],
+                    "workspace_id": "60bd2ba353ff754d28179ee6"
                   }
                 }
               }
@@ -27027,7 +27187,8 @@
                   },
                   "source_id": {
                     "type": "string",
-                    "description": "Workspace ID in which the videos needs the operation"
+                    "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
+                    "deprecated": true
                   },
                   "add_tags": {
                     "type": "array",
@@ -27042,19 +27203,27 @@
                       "type": "string"
                     },
                     "description": "List of tags to remove from given assets. Pass empty array if nothing is to be removed."
+                  },
+                  "workspace_id": {
+                    "type": "string",
+                    "description": "Gumlet video workspace ID. Preferred over deprecated `collection_id` / `source_id` (same ID).",
+                    "examples": [
+                      "646df1c9173a4a2fcac180b4"
+                    ]
                   }
                 },
                 "x-apidog-orders": [
                   "asset_list",
+                  "workspace_id",
                   "source_id",
                   "add_tags",
                   "remove_tags"
                 ],
                 "required": [
                   "asset_list",
-                  "source_id",
                   "add_tags",
-                  "remove_tags"
+                  "remove_tags",
+                  "workspace_id"
                 ]
               },
               "examples": {
@@ -27070,7 +27239,8 @@
                     "asset_list": [
                       "6221db301c8b821b0519fba0",
                       "61e8f2726ec832ab2ac4fa6e"
-                    ]
+                    ],
+                    "workspace_id": "60bd2ba353ff754d28179ee6"
                   }
                 }
               }
@@ -29933,12 +30103,23 @@
             "description": "Search query term"
           },
           {
+            "name": "workspace_id",
+            "in": "query",
+            "description": "Gumlet video workspace ID. Preferred. Provide `workspace_id`, or deprecated `collection_id` / `source_id` (same ID).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "in": "query",
             "name": "collection_id",
             "schema": {
               "type": "string"
             },
-            "description": "Workspace ID if you want to limit search to a specific workspace"
+            "description": "Deprecated. Use `workspace_id` instead. Still accepted for backwards compatibility.",
+            "deprecated": true,
+            "required": false
           },
           {
             "in": "query",
