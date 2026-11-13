@@ -15708,7 +15708,7 @@
                     "type": "string",
                     "enum": [
                       "landscape",
-                      "potrait"
+                      "portrait"
                     ]
                   },
                   "start_at": {
