@@ -11746,10 +11746,17 @@
                     "page_size": {
                       "type": "integer",
                       "description": "Page size used for this response when it differs from the default."
+                    },
+                    "total_count": {
+                      "type": "integer",
+                      "description": "Total number of image sources available"
                     }
                   },
                   "x-apidog-orders": [
-                    "all_sources"
+                    "all_sources",
+                    "next_page_token",
+                    "page_size",
+                    "total_count"
                   ]
                 }
               }
@@ -11800,7 +11807,32 @@
             },
             "description": "Cursor for the next page. Pass the `next_page_token` value returned in the previous response."
           }
-        ]
+        ],
+        "x-scalar-pagination": {
+          "name": "imageSourcePage",
+          "type": "pageNumber",
+          "request": {
+            "page_number": {
+              "type": "pageNumber",
+              "location": "query"
+            },
+            "page_size": {
+              "type": "pageSize",
+              "location": "query"
+            }
+          },
+          "response": {
+            "all_sources": {
+              "type": "items"
+            },
+            "total_count": {
+              "type": "total"
+            },
+            "page_size": {
+              "type": "pageSize"
+            }
+          }
+        }
       }
     },
     "/image/sources/{image_source_id}": {
