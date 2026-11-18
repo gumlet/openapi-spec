@@ -11809,7 +11809,7 @@
           }
         ],
         "x-scalar-pagination": {
-          "name": "imageSourcePage",
+          "name": "numberedPage",
           "type": "pageNumber",
           "request": {
             "page_number": {
