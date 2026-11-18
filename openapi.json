@@ -7236,8 +7236,30 @@
         "tags": [
           "Video Profiles"
         ],
-        "x-stoplight": {
-          "id": "pagbl35gzdirz"
+        "x-scalar-pagination": {
+          "name": "numberedPage",
+          "type": "pageNumber",
+          "request": {
+            "page_number": {
+              "type": "pageNumber",
+              "location": "query"
+            },
+            "page_size": {
+              "type": "pageSize",
+              "location": "query"
+            }
+          },
+          "response": {
+            "all_profiles": {
+              "type": "items"
+            },
+            "total_profile_count": {
+              "type": "total"
+            },
+            "page_size": {
+              "type": "pageSize"
+            }
+          }
         }
       }
     },
