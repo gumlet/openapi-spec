@@ -6850,26 +6850,41 @@
       },
       "get": {
         "summary": "List Profiles",
-        "description": "This endpoint retrieves the details of all profiles that have previously been created.",
+        "description": "This endpoint retrieves the details of all profiles that have previously been created.\n\nPagination uses `page_number` / `page_size`. Use `next_page_token` for cursor-based pagination.",
         "operationId": "list-profiles",
         "parameters": [
           {
-            "name": "offset",
             "in": "query",
-            "description": "Offset value for a paginated list of profiles. Can be zero for the first time and `current_offset` value received from the last request afterwards.",
+            "name": "page_number",
+            "required": false,
             "schema": {
               "type": "integer",
-              "format": "int32"
-            }
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number to retrieve. Starts at `1`."
           },
           {
-            "name": "size",
             "in": "query",
-            "description": "Page size for the paginated list. **Default: `10`**",
+            "name": "page_size",
+            "required": false,
             "schema": {
               "type": "integer",
-              "format": "int32"
-            }
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "description": "Number of items to return per page. **Default: `20`**. **Maximum: `100`**."
+          },
+          {
+            "in": "query",
+            "name": "next_page_token",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{24}$"
+            },
+            "description": "Cursor for the next page. Pass the `next_page_token` value returned in the previous response."
           }
         ],
         "responses": {
@@ -7196,6 +7211,14 @@
                       "type": "integer",
                       "example": 8,
                       "default": 0
+                    },
+                    "next_page_token": {
+                      "type": "string",
+                      "description": "Cursor for the next page when more results exist. Empty string when there is no next page."
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "description": "Page size used for this response when it differs from the default."
                     }
                   }
                 }
@@ -11395,7 +11418,7 @@
       },
       "get": {
         "summary": "List Sources",
-        "description": "This endpoint list image sources which are assigned to the user or token.",
+        "description": "This endpoint list image sources which are assigned to the user or token.\n\nPagination uses `page_number` / `page_size`. Use `next_page_token` for cursor-based pagination.",
         "operationId": "list-sources",
         "responses": {
           "200": {
@@ -11693,6 +11716,14 @@
                           "id"
                         ]
                       }
+                    },
+                    "next_page_token": {
+                      "type": "string",
+                      "description": "Cursor for the next page when more results exist. Empty string when there is no next page."
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "description": "Page size used for this response when it differs from the default."
                     }
                   },
                   "x-apidog-orders": [
@@ -11716,21 +11747,36 @@
         "parameters": [
           {
             "in": "query",
-            "name": "offset",
+            "name": "page_number",
+            "required": false,
             "schema": {
               "type": "integer",
-              "default": 0
+              "minimum": 1,
+              "default": 1
             },
-            "description": "Skip number of items. Helpful for pagination."
+            "description": "Page number to retrieve. Starts at `1`."
           },
           {
             "in": "query",
-            "name": "size",
+            "name": "page_size",
+            "required": false,
             "schema": {
               "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
               "default": 20
             },
-            "description": "Results per page."
+            "description": "Number of items to return per page. **Default: `20`**. **Maximum: `100`**."
+          },
+          {
+            "in": "query",
+            "name": "next_page_token",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{24}$"
+            },
+            "description": "Cursor for the next page. Pass the `next_page_token` value returned in the previous response."
           }
         ]
       }
@@ -16746,7 +16792,7 @@
     "/video/live/assets/list/{live_source_id}": {
       "get": {
         "summary": "Filter Live Assets",
-        "description": "This endpoint lists live assets on the basis of `status` for the given `live_source_id`.",
+        "description": "This endpoint lists live assets on the basis of `status` for the given `live_source_id`.\n\nPagination uses `page_number` / `page_size`. Use `next_page_token` for cursor-based pagination.",
         "operationId": "filter-live-assets",
         "parameters": [
           {
@@ -16767,22 +16813,37 @@
             }
           },
           {
-            "name": "offset",
             "in": "query",
-            "description": "Offset value for a paginated list of assets.",
+            "name": "page_number",
+            "required": false,
             "schema": {
               "type": "integer",
-              "format": "int32"
-            }
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number to retrieve. Starts at `1`."
           },
           {
-            "name": "size",
             "in": "query",
-            "description": "Page size for the paginated list.",
+            "name": "page_size",
+            "required": false,
             "schema": {
               "type": "integer",
-              "format": "int32"
-            }
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "description": "Number of items to return per page. **Default: `20`**. **Maximum: `100`**."
+          },
+          {
+            "in": "query",
+            "name": "next_page_token",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{24}$"
+            },
+            "description": "Cursor for the next page. Pass the `next_page_token` value returned in the previous response."
           }
         ],
         "responses": {
@@ -16945,6 +17006,14 @@
                       "type": "integer",
                       "example": 5,
                       "default": 0
+                    },
+                    "next_page_token": {
+                      "type": "string",
+                      "description": "Cursor for the next page when more results exist. Empty string when there is no next page."
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "description": "Page size used for this response when it differs from the default."
                     }
                   }
                 }
@@ -17530,7 +17599,7 @@
     "/video/workspaces": {
       "get": {
         "summary": "List Workspaces",
-        "description": "This endpoint list video workspace which are assigned to the user or token.",
+        "description": "This endpoint list video workspace which are assigned to the user or token.\n\nPagination uses `page_number` / `page_size` (max page size 200). Use `next_page_token` for cursor-based pagination.",
         "operationId": "list-workspaces",
         "responses": {
           "200": {
@@ -18247,6 +18316,14 @@
                           "data_localization"
                         ]
                       }
+                    },
+                    "next_page_token": {
+                      "type": "string",
+                      "description": "Cursor for the next page when more results exist. Empty string when there is no next page."
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "description": "Page size used for this response when it differs from the default."
                     }
                   },
                   "x-apidog-orders": [
@@ -18269,24 +18346,37 @@
         ],
         "parameters": [
           {
-            "name": "offset",
             "in": "query",
+            "name": "page_number",
             "required": false,
-            "description": "Number of workspaces to skip. For example if you need to list 11 to 20th workspaces, pass offset as 10 and size as 10.",
             "schema": {
-              "type": "string",
-              "default": "0"
-            }
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number to retrieve. Starts at `1`."
           },
           {
-            "name": "size",
             "in": "query",
+            "name": "page_size",
             "required": false,
-            "description": "Number of workspace to return in single response.",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 200,
+              "default": 20
+            },
+            "description": "Number of items to return per page. **Default: `20`**. **Maximum: `200`**."
+          },
+          {
+            "in": "query",
+            "name": "next_page_token",
+            "required": false,
             "schema": {
               "type": "string",
-              "default": "10"
-            }
+              "pattern": "^[a-fA-F0-9]{24}$"
+            },
+            "description": "Cursor for the next page. Pass the `next_page_token` value returned in the previous response."
           }
         ]
       },
@@ -22718,9 +22808,9 @@
     },
     "/video/workspaces/{workspace_id}/list": {
       "get": {
-        "summary": "List Assets",
-        "description": "List folders and assets for a workspace in a single response. Use `parent_id` to browse a specific folder, or filters like `title`, `status`, and `playlist_id` to search assets.",
-        "operationId": "list-assets",
+        "summary": "List Assets (Deprecated)",
+        "description": "[Deprecated] Combined folders + assets list for a workspace. Use `GET /video/assets/list/{workspace_id}` for assets and `GET /video/workspaces/{workspace_id}/folders` for folders instead.\n\nList folders and assets for a workspace in a single response. Use `parent_id` to browse a specific folder, or filters like `title`, `status`, and `playlist_id` to search assets.",
+        "operationId": "list-workspace-folders-and-assets-deprecated",
         "parameters": [
           {
             "name": "workspace_id",
@@ -23456,7 +23546,7 @@
             "$ref": "#/components/responses/Forbidden"
           }
         },
-        "deprecated": false,
+        "deprecated": true,
         "tags": [
           "Video Assets"
         ],
@@ -23923,104 +24013,13 @@
     "/video/assets/list/{workspace_id}": {
       "get": {
         "summary": "List Assets",
-        "description": "[Deprecated] This endpoint list assets in video workspace. You can also pass `status` and `tag` to filter assets.",
-        "operationId": "list-assets-deprecated",
+        "description": "List assets in a video workspace (local Mongo list; not Atlas Search).\n\nUse `page_number` and `page_size` for page-based pagination. Use `next_page_token` for cursor-based pagination where supported.\n\n`next_page_token` is supported only with the **default** sort or `sortBy=created_at` (and without a `title` search). It is **not** supported with other sort fields (for example `title`, `duration`, `status`, `playlist_order`, `custom`) or when `title` is set; in those cases use `page_number` / `page_size` only.\n\nFor folders, use `GET /video/workspaces/{workspace_id}/folders` and combine results in your client. The combined endpoint `GET /video/workspaces/{workspace_id}/list` is deprecated.",
+        "operationId": "list-assets",
         "parameters": [
-          {
-            "name": "status",
-            "in": "query",
-            "description": "To filter assets on the basis of their current status. Can be specified as a single status value string or comma-separated status values. The status value can be one of `queued`, `processing`, `ready`, `errored`, and `deleted`.",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "queued",
-                "processing",
-                "ready",
-                "errored",
-                "deleted"
-              ]
-            }
-          },
-          {
-            "name": "tag",
-            "in": "query",
-            "description": "Input tag on the basis of which assets need to be filtered. To filter on multiple tags use comma-separated string.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "title",
-            "in": "query",
-            "description": "Title on the basis of which assets need to be filtered.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "folder",
-            "in": "query",
-            "description": "Folder name on the basis of which assets need to be filtered.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "offset",
-            "in": "query",
-            "description": "Offset value for a paginated list of assets.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "size",
-            "in": "query",
-            "description": "Page size for the paginated list. **Default: `10`** **Max Size: `100`**",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "playlist_id",
-            "in": "query",
-            "description": "filter assets from a playlist.",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "sortBy",
-            "in": "query",
-            "description": "assets will be sorted based on the provided field.",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "title",
-                "duration",
-                "uploaded_at",
-                "created_at"
-              ],
-              "default": "created_at"
-            }
-          },
-          {
-            "name": "orderBy",
-            "in": "query",
-            "description": "assets will be sorted in the specified order based on provided sortBy field or by default createAt field.",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "asc",
-                "desc"
-              ],
-              "default": "desc"
-            }
-          },
           {
             "in": "path",
             "name": "workspace_id",
-            "description": "Gumlet workspace ID. You can get it on Gumlet dashboard or retrieve it using list workspace API.",
+            "description": "Gumlet workspace ID. You can get it on the Gumlet dashboard or retrieve it using the list workspaces API.",
             "schema": {
               "type": "string"
             },
@@ -24028,11 +24027,171 @@
           },
           {
             "in": "query",
-            "name": "type",
+            "name": "status",
+            "required": false,
             "schema": {
               "type": "string"
             },
-            "description": "Search for folders, videos, or both. For videos, use `videos`. For folders, use `folders`. If you do not send this parameter, it will search for both."
+            "description": "Filter assets by status. Single value or comma-separated list (for example `ready` or `ready,errored`)."
+          },
+          {
+            "in": "query",
+            "name": "tag",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter by asset tag(s). Use a comma-separated string for multiple tags."
+          },
+          {
+            "in": "query",
+            "name": "title",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter assets by title (text search). When `title` is set, `next_page_token` is not supported - use `page_number` / `page_size`."
+          },
+          {
+            "in": "query",
+            "name": "folder_id",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter assets by folder id. Send `null` or empty string for assets not in a folder."
+          },
+          {
+            "in": "query",
+            "name": "playlist_id",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filter assets belonging to a playlist."
+          },
+          {
+            "in": "query",
+            "name": "start_date",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Asset `created_at` lower bound. Date in `yyyy-MM-dd` format.",
+            "x-internal": true
+          },
+          {
+            "in": "query",
+            "name": "end_date",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Asset `created_at` upper bound. Date in `yyyy-MM-dd` format.",
+            "x-internal": true
+          },
+          {
+            "in": "query",
+            "name": "min_duration",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "description": "Minimum asset duration in seconds.",
+            "x-internal": true
+          },
+          {
+            "in": "query",
+            "name": "max_duration",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "description": "Maximum asset duration in seconds.",
+            "x-internal": true
+          },
+          {
+            "in": "query",
+            "name": "sortBy",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "title",
+                "duration",
+                "uploaded_at",
+                "created_at",
+                "status"
+              ],
+              "default": "created_at"
+            },
+            "description": "Field to sort by. Default is `created_at`. `next_page_token` is only supported for the default sort or `created_at`."
+          },
+          {
+            "in": "query",
+            "name": "orderBy",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "desc"
+            },
+            "description": "Sort direction. Default is `desc`."
+          },
+          {
+            "in": "query",
+            "name": "signed_token",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false"
+              ],
+              "default": "false"
+            },
+            "description": "Whether URLs should be pre-signed in the API response. Possible values: `true` and `false`. Default is `false`.",
+            "x-internal": true
+          },
+          {
+            "in": "query",
+            "name": "page_number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number to retrieve. Starts at `1`."
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "description": "Number of items to return per page. **Default: `20`**. **Maximum: `100`**."
+          },
+          {
+            "in": "query",
+            "name": "next_page_token",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{24}$"
+            },
+            "description": "Cursor for the next page. Pass the `next_page_token` value returned in the previous response. Supported only when sorting by default/`created_at` and when `title` is not set. Otherwise the API returns `400`."
           }
         ],
         "responses": {
@@ -24139,7 +24298,10 @@
                         "version_4",
                         "version_5",
                         "webhook"
-                      ]
+                      ],
+                      "next_page_token": "",
+                      "order_key": "created_at",
+                      "order_direction": "desc"
                     }
                   }
                 },
@@ -24354,6 +24516,26 @@
                         "type": "string",
                         "example": ""
                       }
+                    },
+                    "next_page_token": {
+                      "type": "string",
+                      "description": "Cursor for the next page when more results exist. Empty string when there is no next page. Only returned for default/`created_at` sorts without `title` search."
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "description": "Page size used for this response when it differs from the default."
+                    },
+                    "order_key": {
+                      "type": "string",
+                      "description": "Sort key applied to the result set (for example `created_at` or `custom`)."
+                    },
+                    "order_direction": {
+                      "type": "string",
+                      "enum": [
+                        "asc",
+                        "desc"
+                      ],
+                      "description": "Sort direction applied to the result set."
                     }
                   }
                 }
@@ -24441,7 +24623,7 @@
             "$ref": "#/components/responses/Forbidden"
           }
         },
-        "deprecated": true,
+        "deprecated": false,
         "tags": [
           "Video Assets"
         ],
@@ -26919,27 +27101,8 @@
           "Recycle Bin"
         ],
         "operationId": "list-recycle-bin",
-        "description": "List all assets in a recycle bin for a given workspace. The deleted assets are available for 30 days. After that, assets are permanently deleted.",
+        "description": "List all assets in a recycle bin for a given workspace. The deleted assets are available for 30 days. After that, assets are permanently deleted.\n\nPagination uses `page_number` / `page_size` only (no `next_page_token`).",
         "parameters": [
-          {
-            "in": "query",
-            "name": "offset",
-            "schema": {
-              "type": "integer",
-              "minimum": 0
-            },
-            "description": "Number of items to skip from start of page response."
-          },
-          {
-            "in": "query",
-            "name": "size",
-            "schema": {
-              "type": "integer",
-              "default": 20,
-              "minimum": 10
-            },
-            "description": "Number of items to return for a single page."
-          },
           {
             "in": "query",
             "name": "workspace_id",
@@ -26948,6 +27111,29 @@
             },
             "description": "ID of workspace for which you want to list the recycle bin items.",
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "page_number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number to retrieve. Starts at `1`."
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "description": "Number of items to return per page. **Default: `20`**. **Maximum: `100`**."
           }
         ]
       }
@@ -27886,6 +28072,14 @@
                     "total_count": {
                       "type": "integer",
                       "description": "Number of total subscribers"
+                    },
+                    "next_page_token": {
+                      "type": "string",
+                      "description": "Cursor for the next page when more results exist. Empty string when there is no next page."
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "description": "Page size used for this response when it differs from the default."
                     }
                   },
                   "x-apidog-orders": [
@@ -27954,7 +28148,7 @@
           "Channel Viewers"
         ],
         "operationId": "list-channel-subscribers",
-        "description": "List all channel subscribers.",
+        "description": "List all channel subscribers.\n\nPagination uses `page_number` / `page_size`. Use `next_page_token` for cursor-based pagination.",
         "parameters": [
           {
             "in": "path",
@@ -27968,25 +28162,35 @@
           {
             "in": "query",
             "name": "page_number",
+            "required": false,
             "schema": {
               "type": "integer",
-              "default": 1,
               "minimum": 1,
-              "multipleOf": 1
+              "default": 1
             },
-            "description": "Page number to retrieve. Starts at 1."
+            "description": "Page number to retrieve. Starts at `1`."
           },
           {
             "in": "query",
             "name": "page_size",
+            "required": false,
             "schema": {
               "type": "integer",
-              "default": 10,
-              "multipleOf": 1,
-              "minimum": 1
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
             },
-            "description": "Number of items to return per page",
-            "required": false
+            "description": "Number of items to return per page. **Default: `20`**. **Maximum: `100`**."
+          },
+          {
+            "in": "query",
+            "name": "next_page_token",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{24}$"
+            },
+            "description": "Cursor for the next page. Pass the `next_page_token` value returned in the previous response."
           }
         ]
       }
@@ -28002,6 +28206,39 @@
               "type": "string"
             },
             "required": true
+          },
+          {
+            "in": "query",
+            "name": "page_number",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Page number to retrieve. Starts at `1`."
+          },
+          {
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "description": "Number of items to return per page. **Default: `20`**. **Maximum: `100`**."
+          },
+          {
+            "in": "query",
+            "name": "next_page_token",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-fA-F0-9]{24}$"
+            },
+            "description": "Cursor for the next page. Pass the `next_page_token` value returned in the previous response."
           }
         ],
         "responses": {
@@ -28010,81 +28247,111 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": {
-                        "type": "string",
-                        "description": "Webhook event ID"
-                      },
-                      "status": {
-                        "type": "string",
-                        "description": "Delivery status stored for the event: `success`, `retrying`, or `failed`. `success` means the endpoint returned a 2xx response. `retrying` means that attempt did not."
-                      },
-                      "retry_count": {
-                        "type": "integer",
-                        "description": "Number of retries it needed to deliver webhook."
-                      },
-                      "event": {
-                        "type": "string",
-                        "description": "Webhook event name. One of the video status, live video status, or product events.",
-                        "enum": [
-                          "video.status.created",
-                          "video.status.downloaded",
-                          "video.status.optimized",
-                          "video.status.ready",
-                          "video.status.errored",
-                          "video.status.deleted",
-                          "video.status.repackaged",
-                          "video.status.stream_ready",
-                          "live.video.status.created",
-                          "live.video.status.ready",
-                          "live.video.status.preparing",
-                          "live.video.status.connected",
-                          "live.video.status.active",
-                          "live.video.status.complete",
-                          "live.video.status.disconnected",
-                          "event.embed.viewed",
-                          "event.embed.cta_clicked",
-                          "event.video.updated",
-                          "event.video.uploaded",
-                          "event.playlist.created",
-                          "event.playlist.asset",
-                          "event.playlist.deleted",
-                          "event.video.analytics",
-                          "event.image.analytics",
-                          "event.embed.form_submitted",
-                          "event.comment.all",
-                          "event.channel.member_joined"
-                        ]
-                      },
-                      "asset_id": {
-                        "type": "string",
-                        "description": "Asset ID for which the event was fired"
-                      },
-                      "created_at": {
-                        "type": "string",
-                        "description": "Event timestamp in ISO 8601 format"
-                      }
+                  "type": "object",
+                  "properties": {
+                    "next_page_token": {
+                      "type": "string",
+                      "description": "Cursor for the next page when more results exist. Empty string when there is no next page."
                     },
-                    "x-apidog-orders": [
-                      "id",
-                      "status",
-                      "retry_count",
-                      "event",
-                      "asset_id",
-                      "created_at"
-                    ],
-                    "required": [
-                      "id",
-                      "status",
-                      "retry_count",
-                      "event",
-                      "asset_id",
-                      "created_at"
-                    ]
-                  }
+                    "page_size": {
+                      "type": "integer",
+                      "description": "Page size used for this response when it differs from the default."
+                    },
+                    "history": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      },
+                      "description": "Webhook trigger history events."
+                    },
+                    "total_count": {
+                      "type": "integer",
+                      "description": "Total number of history events."
+                    },
+                    "current_offset": {
+                      "type": "integer",
+                      "description": "Offset after this page of results."
+                    }
+                  },
+                  "allOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Webhook event ID"
+                          },
+                          "status": {
+                            "type": "string",
+                            "description": "Delivery status stored for the event: `success`, `retrying`, or `failed`. `success` means the endpoint returned a 2xx response. `retrying` means that attempt did not."
+                          },
+                          "retry_count": {
+                            "type": "integer",
+                            "description": "Number of retries it needed to deliver webhook."
+                          },
+                          "event": {
+                            "type": "string",
+                            "description": "Webhook event name. One of the video status, live video status, or product events.",
+                            "enum": [
+                              "video.status.created",
+                              "video.status.downloaded",
+                              "video.status.optimized",
+                              "video.status.ready",
+                              "video.status.errored",
+                              "video.status.deleted",
+                              "video.status.repackaged",
+                              "video.status.stream_ready",
+                              "live.video.status.created",
+                              "live.video.status.ready",
+                              "live.video.status.preparing",
+                              "live.video.status.connected",
+                              "live.video.status.active",
+                              "live.video.status.complete",
+                              "live.video.status.disconnected",
+                              "event.embed.viewed",
+                              "event.embed.cta_clicked",
+                              "event.video.updated",
+                              "event.video.uploaded",
+                              "event.playlist.created",
+                              "event.playlist.asset",
+                              "event.playlist.deleted",
+                              "event.video.analytics",
+                              "event.image.analytics",
+                              "event.embed.form_submitted",
+                              "event.comment.all",
+                              "event.channel.member_joined"
+                            ]
+                          },
+                          "asset_id": {
+                            "type": "string",
+                            "description": "Asset ID for which the event was fired"
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "description": "Event timestamp in ISO 8601 format"
+                          }
+                        },
+                        "x-apidog-orders": [
+                          "id",
+                          "status",
+                          "retry_count",
+                          "event",
+                          "asset_id",
+                          "created_at"
+                        ],
+                        "required": [
+                          "id",
+                          "status",
+                          "retry_count",
+                          "event",
+                          "asset_id",
+                          "created_at"
+                        ]
+                      }
+                    }
+                  ]
                 },
                 "examples": {
                   "Example 1": {
@@ -28199,7 +28466,7 @@
           "Webhooks"
         ],
         "operationId": "webhook-history",
-        "description": "Get logs history for a given webhook.",
+        "description": "Get logs history for a given webhook.\n\nPagination uses `page_number` / `page_size`. Use `next_page_token` for cursor-based pagination.",
         "x-scalar-method": "webhookEndpoints.history"
       }
     },
