@@ -28607,7 +28607,31 @@
           "Billing"
         ],
         "operationId": "list-invoices",
-        "description": "Liost all invoices that are generated so far."
+        "description": "List all invoices that are generated so far.",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "description": "Number of invoices to return per page. **Default: `20`**. **Maximum: `100`**."
+          },
+          {
+            "in": "query",
+            "name": "last_id",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "minLength": 1
+            },
+            "description": "Stripe invoice ID cursor for the next page. Pass the `id` of the last invoice from the previous response to fetch the next set of invoices."
+          }
+        ]
       }
     },
     "/mixed/billing/details": {
