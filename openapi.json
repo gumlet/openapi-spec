@@ -17173,8 +17173,30 @@
         "tags": [
           "Live Stream Assets"
         ],
-        "x-stoplight": {
-          "id": "v569z8svqfd5g"
+        "x-scalar-pagination": {
+          "name": "numberedPage",
+          "type": "pageNumber",
+          "request": {
+            "page_number": {
+              "type": "pageNumber",
+              "location": "query"
+            },
+            "page_size": {
+              "type": "pageSize",
+              "location": "query"
+            }
+          },
+          "response": {
+            "all_live_assets": {
+              "type": "items"
+            },
+            "total_live_asset_count": {
+              "type": "total"
+            },
+            "page_size": {
+              "type": "pageSize"
+            }
+          }
         }
       }
     },
