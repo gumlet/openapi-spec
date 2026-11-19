@@ -7249,32 +7249,7 @@
         "deprecated": false,
         "tags": [
           "Video Profiles"
-        ],
-        "x-scalar-pagination": {
-          "name": "numberedPage",
-          "type": "pageNumber",
-          "request": {
-            "page_number": {
-              "type": "pageNumber",
-              "location": "query"
-            },
-            "page_size": {
-              "type": "pageSize",
-              "location": "query"
-            }
-          },
-          "response": {
-            "all_profiles": {
-              "type": "items"
-            },
-            "total_profile_count": {
-              "type": "total"
-            },
-            "page_size": {
-              "type": "pageSize"
-            }
-          }
-        }
+        ]
       }
     },
     "/video/profiles/{profile_id}": {
@@ -11821,32 +11796,7 @@
             },
             "description": "Cursor for the next page. Pass the `next_page_token` value returned in the previous response."
           }
-        ],
-        "x-scalar-pagination": {
-          "name": "numberedPage",
-          "type": "pageNumber",
-          "request": {
-            "page_number": {
-              "type": "pageNumber",
-              "location": "query"
-            },
-            "page_size": {
-              "type": "pageSize",
-              "location": "query"
-            }
-          },
-          "response": {
-            "all_sources": {
-              "type": "items"
-            },
-            "total_count": {
-              "type": "total"
-            },
-            "page_size": {
-              "type": "pageSize"
-            }
-          }
-        }
+        ]
       }
     },
     "/image/sources/{image_source_id}": {
@@ -17172,32 +17122,7 @@
         "deprecated": false,
         "tags": [
           "Live Stream Assets"
-        ],
-        "x-scalar-pagination": {
-          "name": "numberedPage",
-          "type": "pageNumber",
-          "request": {
-            "page_number": {
-              "type": "pageNumber",
-              "location": "query"
-            },
-            "page_size": {
-              "type": "pageSize",
-              "location": "query"
-            }
-          },
-          "response": {
-            "all_live_assets": {
-              "type": "items"
-            },
-            "total_live_asset_count": {
-              "type": "total"
-            },
-            "page_size": {
-              "type": "pageSize"
-            }
-          }
-        }
+        ]
       }
     },
     "/video/asset/recover": {
