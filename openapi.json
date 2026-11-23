@@ -30950,6 +30950,11 @@
       "description": "Create webhook listeners and receive video status, live video status, and product events. Gumlet POSTs JSON to your URL with the `x-gumlet-token` header."
     }
   ],
+  "x-scalar-sdk-client-settings": {
+    "idempotency": {
+      "header": "Idempotency-Key"
+    }
+  },
   "x-tagGroups": [
     {
       "name": "Video on Demand",
