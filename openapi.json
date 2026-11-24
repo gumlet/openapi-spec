@@ -2038,10 +2038,15 @@
                 }
               },
               "examples": {
-                "Request Example": {
+                "Simple Example": {
+                  "value": {
+                    "workspace_id": "646df1c9173a4a2fcac180b4"
+                  }
+                },
+                "Detailed Example": {
                   "value": {
                     "format": "ABR",
-                    "collection_id": "646df1c9173a4a2fcac180b4",
+                    "workspace_id": "646df1c9173a4a2fcac180b4",
                     "input": "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8",
                     "description": "some description",
                     "tag": [
@@ -2066,8 +2071,7 @@
                         "background_color": "#ffffff"
                       }
                     ],
-                    "folder": "697375fbfa2d1037283140e4",
-                    "workspace_id": "646df1c9173a4a2fcac180b4"
+                    "folder": "697375fbfa2d1037283140e4"
                   }
                 }
               }
