@@ -13,3 +13,4 @@ Our official clients are generated from this spec:
 - [nodejs-sdk](https://github.com/gumlet/nodejs-sdk) (TypeScript)
 - [python-sdk](https://github.com/gumlet/python-sdk) (Python)
 - [golang-sdk](https://github.com/gumlet/golang-sdk) (Golang)
+- [cli](https://github.com/gumlet/cli) (command line)
