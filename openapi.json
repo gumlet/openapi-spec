@@ -18396,6 +18396,20 @@
               "pattern": "^[a-fA-F0-9]{24}$"
             },
             "description": "Cursor for the next page. Pass the `next_page_token` value returned in the previous response."
+          },
+          {
+            "in": "query",
+            "name": "order_by",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "default": "asc"
+            },
+            "description": "Sort direction for the workspace list (`asc` or `desc`). **Default: `asc`**."
           }
         ]
       },
