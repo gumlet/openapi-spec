@@ -10888,6 +10888,190 @@
           "Webhooks"
         ],
         "x-scalar-method": "webhookEndpoints.delete"
+      },
+      "get": {
+        "summary": "Get Webhook",
+        "operationId": "get-webhook",
+        "description": "Retrieve details of a single webhook by ID.",
+        "tags": [
+          "Webhooks"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "webhook_id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Webhook ID. You can get it using the list webhooks endpoint."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Webhook ID"
+                    },
+                    "url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "description": "Webhook URL"
+                    },
+                    "triggers": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "video.status.created",
+                          "video.status.downloaded",
+                          "video.status.optimized",
+                          "video.status.ready",
+                          "video.status.errored",
+                          "video.status.deleted",
+                          "video.status.repackaged",
+                          "video.status.stream_ready",
+                          "live.video.status.created",
+                          "live.video.status.ready",
+                          "live.video.status.preparing",
+                          "live.video.status.connected",
+                          "live.video.status.active",
+                          "live.video.status.complete",
+                          "live.video.status.disconnected",
+                          "event.embed.viewed",
+                          "event.embed.cta_clicked",
+                          "event.video.updated",
+                          "event.video.uploaded",
+                          "event.playlist.created",
+                          "event.playlist.asset",
+                          "event.playlist.deleted",
+                          "event.video.analytics",
+                          "event.image.analytics",
+                          "event.embed.form_submitted",
+                          "event.comment.all",
+                          "event.channel.member_joined"
+                        ]
+                      },
+                      "description": "Events that invoke this webhook. `status` subscribes to every video asset status event. `live-video-status` subscribes to every live video status event. Any other value subscribes to that event only."
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "Creation timestamp in ISO 8601 format"
+                    },
+                    "updated_at": {
+                      "type": "string",
+                      "description": "Update timestamp in ISO 8601 format"
+                    },
+                    "sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of workspace IDs for which the webhook is enabled."
+                    },
+                    "secret_token": {
+                      "type": "string",
+                      "description": "Secret you supplied when creating the webhook. Gumlet sends this value in the `x-gumlet-token` header of each webhook POST."
+                    },
+                    "live_sources": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "x-apidog-orders": [
+                    "id",
+                    "url",
+                    "triggers",
+                    "created_at",
+                    "updated_at",
+                    "sources",
+                    "live_sources",
+                    "secret_token"
+                  ],
+                  "required": [
+                    "id"
+                  ]
+                },
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "id": "65eed75eadeea8478f14ebd4",
+                      "url": "https://webhook.site/16df065a-b398-48bc-b825-b0804979c5f2",
+                      "triggers": [
+                        "status"
+                      ],
+                      "created_at": "2024-03-11T10:05:18.316Z",
+                      "updated_at": "2024-03-11T10:10:37.461Z",
+                      "sources": [
+                        "5f462c1561cf8a766464ffc4"
+                      ],
+                      "live_sources": [],
+                      "secret_token": "rnVNfIKgnH"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": {
+                      "error": {
+                        "code": "webhook_not_found",
+                        "message": "Could not find any webhook with the specified webhook_id."
+                      }
+                    }
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "webhook_not_found"
+                        },
+                        "message": {
+                          "type": "string",
+                          "example": "Could not find any webhook with the specified webhook_id."
+                        }
+                      },
+                      "required": [
+                        "code",
+                        "message"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/image/sources": {
@@ -28296,33 +28480,9 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "next_page_token": {
-                      "type": "string",
-                      "description": "Cursor for the next page when more results exist. Empty string when there is no next page."
-                    },
-                    "page_size": {
-                      "type": "integer",
-                      "description": "Page size used for this response when it differs from the default."
-                    },
                     "history": {
                       "type": "array",
-                      "items": {
-                        "type": "object"
-                      },
-                      "description": "Webhook trigger history events."
-                    },
-                    "total_count": {
-                      "type": "integer",
-                      "description": "Total number of history events."
-                    },
-                    "current_offset": {
-                      "type": "integer",
-                      "description": "Offset after this page of results."
-                    }
-                  },
-                  "allOf": [
-                    {
-                      "type": "array",
+                      "description": "Webhook trigger history events for this page.",
                       "items": {
                         "type": "object",
                         "properties": {
@@ -28332,15 +28492,20 @@
                           },
                           "status": {
                             "type": "string",
-                            "description": "Delivery status stored for the event: `success`, `retrying`, or `failed`. `success` means the endpoint returned a 2xx response. `retrying` means that attempt did not."
+                            "description": "Delivery status stored for the event: `success`, `retrying`, or `failed`. `success` means the endpoint returned a 2xx response. `retrying` means that attempt did not.",
+                            "enum": [
+                              "success",
+                              "retrying",
+                              "failed"
+                            ]
                           },
                           "retry_count": {
                             "type": "integer",
-                            "description": "Number of retries it needed to deliver webhook."
+                            "description": "Number of retries needed to deliver the webhook."
                           },
                           "event": {
                             "type": "string",
-                            "description": "Webhook event name. One of the video status, live video status, or product events.",
+                            "description": "Webhook event name.",
                             "enum": [
                               "video.status.created",
                               "video.status.downloaded",
@@ -28373,21 +28538,13 @@
                           },
                           "asset_id": {
                             "type": "string",
-                            "description": "Asset ID for which the event was fired"
+                            "description": "Asset ID for which the event was fired."
                           },
                           "created_at": {
                             "type": "string",
-                            "description": "Event timestamp in ISO 8601 format"
+                            "description": "Event timestamp in ISO 8601 format."
                           }
                         },
-                        "x-apidog-orders": [
-                          "id",
-                          "status",
-                          "retry_count",
-                          "event",
-                          "asset_id",
-                          "created_at"
-                        ],
                         "required": [
                           "id",
                           "status",
@@ -28397,21 +28554,46 @@
                           "created_at"
                         ]
                       }
+                    },
+                    "total_count": {
+                      "type": "integer",
+                      "description": "Total number of history events."
+                    },
+                    "current_offset": {
+                      "type": "integer",
+                      "description": "Offset after this page of results."
+                    },
+                    "next_page_token": {
+                      "type": "string",
+                      "description": "Cursor for the next page when more results exist. Empty string when there is no next page."
+                    },
+                    "page_size": {
+                      "type": "integer",
+                      "description": "Page size used for this response when it differs from the default."
                     }
+                  },
+                  "required": [
+                    "history",
+                    "total_count"
                   ]
                 },
                 "examples": {
-                  "Example 1": {
-                    "value": [
-                      {
-                        "id": "6aabc4d9b44b963242be835e",
-                        "status": "success",
-                        "retry_count": 1,
-                        "event": "video.status.stream_ready",
-                        "asset_id": "6aabc4144b9588fb8c4bd235",
-                        "created_at": "2026-09-17T10:45:50.470Z"
-                      }
-                    ]
+                  "Result": {
+                    "value": {
+                      "history": [
+                        {
+                          "id": "6aabc4d9b44b963242be835e",
+                          "status": "success",
+                          "retry_count": 1,
+                          "event": "video.status.stream_ready",
+                          "asset_id": "6aabc4144b9588fb8c4bd235",
+                          "created_at": "2026-09-17T10:45:50.470Z"
+                        }
+                      ],
+                      "total_count": 1,
+                      "current_offset": 1,
+                      "next_page_token": ""
+                    }
                   }
                 }
               }
@@ -28508,12 +28690,12 @@
             }
           }
         },
-        "summary": "Get History",
+        "summary": "Get Webhook History",
         "tags": [
           "Webhooks"
         ],
-        "operationId": "webhook-history",
-        "description": "Get logs history for a given webhook.\n\nPagination uses `page_number` / `page_size`. Use `next_page_token` for cursor-based pagination.",
+        "operationId": "get-webhook-history",
+        "description": "Get delivery history logs for a given webhook.\n\nPagination uses `page_number` / `page_size`. Use `next_page_token` for cursor-based pagination.",
         "x-scalar-method": "webhookEndpoints.history"
       }
     },
