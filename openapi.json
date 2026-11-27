@@ -18512,7 +18512,7 @@
                               }
                             ],
                             "default": "us",
-                            "description": "Data storage region"
+                            "description": "Data storage region (Only available in enterprise plan)"
                           }
                         },
                         "x-apidog-orders": [
@@ -18544,7 +18544,9 @@
                     }
                   },
                   "x-apidog-orders": [
-                    "all_sources"
+                    "all_sources",
+                    "next_page_token",
+                    "page_size"
                   ]
                 }
               }
@@ -19020,7 +19022,7 @@
                       }
                     ],
                     "default": "us",
-                    "description": "Data localization region"
+                    "description": "Data storage region (Only available in enterprise plan)"
                   }
                 },
                 "x-apidog-orders": [
@@ -21424,7 +21426,7 @@
                         }
                       ],
                       "default": "us",
-                      "description": "Data storage region"
+                      "description": "Data storage region (Only available in enterprise plan)"
                     }
                   },
                   "x-apidog-orders": [
